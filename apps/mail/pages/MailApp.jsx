@@ -1,5 +1,5 @@
 import { mailService } from "../services/mail.service.js";
-import { MailList } from "../cmps/Apps/mail/MailList.jsx";
+import { MailList } from "../cmps/MailList.jsx";
 
 export class MailApp extends React.Component {
 	state = { mails: [] };
@@ -18,7 +18,6 @@ export class MailApp extends React.Component {
 		const { mails } = this.state;
 		return (
 			<section>
-				<header className={`mail-header`}></header>
 				<MailList mails={mails} />
 			</section>
 		);

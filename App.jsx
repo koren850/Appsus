@@ -1,6 +1,6 @@
-import { BookApp } from "./pages/BookApp.jsx";
-import { KeepApp } from "./apps/keep/pages/KeepApp.jsx";
-import { MailApp } from "./pages/MailApp.jsx";
+import { BookApp } from "./apps/book/pages/BookApp.jsx";
+import { KeepApp } from "./pages/KeepApp.jsx";
+import { MailApp } from "./apps/mail/pages/MailApp.jsx";
 import { AppHeader } from "./cmps/AppHeader.jsx";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";
