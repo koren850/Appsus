@@ -3,7 +3,7 @@ export const utilsService = {
     getRandomName,
     getRandomInt,
     generateId,
-    makeLorem
+    makeLorem,
 }
 
 function getRandomColor() {
