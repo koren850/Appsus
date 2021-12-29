@@ -5,7 +5,7 @@
 @import "../css/cmps/review-add.css";
 @import "../css/cmps/add-book.css";
 @import "../css/cmps/user-msg.css";
-
+@import "../css/parts/fonts.css";
 * {
 	box-sizing: border-box;
 }

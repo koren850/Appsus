@@ -1,0 +1,13 @@
+@font-face {
+	font-family: fab;
+	src: url("../parts/fa/fa-brands-400.ttf");
+}
+
+.fab {
+	font-family: "fab";
+}
+
+.facebook::before {
+	content: "\f082";
+	color: green;
+}
