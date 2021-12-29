@@ -10,6 +10,7 @@ export class KeepApp extends React.Component {
 
 	componentDidMount() {
 		console.log("mounted");
+		console.log(NoteService);
 		console.log(this.props.location.pathname);
 		if (this.props.location.pathname === "/keep/add") this.setState({ add: true });
 		this.loadNotes();
