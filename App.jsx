@@ -1,5 +1,5 @@
 import { AppHeader } from "./cmps/AppHeader.jsx";
-import { BookDetails } from "./cmps/BookDetails.jsx";
+import { BookDetails } from "./cmps/Apps/Books/BookDetails.jsx";
 import { BookApp } from "./pages/BookApp.jsx";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";

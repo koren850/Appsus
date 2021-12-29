@@ -1,5 +1,5 @@
-import { BookService } from "../services/book.service.js";
-import { eventBusService } from "../services/event-bus.service.js";
+import { BookService } from "../../../services/book.service.js";
+import { eventBusService } from "../../../services/event-bus.service.js";
 export class AddBook extends React.Component {
 	state = {
 		bookName: "",

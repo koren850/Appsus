@@ -1,7 +1,7 @@
 import { BookService } from "../services/book.service.js";
-import { BookList } from "../cmps/BookList.jsx";
-import { BookFilter } from "../cmps/BookFilter.jsx";
-import { AddBook } from "../cmps/AddBook.jsx";
+import { BookList } from "../cmps/Apps/Books/BookList.jsx";
+import { BookFilter } from "../cmps/Apps/Books/BookFilter.jsx";
+import { AddBook } from "../cmps/Apps/Books/AddBook.jsx";
 
 export class BookApp extends React.Component {
 	state = { books: [], filterBy: null };
