@@ -1,8 +1,7 @@
 import { BookApp } from "./pages/BookApp.jsx";
-import { KeepApp } from "./pages/KeepApp.jsx";
+import { KeepApp } from "./apps/keep/pages/KeepApp.jsx";
 import { MailApp } from "./pages/MailApp.jsx";
 import { AppHeader } from "./cmps/AppHeader.jsx";
-import { BookDetails } from "./apps/book/cmps/BookDetails.jsx";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";
 import { UserMsg } from "./cmps/UserMsg.jsx";
@@ -18,7 +17,6 @@ export function App() {
 				<UserMsg />
 				<main>
 					<Switch>
-						<Route component={BookDetails} path='/book/:bookId' />
 						<Route component={BookApp} path='/book' />
 						<Route component={KeepApp} path='/keep' />
 						<Route component={MailApp} path='/mail' />

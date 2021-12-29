@@ -1,6 +1,6 @@
-import { NoteTxt } from "../Keep/types/NoteTxt.jsx";
-import { NoteVideo } from "../Keep/types/NoteVideo.jsx";
-import { NoteImg } from "../Keep/types/NoteImg.jsx";
+import { NoteTxt } from "./types/NoteTxt.jsx";
+import { NoteVideo } from "./types/NoteVideo.jsx";
+import { NoteImg } from "./types/NoteImg.jsx";
 import { NoteTodos } from "./types/NoteTodos.jsx";
 export function NotePreview({ note }) {
 	const type = note.type;

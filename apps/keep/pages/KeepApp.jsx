@@ -1,5 +1,5 @@
-import { NoteService } from "../services/keep.service.js";
-import { NoteList } from "../cmps/Apps/Keep/NoteList.jsx";
+import { NoteService } from "../service/keep.service.js";
+import { NoteList } from "../cmps/NoteList.jsx";
 
 export class KeepApp extends React.Component {
 	state = { notes: [] };
