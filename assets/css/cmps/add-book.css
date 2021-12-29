@@ -1,0 +1,8 @@
+.add-book {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.book-list-api {
+	cursor: pointer;
+}

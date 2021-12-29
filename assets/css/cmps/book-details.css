@@ -1,0 +1,27 @@
+.high {
+	color: red;
+}
+
+.low {
+	color: green;
+}
+
+.book-details {
+	width: 50vw;
+	background-color: rgb(172, 131, 131);
+	margin: 0 auto;
+	text-align: center;
+}
+.book-details img {
+	width: 300px;
+	height: 400px;
+}
+
+.book-details p {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.book-details h4 {
+	margin: 5px;
+}

@@ -1,0 +1,27 @@
+@import "../css/cmps/book-list.css";
+@import "../css/cmps/book-preview.css";
+@import "../css/cmps/book-details.css";
+@import "../css/cmps/app-header.css";
+@import "../css/cmps/review-add.css";
+@import "../css/cmps/add-book.css";
+@import "../css/cmps/user-msg.css";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #c7efff;
+	margin: 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.books-filter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+}
+.flex {
+	display: flex;
+}

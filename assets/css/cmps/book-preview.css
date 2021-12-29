@@ -1,0 +1,21 @@
+.book-preview {
+	margin: 0;
+	display: grid;
+	background-color: rgb(195, 192, 138);
+	cursor: pointer;
+}
+
+.book-preview img {
+	justify-self: center;
+	width: 250px;
+	height: 333px;
+}
+
+.book-preview h2 {
+	text-align: center;
+	margin: 0;
+}
+.clean-link {
+	text-decoration: none;
+	color: inherit;
+}

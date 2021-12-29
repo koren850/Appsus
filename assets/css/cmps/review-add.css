@@ -1,0 +1,30 @@
+.review-add {
+	background-color: rgb(223, 168, 168);
+	height: 230px;
+}
+.review-add h1 {
+	margin: 0;
+}
+.review-add form {
+	width: 90%;
+}
+
+.review-add form {
+	font-size: 1.3rem;
+	font-weight: bold;
+	margin: 0 auto;
+}
+
+.name,
+.rate,
+.date {
+	margin-bottom: 5px;
+	text-align: center;
+}
+.review {
+	width: 100%;
+}
+.review #review {
+	text-align: center;
+	width: 100%;
+}
