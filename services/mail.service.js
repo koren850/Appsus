@@ -4,13 +4,14 @@ import { utilsService } from "./utils.service.js";
 export const mailService = {
   query,
   getUser,
+  getMailById,
+  updateMail,
 };
 
 const KEY = "mailsDB";
 
-
 function query() {
-    let mails = _loadFromStorage() || [];
+  let mails = _loadFromStorage() || [];
   if (mails && mails.length) return Promise.resolve(mails);
   mails = [
     {
@@ -57,12 +58,26 @@ function query() {
   return Promise.resolve(mails);
 }
 
+function getMailById(mailId) {
+  const mails = _loadFromStorage();
+  const mail = mails.find((mail) => mail.id === mailId);
+  return mail;
+}
+
+function updateMail(mail) {
+  const mails = _loadFromStorage();
+  const mailIdx = mails.findIndex((mailToUpdate) => mailToUpdate.id === mail.id);
+  mails[mailIdx] = mail;
+  _saveToStorage(mails);
+  return Promise.resolve(mails);
+}
+
 function getUser() {
-    const loggedinUser = {
-        email: 'user@appsus.com',
-        fullname: 'Mahatma Appsus'
-    }
-    return loggedinUser;
+  const loggedinUser = {
+    email: "user@appsus.com",
+    fullname: "Mahatma Appsus",
+  };
+  return loggedinUser;
 }
 
 function _saveToStorage(mails) {

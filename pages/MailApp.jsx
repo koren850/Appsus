@@ -18,8 +18,7 @@ export class MailApp extends React.Component {
 		const { mails } = this.state;
 		return (
 			<section>
-				<header className='mail-header'></header>
-				<div>MailApp app</div>
+				<header className={`mail-header`}></header>
 				<MailList mails={mails} />
 			</section>
 		);
