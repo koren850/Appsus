@@ -1,3 +1,4 @@
+import { mailService } from "../services/mail.service.js";
 export class MailApp extends React.Component {
 	state = {};
 	componentDidMount() {
