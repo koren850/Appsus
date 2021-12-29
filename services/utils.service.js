@@ -3,6 +3,7 @@ export const utilsService = {
     getRandomName,
     getRandomInt,
     generateId,
+    makeLorem
 }
 
 function getRandomColor() {
@@ -35,8 +36,18 @@ function generateId(genLength = 5, str = 'abcdefghijklmnopqrst0123456789uvwxyzAB
     var res = '';
     var randIdx = 0;
     for (var i = 0; i < genLength; i++) {
-        randIdx = Math.floor(Math.random()*str.length);
+        randIdx = Math.floor(Math.random() * str.length);
         res += str.charAt(randIdx);
     }
     return res;
+}
+
+function makeLorem(size = 100) {
+    var words = ['The sky', 'above', 'the port', 'was', 'the color of television', 'tuned', 'to', 'a dead channel', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'bit by bit', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn'];
+    var txt = '';
+    while (size > 0) {
+        size--;
+        txt += words[Math.floor(Math.random() * words.length)] + ' ';
+    }
+    return txt;
 }

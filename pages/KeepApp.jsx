@@ -6,6 +6,7 @@ export class KeepApp extends React.Component {
 
 	componentDidMount() {
 		console.log("mounted");
+		this.loadNotes();
 	}
 
 	loadNotes = () => {
