@@ -1,0 +1,44 @@
+.fa-plus::before {
+    content: " \f0fe";
+}
+
+.fa-plus {
+    position: relative;
+font-size: 50px;
+ color:#FFF;
+ max-width: 20px;
+ max-height: 20px;
+ z-index: 1;
+ text-align: center;
+ display: f;
+} 
+
+.mail-list.gradient {
+    z-index: -1;
+    background-image: linear-gradient(to bottom right, yellow,green,red,blue,black);     height:40px;
+    width:40px;
+    top: 30%;
+    border-radius: 50%;
+    left: 10%;
+    position: absolute;
+}
+
+.mail-list span {
+    left:20%;
+}
+
+.mail-list.btn {
+background-color: #fff;
+border-color: rgb(207, 186, 186);
+width:200px;
+border-radius: 25px;
+}
+
+.mail-list.compose-span {
+    position: absolute;
+    left: 15px;
+    top: 12%;
+    margin-block-end: 50%;
+    height:100%;
+    align-items:center;
+}

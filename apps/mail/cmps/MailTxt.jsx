@@ -18,13 +18,9 @@ export class MailTxt extends React.Component {
     else if (!this.state.isLongTxtShown) {
       this.setState({ textShown: fullText.slice(0, 40) + "..." });
     } else {
-      this.setState({ textShown: fullText.slice(0, 200) + "..." });
+      this.setState({ textShown: fullText.slice(0, 100) + "..." });
     }
   };
-
-//   moveToDeleted = (currMail) => {
-//       s
-//   }
 
   render() {
       const currMail = this.props.mail;
@@ -32,18 +28,18 @@ export class MailTxt extends React.Component {
     const isReadClass = currMail.isRead ? "light" : "bold";
     const letterClass = currMail.isRead ? "letter-read" : "letter-unread";
     return (
-      <React.Fragment>
+          <article className={'mail-txt container'}>
 {this.state.isLongTxtShown && <p className={`mail-preview title ${isReadClass}`}>{currMail.subject}</p>}        {!textShown && <Loader />}
         {textShown && <p className={`mail-preview mail-txt ${isReadClass}`}>{textShown}</p>}
         {this.state.isLongTxtShown && <button
     className={`far ${letterClass}`}
     onClick={() => this.props.toggleIsRead(currMail)}
-  ></button>}
+    ></button>}
         {this.state.isLongTxtShown && <button
     className={`fas trash`}
-    onClick={() => this.moveToDeleted(currMail)}
-  ></button>}
-      </React.Fragment>
+    onClick={() => this.props.moveToDeleted(currMail)}
+    ></button>}
+    </article>
     );
   }
 }

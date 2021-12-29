@@ -21,6 +21,9 @@
 
 /* mail */
 @import "../css/apps/mail/mail-preview.css";
+@import "../css/apps/mail/mail-list.css";
+@import "../css/apps/mail/mail-compose.css";
+
 /* fonts */
 @import "../css/parts/fonts.css";
 

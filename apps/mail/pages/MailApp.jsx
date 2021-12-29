@@ -1,6 +1,8 @@
 import { mailService } from "../services/mail.service.js";
+import {MailCompose} from "../pages/MailCompose.jsx"
 import { MailList } from "../cmps/MailList.jsx";
 
+const { Route, Switch } = ReactRouterDOM;
 export class MailApp extends React.Component {
 	state = { mails: [] };
 
@@ -18,7 +20,10 @@ export class MailApp extends React.Component {
 		const { mails } = this.state;
 		return (
 			<section>
+                <Switch>
+                <Route component={MailCompose} path='/mail/compose'/>
 				<MailList mails={mails} />
+                </Switch>
 			</section>
 		);
 	}

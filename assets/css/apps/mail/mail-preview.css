@@ -1,6 +1,3 @@
-.star::before {
-  content: "\f005";
-}
 
 .fas, .fab, .far {
   background-color: inherit;
@@ -9,8 +6,15 @@
   color: gray;
 }
 
+.star,.trash, .letter-read, .letter-unread {
+    cursor: pointer;
+}
+
 .star.on {
-  color: rgb(255, 238, 0);
+    color: rgb(255, 238, 0);
+}
+.star::before {
+  content: "\f005";
 }
 
 .letter-read::before {
@@ -20,7 +24,12 @@
     content: "\f0e0";
 }
 .trash::before {
-    content: "\f2ed"
+    content: "\f2ed";
+}
+
+.mail-preview {
+display:flex;
+align-items:center;
 }
 
 .mail-preview.container {
@@ -34,7 +43,7 @@
     border-block-end: 1px solid black;
 }
 
-.mail-preview.container:first-child {
+.mail-preview.container:first-of-type {
     border-block-start: 1px solid black;
 }
 
@@ -47,7 +56,10 @@
 font-weight: bolder;
 }
 
-.mail-preview.mail-txt {
-    margin-block-start: 0;
-    margin-block-end:5px;
+.mail-txt.container {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: 60vw;
 }

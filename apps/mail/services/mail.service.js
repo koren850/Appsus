@@ -21,6 +21,7 @@ function query() {
       isRead: false,
       isSent: false,
       isStar: false,
+      isDeleted:false,
       sentAt: new Date(),
       from: utilsService.getRandomName(),
       to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
@@ -35,6 +36,7 @@ function query() {
       isRead: false,
       isSent: false,
       isStar: false,
+      isDeleted:false,
       sentAt: new Date(),
       from: utilsService.getRandomName(),
       to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
@@ -43,19 +45,110 @@ function query() {
       )}@Jmail.com`,
     },
     {
-      id: utilsService.generateId(),
-      subject: "Happy NEW YEAR !",
-      body: utilsService.makeLorem(120),
-      isRead: true,
-      isSent: false,
-      isStar: true,
-      sentAt: new Date(),
-      from: utilsService.getRandomName(),
-      to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
-        1,
-        2000
-      )}@Jmail.com`,
-    },
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDeleted:false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
+      {
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDeleted:false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
+      {
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDeleted:false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
+      {
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDeleted:false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
+      {
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDeleted:false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
+      {
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDeleted:false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
+      {
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDeleted:false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
   ];
   _saveToStorage(mails);
   return Promise.resolve(mails);
