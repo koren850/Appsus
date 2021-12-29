@@ -1,8 +1,10 @@
 import { BookService } from "../services/book.service.js";
-import { BookList } from "../cmps/Apps/Books/BookList.jsx";
-import { BookFilter } from "../cmps/Apps/Books/BookFilter.jsx";
-import { AddBook } from "../cmps/Apps/Books/AddBook.jsx";
+import { BookList } from "../apps/book/cmps/BookList.jsx";
+import { BookFilter } from "../apps/book/cmps/BookFilter.jsx";
+import { AddBook } from "../apps/book/cmps/AddBook.jsx";
+import { BookDetails } from "../apps/book/cmps/BookDetails.jsx";
 
+const { Route, Switch } = ReactRouterDOM;
 export class BookApp extends React.Component {
 	state = { books: [], filterBy: null };
 
@@ -30,7 +32,10 @@ export class BookApp extends React.Component {
 					<AddBook loadBooks={this.loadBooks} />
 				</header>
 				<BookFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter} />
-				<BookList books={books} />
+				<Switch>
+					<Route component={BookDetails} path='/book/:bookId' />
+					<BookList books={books} />
+				</Switch>
 			</section>
 		);
 	}

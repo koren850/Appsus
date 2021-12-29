@@ -1,6 +1,7 @@
 import { BookPreview } from "./BookPreview.jsx";
 
 export function BookList({ books }) {
+	console.log(books);
 	if (!books.length) return <h1>There are no books to show</h1>;
 	return (
 		<section className='book-list'>
