@@ -512,17 +512,6 @@ function _getFilteredBooks(books, filterBy) {
     })
 }
 
-// function getBookFromApi(name, cb) {
-//     var bookList;
-//     var r = new XMLHttpRequest();
-//     r.open('GET', `https://www.googleapis.com/books/v1/volumes?printType=books&q=${name}`, true);
-//     r.onreadystatechange = function () {
-//         if (r.readyState != 4 || r.status != 200) { return }
-//         bookList = JSON.parse(r.responseText);
-//         cb(bookList);
-//     };
-//     r.send();
-// }
 
 function getBookFromApi(name) {
     return axios
