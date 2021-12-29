@@ -1,12 +1,18 @@
-export function NotePreview({ note }) {
+import { NoteTxt } from "./NoteTxt.jsx";
+export function NotePreview({ note, type }) {
+	let noteCmp = "";
+	if (type === "NoteTxt") noteCmp = "NoteTxt";
+	if (type === "NoteVideo") noteCmp = "NoteVideo";
+	if (type === "NoteImg") noteCmp = "NoteImg";
+	if (type === "NoteTodos") noteCmp = "NoteTodos";
 	return (
-		<div className='book-preview'>
-			<h2>title: {note.title}</h2>
-			<img src={note.thumbnail} alt='' />
-			<h2>
-				price: {note.listPrice.amount}
-				{currencySymbolConverter(note)}
-			</h2>
-		</div>
+		<section>
+			<div className={`note-preview-${note.type}`}>
+				{noteCmp === "NoteTxt" && <NoteTxt />}
+				{noteCmp === "NoteVideo" && <NoteTxt />}
+				{noteCmp === "NoteImg" && <NoteTxt />}
+				{noteCmp === "NoteTodos" && <NoteTxt />}
+			</div>
+		</section>
 	);
 }
