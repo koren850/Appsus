@@ -11,12 +11,12 @@ const KEY = "mailsDB";
 
 function query() {
     let mails = _loadFromStorage() || [];
-  if (mails && mails.length) return Promis.resolve(mails);
+  if (mails && mails.length) return Promise.resolve(mails);
   mails = [
     {
       id: utilsService.generateId(),
       subject: "Missing My Weekends !!!",
-      body: "Would love to catch up sometimes",
+      body: utilsService.makeLorem(30),
       isRead: false,
       isSent: false,
       isStar: false,
@@ -29,7 +29,7 @@ function query() {
     {
       id: utilsService.generateId(),
       subject: "Sprint Number 3",
-      body: "Would love to catch up sometimes",
+      body: utilsService.makeLorem(80),
       isRead: false,
       isSent: false,
       isStar: false,
@@ -42,7 +42,7 @@ function query() {
     {
       id: utilsService.generateId(),
       subject: "Happy NEW YEAR !",
-      body: "Would love to catch up sometimes",
+      body: utilsService.makeLorem(120),
       isRead: true,
       isSent: false,
       isStar: true,

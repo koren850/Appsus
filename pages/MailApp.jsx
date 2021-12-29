@@ -1,11 +1,27 @@
 import { mailService } from "../services/mail.service.js";
+import { MailList } from "../cmps/Apps/mail/MailList.jsx";
+
 export class MailApp extends React.Component {
-	state = {};
+	state = { mails: [] };
+
 	componentDidMount() {
-		console.log("mounted");
+		this.loadMails();
 	}
 
+	loadMails = () => {
+		mailService.query().then((mails) => {
+			this.setState((prevState) => ({ ...prevState, mails }));
+		});
+	};
+
 	render() {
-		return <div>MailApp app</div>;
+		const { mails } = this.state;
+		return (
+			<section>
+				<header className='mail-header'></header>
+				<div>MailApp app</div>
+				<MailList mails={mails} />
+			</section>
+		);
 	}
 }
