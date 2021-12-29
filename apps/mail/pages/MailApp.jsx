@@ -10,6 +10,13 @@ export class MailApp extends React.Component {
 		this.loadMails();
 	}
 
+    componentDidUpdate() {
+		const mails = mailService.getMails();
+		if (mails.length && mails.length !== this.state.mails.length) {
+			this.loadMails();
+		}
+	}
+
 	loadMails = () => {
 		mailService.query().then((mails) => {
 			this.setState((prevState) => ({ ...prevState, mails }));

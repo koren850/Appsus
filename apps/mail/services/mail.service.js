@@ -6,6 +6,8 @@ export const mailService = {
   getUser,
   getMailById,
   updateMail,
+  addMail,
+  getMails,
 };
 
 const KEY = "mailsDB";
@@ -154,6 +156,16 @@ function query() {
   return Promise.resolve(mails);
 }
 
+function addMail(mail) {
+  const mails = _loadFromStorage();
+    mails.unshift(mail);
+    _saveToStorage(mails);
+}
+
+function getMails() {
+    return _loadFromStorage();
+}
+
 function getMailById(mailId) {
   const mails = _loadFromStorage();
   const mail = mails.find((mail) => mail.id === mailId);
@@ -170,7 +182,7 @@ function updateMail(mail) {
 
 function getUser() {
   const loggedinUser = {
-    email: "user@appsus.com",
+    mail: "user@appsus.com",
     fullname: "Mahatma Appsus",
   };
   return loggedinUser;
