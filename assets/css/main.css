@@ -10,6 +10,8 @@
 @import "../css/apps/books/add-book.css";
 
 /* keep */
+@import "../css/apps/keep/note-preview.css";
+@import "../css/apps/keep/keep-app.css";
 @import "../css/apps/keep/types/note-Img.css";
 @import "../css/apps/keep/types/note-todos.css";
 @import "../css/apps/keep/types/note-txt.css";

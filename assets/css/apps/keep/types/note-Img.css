@@ -1,3 +1,11 @@
 .note-img {
-	width: 200px;
+	flex-direction: column;
+}
+.note-img h2 {
+	text-align: center;
+	margin: 0;
+}
+
+.note-img img {
+	width: 260px;
 }

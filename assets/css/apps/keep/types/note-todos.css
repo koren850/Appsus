@@ -1,0 +1,21 @@
+.note-todo {
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.note-todo div {
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.note-todo ul {
+	flex-direction: column;
+	padding-left: 20px;
+}
+.note-todo ul li {
+	font-size: 1.5rem;
+	padding: 0;
+}
+.note-todo ul {
+	margin: 0;
+}

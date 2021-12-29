@@ -1,0 +1,7 @@
+.note-preview {
+	display: flex;
+	width: 300px;
+	height: max-content;
+	min-height: 250px;
+	padding: 20px;
+}

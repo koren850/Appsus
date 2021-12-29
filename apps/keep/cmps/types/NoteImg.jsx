@@ -3,6 +3,11 @@ export class NoteImg extends React.Component {
 	componentDidMount() {}
 
 	render() {
-		return <img className='note-img' src={this.props.note.info.url} alt='' />;
+		return (
+			<div style={{ backgroundColor: this.props.color }} className={"note-preview note-img"}>
+				<h2>{this.props.note.info.title}</h2>
+				<img src={this.props.note.info.url} alt='' />
+			</div>
+		);
 	}
 }

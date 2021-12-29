@@ -6,9 +6,9 @@ export class NoteTodos extends React.Component {
 
 	render() {
 		return (
-			<section>
+			<section style={{ backgroundColor: this.props.color }} className={`note-preview note-todo flex`}>
 				<div> {this.props.note.info.label}</div>
-				<ul>
+				<ul className={"flex"}>
 					{this.props.note.info.todos.map((todo, idx) => {
 						return <li key={idx}>{todo.txt}</li>;
 					})}

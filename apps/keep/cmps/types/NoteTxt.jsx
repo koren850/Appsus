@@ -3,6 +3,10 @@ export class NoteTxt extends React.Component {
 	componentDidMount() {}
 
 	render() {
-		return <div>{this.props.note.info.txt}</div>;
+		return (
+			<div style={{ backgroundColor: this.props.color }} className={`note-preview note-text`}>
+				{this.props.note.info.txt}
+			</div>
+		);
 	}
 }

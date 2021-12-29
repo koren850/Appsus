@@ -1,5 +1,6 @@
 import { NoteService } from "../service/keep.service.js";
 import { NoteList } from "../cmps/NoteList.jsx";
+import { NoteFillter } from "../cmps/NoteFillter.jsx";
 
 export class KeepApp extends React.Component {
 	state = { notes: [] };
@@ -20,8 +21,8 @@ export class KeepApp extends React.Component {
 		const { notes } = this.state;
 		return (
 			<section>
-				<header className='keep-header'></header>
-				<div>KeepApp app</div>
+				<header className='keep-header'>Keep app</header>
+				<NoteFillter />
 				<NoteList notes={notes} />
 			</section>
 		);
