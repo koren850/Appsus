@@ -1,6 +1,6 @@
 import { LongTxt } from "../../../cmps/LongTxt.jsx";
 import { BookService } from "../services/book.service.js";
-import { ReviewAdd } from "./ReviewAdd.jsx";
+import { ReviewAdd } from "../cmps/ReviewAdd.jsx";
 import { eventBusService } from "../../../services/event-bus.service.js";
 
 const { Link } = ReactRouterDOM;

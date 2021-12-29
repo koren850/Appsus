@@ -1,0 +1,50 @@
+.star::before {
+  content: "\f005";
+}
+
+.fas, .fab, .far {
+  background-color: inherit;
+  border: unset;
+  display: inline-block;
+  color: gray;
+}
+
+.star.on {
+  color: rgb(255, 238, 0);
+}
+
+.letter-read::before {
+    content: "\f2b6";
+}
+.letter-unread::before {
+    content: "\f0e0";
+}
+
+.mail-preview.container {
+    padding-inline-start: 30px;
+    padding-inline-end: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-inline-end: 10px;
+    border-inline-start: 1px solid black;
+    border-inline-end: 1px solid black;
+    border-block-end: 1px solid black;
+}
+
+.mail-preview.container:first-child {
+    border-block-start: 1px solid black;
+}
+
+.mail-preview.title {
+  font-size: 1.3rem;
+  margin: 5px;
+}
+
+.mail-preview.title.bold {
+font-weight: bolder;
+}
+
+.mail-preview.mail-txt {
+    margin-block-start: 0;
+    margin-block-end:5px;
+}

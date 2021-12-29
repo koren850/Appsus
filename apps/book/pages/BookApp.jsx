@@ -2,7 +2,7 @@ import { BookService } from "../services/book.service.js";
 import { BookList } from "../cmps/BookList.jsx";
 import { BookFilter } from "../cmps/BookFilter.jsx";
 import { AddBook } from "../cmps/AddBook.jsx";
-import { BookDetails } from "../cmps/BookDetails.jsx";
+import { BookDetails } from "./BookDetails.jsx";
 
 const { Route, Switch } = ReactRouterDOM;
 export class BookApp extends React.Component {
@@ -25,12 +25,13 @@ export class BookApp extends React.Component {
 
 	render() {
 		const { books } = this.state;
+        console.log('fafa',this.props.match)
 		return (
 			<section>
 				<header className='book-header'>
 					<AddBook loadBooks={this.loadBooks} />
 				</header>
-				<BookFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter} />
+				  {this.props.match.path === '/book' && <BookFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter} />}
 				<Switch>
 					<Route component={BookDetails} path='/book/:bookId' />
 					<BookList books={books} />
