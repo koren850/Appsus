@@ -12,17 +12,10 @@
 	src: url("../parts/fa/fa-regular-400.ttf");
 }
 
-@font-face {
-	font-family: fas;
-	src: url("../parts/fa/fa-solid-900.ttf");
-}
-
 .fab {
 	font-family: "fab";
 }
-.fas {
-	font-family: "fas";
-}
+
 .text::before {
 	content: "\f031";
 }
@@ -33,9 +26,4 @@
 
 .fas {
     font-family: "fas";
-}
-
-.facebook::before {
-	content: "\f082";
-	color: green;
 }

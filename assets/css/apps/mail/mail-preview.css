@@ -19,6 +19,9 @@
 .letter-unread::before {
     content: "\f0e0";
 }
+.trash::before {
+    content: "\f2ed"
+}
 
 .mail-preview.container {
     padding-inline-start: 30px;
@@ -40,7 +43,7 @@
   margin: 5px;
 }
 
-.mail-preview.title.bold {
+.bold {
 font-weight: bolder;
 }
 

@@ -21,7 +21,8 @@ function query() {
       isRead: false,
       isSent: false,
       isStar: false,
-      sentAt: Date.now(),
+      sentAt: new Date(),
+      from: utilsService.getRandomName(),
       to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
         1,
         2000
@@ -34,7 +35,8 @@ function query() {
       isRead: false,
       isSent: false,
       isStar: false,
-      sentAt: Date.now(),
+      sentAt: new Date(),
+      from: utilsService.getRandomName(),
       to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
         1,
         2000
@@ -47,7 +49,8 @@ function query() {
       isRead: true,
       isSent: false,
       isStar: true,
-      sentAt: Date.now(),
+      sentAt: new Date(),
+      from: utilsService.getRandomName(),
       to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
         1,
         2000
