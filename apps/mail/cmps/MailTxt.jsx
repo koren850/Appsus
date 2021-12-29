@@ -26,7 +26,7 @@ export class MailTxt extends React.Component {
     return (
       <React.Fragment>
         {!textShown && <Loader />}
-        {textShown && <p>{textShown}</p>}
+        {textShown && <p className={'mail-preview mail-txt'}>{textShown}</p>}
       </React.Fragment>
     );
   }
