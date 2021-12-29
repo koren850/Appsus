@@ -1,6 +1,8 @@
 export class NoteVideo extends React.Component {
 	state = {};
-	componentDidMount() {}
+	componentDidMount() {
+		console.log(this.props.note.info.url);
+	}
 
 	render() {
 		return (
