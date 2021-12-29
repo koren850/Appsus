@@ -9,6 +9,12 @@
 @import "../css/apps/books/review-add.css";
 @import "../css/apps/books/add-book.css";
 
+/* keep */
+@import "../css/apps/keep/types/note-Img.css";
+@import "../css/apps/keep/types/note-todos.css";
+@import "../css/apps/keep/types/note-txt.css";
+@import "../css/apps/keep/types/note-video.css";
+
 /* fonts */
 @import "../css/parts/fonts.css";
 

@@ -1,17 +1,18 @@
-import { NoteTxt } from "./NoteTxt.jsx";
-export function NotePreview({ note, type }) {
-	let noteCmp = "";
-	if (type === "NoteTxt") noteCmp = "NoteTxt";
-	if (type === "NoteVideo") noteCmp = "NoteVideo";
-	if (type === "NoteImg") noteCmp = "NoteImg";
-	if (type === "NoteTodos") noteCmp = "NoteTodos";
+import { NoteTxt } from "../Keep/types/NoteTxt.jsx";
+import { NoteVideo } from "../Keep/types/NoteVideo.jsx";
+import { NoteImg } from "../Keep/types/NoteImg.jsx";
+import { NoteTodos } from "./types/NoteTodos.jsx";
+export function NotePreview({ note }) {
+	const type = note.type;
+	console.log(type);
+
 	return (
 		<section>
 			<div className={`note-preview-${note.type}`}>
-				{noteCmp === "NoteTxt" && <NoteTxt />}
-				{noteCmp === "NoteVideo" && <NoteTxt />}
-				{noteCmp === "NoteImg" && <NoteTxt />}
-				{noteCmp === "NoteTodos" && <NoteTxt />}
+				{type === "NoteTxt" && <NoteTxt note={note} />}
+				{type === "NoteVideo" && <NoteVideo note={note} />}
+				{type === "NoteImg" && <NoteImg note={note} />}
+				{type === "NoteTodos" && <NoteTodos note={note} />}
 			</div>
 		</section>
 	);

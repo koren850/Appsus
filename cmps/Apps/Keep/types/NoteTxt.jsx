@@ -3,6 +3,6 @@ export class NoteTxt extends React.Component {
 	componentDidMount() {}
 
 	render() {
-		return <div>text</div>;
+		return <div>{this.props.note.info.txt}</div>;
 	}
 }
