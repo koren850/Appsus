@@ -17,7 +17,7 @@ export class KeepApp extends React.Component {
 	}
 	componentDidUpdate() {
 		if (!this.state.add && this.props.location.pathname === "/keep/add") this.setState({ add: true });
-		if (this.state.add && this.props.location.pathname === "/keep") this.setState({ add: false });
+		if (this.state.add && this.props.location.pathname === "/keep") this.setState({ add: false }, this.loadNotes());
 	}
 
 	loadNotes = () => {

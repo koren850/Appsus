@@ -6,14 +6,18 @@ export class AddNote extends React.Component {
 	componentDidMount() {
 		console.log("hello");
 	}
+	componentDidUpdate() {
+		console.log(this.state.todo);
+	}
 
-	addNote = (ctg) => {
+	addNote = () => {
 		const { text, imgTitle, url, listLabel, color } = this.state.info;
-		const { todo } = this.state;
-		if (ctg === "NoteTxt") NoteService.addNoteTxt(text, color);
-		if (ctg === "NoteImg") NoteService.addNoteImg(url, imgTitle, color);
-		if (ctg === "NoteVideo") NoteService.addNoteVideo(url, color);
-		if (ctg === "NoteTodos") NoteService.addNoteTodos(listLabel, todo, color);
+		const { todo, ctg } = this.state;
+		console.log(ctg);
+		if (ctg === "NoteTxt") NoteService.addNote(ctg, text, null, null, null, null, color);
+		else if (ctg === "NoteImg") NoteService.addNote(ctg, null, url, imgTitle, null, null, color);
+		else if (ctg === "NoteVideo") NoteService.addNote(ctg, null, url, null, null, null, color);
+		else if (ctg === "NoteTodos") NoteService.addNote(ctg, null, null, null, listLabel, todo, color);
 	};
 
 	handleChange = ({ target }, infotype, idx) => {
@@ -44,10 +48,10 @@ export class AddNote extends React.Component {
 				<Link className='add-note' to='/keep' />
 				<form onSubmit={this.addNote} className='add-note-form'>
 					<div className='flex'>
-						<button onClick={() => this.setCtg("NoteTxt")} className='fas text add-note-ctg'></button>
-						<button onClick={() => this.setCtg("NoteImg")} className='far image add-note-ctg'></button>
-						<button onClick={() => this.setCtg("NoteVideo")} className='fab video add-note-ctg'></button>
-						<button onClick={() => this.setCtg("NoteTodos")} className='fas list add-note-ctg'></button>
+						<button type='button' onClick={() => this.setCtg("NoteTxt")} className='fas text add-note-ctg'></button>
+						<button type='button' onClick={() => this.setCtg("NoteImg")} className='far image add-note-ctg'></button>
+						<button type='button' onClick={() => this.setCtg("NoteVideo")} className='fab video add-note-ctg'></button>
+						<button type='button' onClick={() => this.setCtg("NoteTodos")} className='fas list add-note-ctg'></button>
 					</div>
 					{ctg === "NoteTxt" && (
 						<input
@@ -74,23 +78,31 @@ export class AddNote extends React.Component {
 						/>
 					)}
 					{ctg === "NoteTodos" && (
-						<input
-							onChange={(ev) => this.handleChange(ev, "listLabel")}
-							value={info.listLabel}
-							placeholder='enter list label here'
-							type='text'
-						/>
+						<div>
+							<label htmlFor={"label"}>Enter list label: </label>
+							<input
+								onChange={(ev) => this.handleChange(ev, "listLabel")}
+								value={info.listLabel}
+								placeholder='enter list label here'
+								type='text'
+								id='label'
+							/>
+						</div>
 					)}
 					{ctg === "NoteTodos" &&
 						todo.map((t, idx) => {
 							return (
-								<input
-									key={idx}
-									onChange={(ev) => this.handleChange(ev, "todo", idx)}
-									value={todo[idx]}
-									placeholder='enter todo here'
-									type='text'
-								/>
+								<div key={`todo-container${idx}`}>
+									<label htmlFor={`todo-${idx}`}>Enter todo {idx + 1}: </label>
+									<input
+										key={`todo${idx}`}
+										onChange={(ev) => this.handleChange(ev, "todo", idx)}
+										value={todo[idx]}
+										placeholder='enter todo here'
+										type='text'
+										id={`todo-${idx}`}
+									/>
+								</div>
 							);
 						})}
 					{ctg === "NoteTodos" && (
@@ -107,8 +119,7 @@ export class AddNote extends React.Component {
 							type='color'
 						/>
 					)}
-
-					<button>Add Note</button>
+					{ctg && <button type='submit'>Add Note</button>}
 				</form>
 			</div>
 		);
