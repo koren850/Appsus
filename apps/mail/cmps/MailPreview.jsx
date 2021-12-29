@@ -1,5 +1,5 @@
 import {MailTxt} from './MailTxt.jsx';
-import { mailService } from '../../../services/mail.service.js';
+import { mailService } from '../services/mail.service.js';
 // const { Link } = ReactRouterDOM;
 
 export class MailPreview extends React.Component {

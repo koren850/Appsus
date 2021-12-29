@@ -1,4 +1,4 @@
-import { Loader } from "../../Loader.jsx";
+import { Loader } from "../../../cmps/Loader.jsx";
 export class MailTxt extends React.Component {
   state = { textShown: "", isLongTxtShown: false };
   componentDidMount() {

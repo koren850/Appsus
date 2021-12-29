@@ -1,8 +1,8 @@
 import { BookService } from "../services/book.service.js";
-import { BookList } from "../apps/book/cmps/BookList.jsx";
-import { BookFilter } from "../apps/book/cmps/BookFilter.jsx";
-import { AddBook } from "../apps/book/cmps/AddBook.jsx";
-import { BookDetails } from "../apps/book/cmps/BookDetails.jsx";
+import { BookList } from "../cmps/BookList.jsx";
+import { BookFilter } from "../cmps/BookFilter.jsx";
+import { AddBook } from "../cmps/AddBook.jsx";
+import { BookDetails } from "../cmps/BookDetails.jsx";
 
 const { Route, Switch } = ReactRouterDOM;
 export class BookApp extends React.Component {
@@ -10,7 +10,6 @@ export class BookApp extends React.Component {
 
 	componentDidMount() {
 		this.loadBooks();
-		console.log("book app mounted!");
 	}
 
 	loadBooks = () => {

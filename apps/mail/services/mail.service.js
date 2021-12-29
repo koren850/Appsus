@@ -1,5 +1,5 @@
-import { storageService } from "./storage.service.js";
-import { utilsService } from "./utils.service.js";
+import { storageService } from "../../../services/storage.service.js";
+import { utilsService } from "../../../services/utils.service.js";
 
 export const mailService = {
   query,
