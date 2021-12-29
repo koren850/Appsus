@@ -1,0 +1,16 @@
+.text::before {
+	content: "\f031";
+}
+.image::before {
+	content: "\f302";
+}
+.video::before {
+	content: "\f167";
+}
+.list::before {
+	content: "\f03a";
+}
+.plus::before {
+	content: "\f0fe";
+	font-size: 3rem;
+}

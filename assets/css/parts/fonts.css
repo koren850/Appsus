@@ -16,14 +16,10 @@
 	font-family: "fab";
 }
 
-.text::before {
-	content: "\f031";
-}
-
 .far {
-    font-family: "far";
+	font-family: "far";
 }
 
 .fas {
-    font-family: "fas";
+	font-family: "fas";
 }

@@ -16,6 +16,8 @@
 @import "../css/apps/keep/types/note-todos.css";
 @import "../css/apps/keep/types/note-txt.css";
 @import "../css/apps/keep/types/note-video.css";
+@import "../css/apps/keep/note-fillter.css";
+@import "../css/apps/keep/add-note.css";
 
 /* mail */
 @import "../css/apps/mail/mail-preview.css";

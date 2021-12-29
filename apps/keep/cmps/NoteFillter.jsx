@@ -1,5 +1,7 @@
+const { Link } = ReactRouterDOM;
 export class NoteFillter extends React.Component {
 	state = { filterBy: {}, currFillter: "text" };
+
 	componentDidMount() {}
 
 	handleChange = ({ target }) => {
@@ -18,6 +20,7 @@ export class NoteFillter extends React.Component {
 		const { value } = this.state;
 		return (
 			<section>
+				<Link className='fas plus' to='/keep/add'></Link>
 				<input
 					className='flex'
 					placeholder='Enter Text'
@@ -27,6 +30,9 @@ export class NoteFillter extends React.Component {
 					onChange={this.handleChange}
 				/>
 				<button className='fas text'></button>
+				<button className='far image'></button>
+				<button className='fab video'></button>
+				<button className='fas list'></button>
 			</section>
 		);
 	}
