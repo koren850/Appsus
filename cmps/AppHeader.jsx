@@ -3,10 +3,6 @@ import { eventBusService } from "../services/event-bus.service.js";
 const { NavLink, withRouter } = ReactRouterDOM;
 
 class _AppHeader extends React.Component {
-	state = {
-		booksCount: 0,
-	};
-
 	removeEventBus = null;
 
 	componentDidMount() {
@@ -20,11 +16,9 @@ class _AppHeader extends React.Component {
 	}
 
 	render() {
-		const { booksCount } = this.state;
 		return (
 			<header className='app-header'>
 				<h1 onClick={() => this.props.history.push("/")}>Books R Us</h1>
-				<span>books to show: {booksCount}</span>
 				<div className='fab facebook'></div>
 				<nav className='main-nav'>
 					<NavLink activeClassName='my-active' exact to='/'>

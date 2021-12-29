@@ -26,7 +26,7 @@ export class BookApp extends React.Component {
 		const { books } = this.state;
 		return (
 			<section>
-				<header className='main-header'>
+				<header className='book-header'>
 					<AddBook loadBooks={this.loadBooks} />
 				</header>
 				<BookFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter} />
