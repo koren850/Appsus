@@ -1,5 +1,6 @@
 import { mailService } from '../services/mail.service.js'
 import {utilsService} from '../../../utils.service.js/'
+import {swalService} from '../../../services/swal.service.js'
 export class MailCompose extends React.Component {
 
     createMail =(ev) => {
@@ -19,11 +20,17 @@ export class MailCompose extends React.Component {
         }
         window.location.replace('/index.html#/mail');
         mailService.addMail(mail);
+        swalService.userModal('success', 'Mail sent');
     }
 
     deleteMail=() => {
-        window.location.replace('/index.html#/mail');
+        swalService.checkAgain(this.deleteConfirm);
     }
+    
+    deleteConfirm =() => {
+        window.location.replace('/index.html#/mail');
+        swalService.userModal('error', 'Mail Deleted');
+     }
 
     render() {
 
@@ -31,8 +38,8 @@ export class MailCompose extends React.Component {
             <header className={'mail-compose line'}>New Message</header>
             <form onSubmit={this.createMail}>
             <article className={'mail-compose line'}><label htmlFor="to">To :</label><input type="email" id="to" placeholder="Example@Jmail.com."/></article>
-            <article className={'mail-compose line'}><label htmlFor="cc">Cc :</label><input type="text" id="cc" placeholder="Example1@Jmail.com, Example2@Jmail.com."/></article>
-            <article className={'mail-compose line'}><label htmlFor="bcc">Bcc :</label><input type="text" id="bcc" placeholder="Example@Jmail.com."/></article>
+            <article className={'mail-compose line'}><label htmlFor="cc">Title :</label><input type="text" id="cc" placeholder="Example Example Eat's FalaFel..."/></article>
+            <article className={'mail-compose line'}><label htmlFor="bcc">Bcc :</label><input type="text" id="bcc" placeholder="Example@Jmail.com , ExampleFather@Jmail.com ,ExampleBaby@Jmail.com."/></article>
             <article><label htmlFor="subject">Subject :</label><textarea id="subject"/></article>
             <main></main>
             <footer>

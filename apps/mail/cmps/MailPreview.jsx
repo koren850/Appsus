@@ -1,5 +1,6 @@
 import { MailTxt } from "./MailTxt.jsx";
 import { mailService } from "../services/mail.service.js";
+import {swalService} from "../../../services/swal.service.js";
 // const { Link } = ReactRouterDOM;
 
 export class MailPreview extends React.Component {
@@ -10,10 +11,15 @@ export class MailPreview extends React.Component {
   }
   
   moveToDeleted = (currMail) => {
+    swalService.checkAgain(this.deleteConfirm, currMail);
+}
+
+ deleteConfirm =(currMail) => {
     currMail.isDeleted = true;
     mailService.updateMail(currMail);
     this.setState({mail:currMail});
-}
+    swalService.userModal('error', 'Mail Deleted');
+ }
 
   componentDidMount() {
     this.timeInterval = setInterval(this.setTime,5000);
@@ -79,7 +85,7 @@ export class MailPreview extends React.Component {
      else if (hours) return hours + ' Hours Ago...'
      else if (minutes) return minutes + ' Minutes Ago...'
      else if (seconds) return seconds + ' Seconds Ago...'
-    else return 'Just Now...' 
+    else return 'Just Now...';
   }
 
   render() {

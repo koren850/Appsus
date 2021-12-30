@@ -40,8 +40,8 @@ export class MailTxt extends React.Component {
     className={`fas trash`}
     onClick={() => this.props.moveToDeleted(currMail)}
     ></button>}
-        {this.state.isLongTxtShown && <Link  to={`mail/${currMail.id}`}><button
-    className={`fas expand`}
+        {this.state.isLongTxtShown && <Link  to={`/mail/${currMail.id}`}><button
+    className={`fas compress`}
     onClick={() => this.moveToDeleted(currMail)}
     ></button></Link>}
     </article>
