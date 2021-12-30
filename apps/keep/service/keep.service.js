@@ -3,6 +3,8 @@ import { utilsService } from '../../../services/utils.service.js'
 export const NoteService = {
     query,
     addNote,
+    deleteNote,
+    duplicateNote
 }
 
 const KEY = 'keepsDB';
@@ -39,6 +41,33 @@ function addNote(ctg, text, url, imgTitle, listLabel, todo, color) {
     let notes = _loadFromStorage();
     notes.unshift(note);
     _saveToStorage(notes);
+}
+
+function deleteNote(id) {
+    console.log(getNoteById(id))
+    const noteData = getNoteById(id)
+    const notes = _loadFromStorage()
+    notes.splice(noteData.currIdx, 1)
+    _saveToStorage(notes)
+}
+
+function duplicateNote(id) {
+    const noteData = getNoteById(id)
+    const notes = _loadFromStorage()
+    notes.splice(noteData.currIdx, 0, noteData.note)
+    _saveToStorage(notes)
+}
+
+function getNoteById(noteId) {
+    const notes = _loadFromStorage()
+    let currIdx;
+    var note = notes.find((note, idx) => {
+        if (noteId === note.id) {
+            currIdx = idx
+        }
+        return noteId === note.id
+    })
+    return ({ note, currIdx })
 }
 
 

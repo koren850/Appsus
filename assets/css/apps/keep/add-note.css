@@ -6,6 +6,7 @@
 	background-color: rgba(0, 0, 0, 0.657);
 	top: 0;
 	left: 0;
+	z-index: 9;
 }
 
 .add-note-form {

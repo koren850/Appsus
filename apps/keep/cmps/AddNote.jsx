@@ -3,22 +3,18 @@ import { NoteService } from "../service/keep.service.js";
 const { Link } = ReactRouterDOM;
 export class AddNote extends React.Component {
 	state = { ctg: "NoteTxt", info: { text: "", imgTitle: "", url: "", listLabel: "", color: "#ffffff" }, todo: [] };
-	componentDidMount() {
-		console.log(this.props);
-	}
-	componentDidUpdate() {
-		console.log(this.state.todo);
-	}
+
+	componentDidMount() {}
 
 	addNote = () => {
 		const { text, imgTitle, url, listLabel, color } = this.state.info;
 		const { todo, ctg } = this.state;
-		console.log(ctg);
 		if (ctg === "NoteTxt") NoteService.addNote(ctg, text, null, null, null, null, color);
 		else if (ctg === "NoteImg") NoteService.addNote(ctg, null, url, imgTitle, null, null, color);
 		else if (ctg === "NoteVideo") NoteService.addNote(ctg, null, url, null, null, null, color);
 		else if (ctg === "NoteTodos") NoteService.addNote(ctg, null, null, null, listLabel, todo, color);
 		this.props.loadNotes();
+		this.onGoBack();
 	};
 
 	handleChange = ({ target }, infotype, idx) => {
@@ -29,8 +25,8 @@ export class AddNote extends React.Component {
 		} else this.setState((prevState) => ({ info: { ...prevState.info, [infotype]: target.value } }));
 	};
 
-	onGoBack = () => {
-		this.props.ev.location.pathname = "/keep";
+	onGoBack = (ev) => {
+		this.props.ev.history.push("/keep");
 	};
 	setCtg = (ctg) => {
 		this.setState({ ctg });
@@ -45,7 +41,7 @@ export class AddNote extends React.Component {
 	render() {
 		const { ctg, info, todo } = this.state;
 		return (
-			<div onClick={this.onGoBack}>
+			<div>
 				<Link className='add-note' to='/keep' />
 				<form className='add-note-form'>
 					<div className='flex'>
