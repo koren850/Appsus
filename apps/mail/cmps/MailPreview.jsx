@@ -7,7 +7,6 @@ export class MailPreview extends React.Component {
     mail: this.props.mail,
     isLongTxtShown: false,
     time:this.props.mail.sentAt,
-    showDeleted:false,
   }
   
   moveToDeleted = (currMail) => {
@@ -23,10 +22,6 @@ export class MailPreview extends React.Component {
 
   componentDidMount() {
     this.timeInterval = setInterval(this.setTime,5000);
-  }
-
-  componentDidUpdate() {
-    if (mailService.checkDeletedFilter() !== this.state.showDeleted) this.setState({showDeleted:true})
   }
 
   componentWillUnmount() {
@@ -98,7 +93,8 @@ export class MailPreview extends React.Component {
     const isFavoriteClass = currMail.isStar ? "on" : "";
     const sentTime = this.getSentTime(currMail.sentAt);
     return (
-    !currMail.isDeleted && !this.state.showDeleted && <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container" to={`/mail/${currMail.id}`}>
+    // !currMail.isDeleted && !this.state.showDeleted && 
+    <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container" to={`/mail/${currMail.id}`}>
         <button
           className={`fas star ${isFavoriteClass}`}
           onClick={() => this.toggleFavorite(currMail)}
@@ -113,7 +109,4 @@ export class MailPreview extends React.Component {
             />
         </div>
             <p>{sentTime}</p>
-      </div>
-    );
-  }
-}
+      </div>)}}

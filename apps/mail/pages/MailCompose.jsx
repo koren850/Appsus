@@ -2,34 +2,18 @@ import { mailService } from "../services/mail.service.js";
 import { utilsService } from "../../../services/utils.service.js";
 import { swalService } from "../../../services/swal.service.js";
 export class MailCompose extends React.Component {
-	createMail = (ev) => {
-		ev.preventDefault();
-		const values = Array.from(ev.target);
-		const mail = {
-			id: utilsService.generateId(),
-			subject: values[1].value,
-			body: values[3].value,
-			isRead: false,
-			isSent: true,
-			isStar: false,
-			isDeleted: false,
-			sentAt: new Date(),
-			from: mailService.getUser().mail,
-			to: values[0].value,
-		};
-		window.location.replace("/index.html#/mail");
-		mailService.addMail(mail);
-		swalService.userModal("success", "Mail sent");
-	};
+
+    state = { isDraft: false }
 
 	createMail = (ev) => {
-		ev.preventDefault();
+        ev.preventDefault();
 		const values = Array.from(ev.target);
+        console.log(values)
 		const mail = {
-			id: utilsService.generateId(),
+            id: utilsService.generateId(),
 			subject: values[1].value,
 			body: values[3].value,
-			isRead: false,
+			isRead: true,
 			isSent: true,
 			isStar: false,
 			isDraft: false,
@@ -38,10 +22,22 @@ export class MailCompose extends React.Component {
 			from: mailService.getUser().mail,
 			to: values[0].value,
 		};
+        if (this.state.isDraft) {
+            console.log(this.state.isDraft)
+             mail.isDraft = true;
+             mailService.addMail(mail);
+		swalService.userModal("success", "Draft Added");
+        this.setState({isDraft:false});
+        return
+            }
 		window.location.replace("/index.html#/mail");
 		mailService.addMail(mail);
 		swalService.userModal("success", "Mail sent");
-	};
+	}
+
+    deleteMail = () => {
+        swalService.checkAgain(this.deleteConfirm);
+    }
 
 	deleteConfirm = () => {
 		window.location.replace("/index.html#/mail");
@@ -72,7 +68,7 @@ export class MailCompose extends React.Component {
 					<main></main>
 					<footer>
 						<button className={"mail-compose send"}>Send</button>
-						<button className={"mail-compose far edit"}></button>
+						<button className={"mail-compose far edit"} onClick={()=>this.setState({isDraft:true})}></button>
 						<button className={"mail-compose fas trash"} type='button' onClick={this.deleteMail}></button>
 					</footer>
 				</form>

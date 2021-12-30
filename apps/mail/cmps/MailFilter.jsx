@@ -1,27 +1,18 @@
+import { MailFolderList } from "./MailFolderList.jsx";
 export class MailFilter extends React.Component {
   state = {
     filterBy: null,
   };
 
-  handleChange = (val) => {
-    const filter = ("string" === typeof val) ? val : val.target.value;
-    this.setState({ filterBy: filter }, () => console.log(this.state));
+  updateFilter = (filter) => {
+    this.setState({ filterBy: filter });
     this.props.loadMails(filter);
-  };
+  }
 
   render() {
     return (
       <React.Fragment>
-        <button onClick={() => this.handleChange('')}>All</button>
-        <button onClick={() => this.handleChange("isStar")}>Favorite</button>
-        <button onClick={() => this.handleChange("isSent")}>Sent</button>
-        <button onClick={() => this.handleChange("isDeleted")}>Deleted</button>
-        <button onClick={() => this.handleChange("isRead")}>Read</button>
-        <button onClick={() => this.handleChange(["isRead"])}>Un Read</button>
-        <button onClick={() => this.handleChange(["isSent"])}>InComming</button>
-        <button onClick={() => this.handleChange("isRead")}>Draft</button>
-        <button onClick={() => this.handleChange("isRead")}>Labels</button>
-        <input type="search" onChange={this.handleChange} />
+          <MailFolderList filterBy={this.state.filterBy} updateFilter={this.updateFilter}/>
       </React.Fragment>
     );
   }

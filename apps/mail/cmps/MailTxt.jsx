@@ -28,8 +28,7 @@ export class MailTxt extends React.Component {
     const { Link } = ReactRouterDOM;
     const isReadClass = currMail.isRead ? "light" : "bold";
     const letterClass = currMail.isRead ? "letter-read" : "letter-unread";
-    return (
-          <article className={'mail-txt container'}>
+    return (<article className={'mail-txt container'}>
 {this.state.isLongTxtShown && <p className={`mail-preview title ${isReadClass}`}>{currMail.subject}</p>}        {!textShown && <Loader />}
         {textShown && <p className={`mail-preview mail-txt ${isReadClass}`}>{textShown}</p>}
         {this.state.isLongTxtShown && <button

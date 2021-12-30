@@ -164,34 +164,29 @@ function query(filterBy) {
   }
   _saveToStorage(mails);
   if (filterBy) mails = filterMails(filterBy, mails);
-  console.log(mails)
   gFilterBy = filterBy;
   return Promise.resolve(mails, filterBy);
 }
 
 function filterMails(filterBy, mails) {
-  let filteredMails = mails.filter((mail) => mail[filterBy]);
-  filteredMails = filteredMails
-    ? filteredMails
-    : filterBy === "isSent!"
-    ? mails.filter((mail) => !mail.isSent)
-    : mails.filter(
-        (mail) =>
-          mail.body.contains(filterBy) || mail.subject.contains(filterBy)
-      );
-      return filteredMails;
+    let filteredMails = mails.filter((mail) => mail[filterBy]);
+    filteredMails = (filteredMails.length) ? filteredMails :
+     mails.filter((mail) => mail.body.includes(filterBy) || mail.subject.includes(filterBy));
+        if (filterBy.length === 1 && typeof filterBy === 'object') {
+            filteredMails = mails.filter((mail)=> !mail[filterBy[0]])
+        }
+        return filteredMails;
 }
 
 function addMail(mail) {
   const mails = _loadFromStorage();
-  mails.unshift(mail);
+   mails.unshift(mail);
   _saveToStorage(mails);
 }
 
 function getMails() {
    let mails = _loadFromStorage();
    if (gFilterBy) mails = filterMails(gFilterBy,mails);
-   console.log(mails.length)
   return mails;
 }
 
