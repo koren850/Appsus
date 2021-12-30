@@ -28,11 +28,11 @@ export class KeepApp extends React.Component {
 	};
 
 	render() {
-		const { notes, add } = this.state;
+		const { notes } = this.state;
 
 		return (
 			<section>
-				<Route component={AddNote} exact path='/keep/add' />
+				<Route component={(ev) => <AddNote loadNotes={this.loadNotes} ev={ev} />} exact path='/keep/add' />
 				<header className='keep-header'>Keep app</header>
 				<NoteFillter />
 				<NoteList notes={notes} />

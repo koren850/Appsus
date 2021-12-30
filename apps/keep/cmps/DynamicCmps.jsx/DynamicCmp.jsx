@@ -3,7 +3,6 @@ import { NoteVideo } from "../types/NoteVideo.jsx";
 import { NoteImg } from "../types/NoteImg.jsx";
 import { NoteTodos } from "../types/NoteTodos.jsx";
 export function DynamicCmp({ note }) {
-	console.log(note);
 	function getCmp(note) {
 		switch (note.type) {
 			case "NoteTxt":
