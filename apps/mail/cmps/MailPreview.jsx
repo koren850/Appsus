@@ -1,12 +1,12 @@
 import { MailTxt } from "./MailTxt.jsx";
 import { mailService } from "../services/mail.service.js";
 import {swalService} from "../../../services/swal.service.js";
+import {eventBusService} from "../../../services/event-bus.service.js";
 
 export class MailPreview extends React.Component {
   state = {
     mail: this.props.mail,
     isLongTxtShown: false,
-    time:this.props.mail.sentAt,
   }
   
   moveToDeleted = (currMail) => {
@@ -14,12 +14,15 @@ export class MailPreview extends React.Component {
 }
 
  deleteConfirm =(currMail) => {
+     if (currMail.isDeleted) mailService.deleteMail(currMail);
     currMail.isDeleted = true;
     mailService.updateMail(currMail);
-    this.setState({mail:currMail});
+    const filter = mailService.getFilterBy();
+    this.setState({mail:currMail},()=>
+    this.props.loadMails(filter));
     swalService.userModal('error', 'Mail Deleted');
  }
-
+ 
   componentDidMount() {
     this.timeInterval = setInterval(this.setTime,5000);
   }
@@ -33,6 +36,7 @@ export class MailPreview extends React.Component {
     currMail.isRead = true;
     mailService.updateMail(currMail);
     this.setState((prevState) => ({ ...prevState, mail: currMail }));
+    this.props.loadMails();
   };
 
   toggleHover = () => {
@@ -54,6 +58,7 @@ export class MailPreview extends React.Component {
   toggleIsRead = (currMail) => {
     currMail.isRead = !currMail.isRead;
     mailService.updateMail(currMail);
+    eventBusService.emit('meterRender');
     this.setState((prevState) => ({ ...prevState, mail: currMail }));
   };
 
@@ -93,7 +98,6 @@ export class MailPreview extends React.Component {
     const isFavoriteClass = currMail.isStar ? "on" : "";
     const sentTime = this.getSentTime(currMail.sentAt);
     return (
-    // !currMail.isDeleted && !this.state.showDeleted && 
     <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container" to={`/mail/${currMail.id}`}>
         <button
           className={`fas star ${isFavoriteClass}`}

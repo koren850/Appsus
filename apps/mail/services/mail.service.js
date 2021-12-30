@@ -9,23 +9,22 @@ export const mailService = {
   addMail,
   getMails,
   checkDeletedFilter,
+  deleteMail,
+  getFilterBy,
 };
 
 const KEY = "mailsDB";
 let gFilterBy;
 
-function checkDeletedFilter() {
-    return (gFilterBy === 'isDeleted')
-}
 
 function query(filterBy) {
   let mails = _loadFromStorage() || [];
   if (!mails || !mails.length) {
-    mails = [
+      mails = [
       {
-        id: utilsService.generateId(),
-        subject: "Missing My Weekends !!!",
-        body: utilsService.makeLorem(30),
+          id: utilsService.generateId(),
+          subject: "Missing My Weekends !!!",
+          body: utilsService.makeLorem(30),
         isRead: false,
         isSent: false,
         isStar: false,
@@ -34,15 +33,63 @@ function query(filterBy) {
         sentAt: new Date(),
         from: utilsService.getRandomName(),
         to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+            1,
+          2000
+          )}@Jmail.com`,
+        },
+      {
+          id: utilsService.generateId(),
+          subject: "Sprint Number 3",
+          body: utilsService.makeLorem(80),
+          isRead: false,
+          isSent: false,
+          isStar: false,
+          isDraft: false,
+          isDeleted: false,
+          sentAt: new Date(),
+          from: utilsService.getRandomName(),
+          to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+              1,
+              2000
+              )}@Jmail.com`,
+      },
+      {
+          id: utilsService.generateId(),
+          subject: "Happy NEW YEAR !",
+          body: utilsService.makeLorem(120),
+          isRead: true,
+          isSent: false,
+          isStar: true,
+          isDraft: false,
+          isDeleted: false,
+          sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
           1,
           2000
         )}@Jmail.com`,
       },
       {
         id: utilsService.generateId(),
-        subject: "Sprint Number 3",
-        body: utilsService.makeLorem(80),
-        isRead: false,
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
+        isSent: false,
+        isStar: true,
+        isDraft: false,
+        isDeleted: false,
+        sentAt: new Date(),
+        from: utilsService.getRandomName(),
+        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
+          1,
+          2000
+        )}@Jmail.com`,
+      },
+      {
+        id: utilsService.generateId(),
+        subject: "Happy NEW YEAR !",
+        body: utilsService.makeLorem(120),
+        isRead: true,
         isSent: false,
         isStar: false,
         isDraft: false,
@@ -69,56 +116,8 @@ function query(filterBy) {
           1,
           2000
         )}@Jmail.com`,
-      },
-      {
-        id: utilsService.generateId(),
-        subject: "Happy NEW YEAR !",
-        body: utilsService.makeLorem(120),
-        isRead: true,
-        isSent: false,
-        isStar: true,
-        isDraft: false,
-        isDeleted: false,
-        sentAt: new Date(),
-        from: utilsService.getRandomName(),
-        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
-          1,
-          2000
-        )}@Jmail.com`,
-      },
-      {
-        id: utilsService.generateId(),
-        subject: "Happy NEW YEAR !",
-        body: utilsService.makeLorem(120),
-        isRead: true,
-        isSent: false,
-        isStar: false,
-        isDraft: false,
-        isDeleted: false,
-        sentAt: new Date(),
-        from: utilsService.getRandomName(),
-        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
-          1,
-          2000
-        )}@Jmail.com`,
-      },
-      {
-        id: utilsService.generateId(),
-        subject: "Happy NEW YEAR !",
-        body: utilsService.makeLorem(120),
-        isRead: true,
-        isSent: false,
-        isStar: true,
-        isDraft: false,
-        isDeleted: false,
-        sentAt: new Date(),
-        from: utilsService.getRandomName(),
-        to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
-          1,
-          2000
-        )}@Jmail.com`,
-      },
-      {
+    },
+    {
         id: utilsService.generateId(),
         subject: "Happy NEW YEAR !",
         body: utilsService.makeLorem(120),
@@ -130,9 +129,9 @@ function query(filterBy) {
         sentAt: new Date(),
         from: utilsService.getRandomName(),
         to: 'user@appsus.com',
-      },
+    },
       {
-        id: utilsService.generateId(),
+          id: utilsService.generateId(),
         subject: "Happy NEW YEAR !",
         body: utilsService.makeLorem(120),
         isRead: true,
@@ -143,13 +142,13 @@ function query(filterBy) {
         sentAt: new Date(),
         from: utilsService.getRandomName(),
         to: `${utilsService.getRandomName()}${utilsService.getRandomInt(
-          1,
+            1,
           2000
-        )}@Jmail.com`,
+          )}@Jmail.com`,
       },
       {
-        id: utilsService.generateId(),
-        subject: "Happy NEW YEAR !",
+          id: utilsService.generateId(),
+          subject: "Happy NEW YEAR !",
         body: utilsService.makeLorem(120),
         isRead: true,
         isSent: true,
@@ -161,7 +160,7 @@ function query(filterBy) {
         to: 'user@appsus.com',
       },
     ];
-  }
+}
   _saveToStorage(mails);
   if (filterBy) mails = filterMails(filterBy, mails);
   gFilterBy = filterBy;
@@ -171,16 +170,32 @@ function query(filterBy) {
 function filterMails(filterBy, mails) {
     let filteredMails = mails.filter((mail) => mail[filterBy]);
     filteredMails = (filteredMails.length) ? filteredMails :
-     mails.filter((mail) => mail.body.includes(filterBy) || mail.subject.includes(filterBy));
+    mails.filter((mail) => mail.body.includes(filterBy) || mail.subject.includes(filterBy));
         if (filterBy.length === 1 && typeof filterBy === 'object') {
             filteredMails = mails.filter((mail)=> !mail[filterBy[0]])
         }
         return filteredMails;
 }
 
+function checkDeletedFilter() {
+    return (gFilterBy === 'isDeleted')
+}
+
+function getFilterBy() {
+    if (!gFilterBy) gFilterBy = '';
+    return gFilterBy;
+}
+
+function deleteMail(currMail) {
+    const mails = _loadFromStorage();
+    const idx = mails.findIndex(mail => mail.id === currMail.id);
+    mails.splice(idx, 1);
+    _saveToStorage(mails);
+}
+
 function addMail(mail) {
-  const mails = _loadFromStorage();
-   mails.unshift(mail);
+    const mails = _loadFromStorage();
+    mails.unshift(mail);
   _saveToStorage(mails);
 }
 

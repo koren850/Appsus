@@ -32,7 +32,7 @@ export class MailApp extends React.Component {
                 <Switch>
                 <Route component={MailCompose} path='/mail/compose'/>
                 <Route component={(ev)=> <MailDetails ev={ev} loadMails={this.loadMails}/>} path='/mail/:mailId'/>
-				<MailList mails={mails} />
+				<MailList mails={mails} loadMails={this.loadMails}/>
                 </Switch>
                 <MailFilter loadMails={this.loadMails}/>
 			</section>

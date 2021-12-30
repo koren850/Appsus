@@ -12,7 +12,7 @@ export class MailFilter extends React.Component {
   render() {
     return (
       <React.Fragment>
-          <MailFolderList filterBy={this.state.filterBy} updateFilter={this.updateFilter}/>
+          <MailFolderList filterBy={this.state.filterBy} loadMails={this.props.loadMails} updateFilter={this.updateFilter}/>
       </React.Fragment>
     );
   }
