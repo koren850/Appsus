@@ -23,7 +23,7 @@ function getRandomName(length = 4) {
         randomWord += str.charAt(randIdx);
         if (!i) randomWord = randomWord.toUpperCase();
     }
-    return randomWord
+    return randomWord;
 }
 
 function getRandomInt(min, max) {

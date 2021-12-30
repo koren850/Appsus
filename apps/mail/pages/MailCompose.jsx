@@ -1,5 +1,5 @@
 import { mailService } from '../services/mail.service.js'
-import { utilsService } from "../../../utils.service.js";
+import {utilsService} from '../../../utils.service.js/'
 export class MailCompose extends React.Component {
 
     createMail =(ev) => {
@@ -21,6 +21,10 @@ export class MailCompose extends React.Component {
         mailService.addMail(mail);
     }
 
+    deleteMail=() => {
+        window.location.replace('/index.html#/mail');
+    }
+
     render() {
 
         return (<section className={'mail-compose container'}>
@@ -33,7 +37,7 @@ export class MailCompose extends React.Component {
             <main></main>
             <footer>
             <button className={'mail-compose send'}>Send</button>
-            <button className={'mail-compose fas trash'}></button>
+            <button className={'mail-compose fas trash'} type="button" onClick={this.deleteMail}></button>
             </footer>
             </form>
         </section>)

@@ -1,0 +1,7 @@
+.expand::before {
+    content: "\f065";
+}
+
+.compress::before {
+    content: "\f066";
+}

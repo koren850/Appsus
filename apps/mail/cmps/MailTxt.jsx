@@ -25,6 +25,7 @@ export class MailTxt extends React.Component {
   render() {
       const currMail = this.props.mail;
     const { textShown } = this.state;
+    const { Link } = ReactRouterDOM;
     const isReadClass = currMail.isRead ? "light" : "bold";
     const letterClass = currMail.isRead ? "letter-read" : "letter-unread";
     return (
@@ -39,6 +40,10 @@ export class MailTxt extends React.Component {
     className={`fas trash`}
     onClick={() => this.props.moveToDeleted(currMail)}
     ></button>}
+        {this.state.isLongTxtShown && <Link  to={`mail/${currMail.id}`}><button
+    className={`fas expand`}
+    onClick={() => this.moveToDeleted(currMail)}
+    ></button></Link>}
     </article>
     );
   }

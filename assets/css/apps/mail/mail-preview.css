@@ -4,10 +4,7 @@
   border: unset;
   display: inline-block;
   color: gray;
-}
-
-.star,.trash, .letter-read, .letter-unread {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .star.on {
