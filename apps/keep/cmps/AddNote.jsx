@@ -3,7 +3,7 @@ import { swalService } from "../../../services/swal.service.js";
 
 const { Link } = ReactRouterDOM;
 export class AddNote extends React.Component {
-	state = { update: false, ctg: "NoteTxt", info: { text: "", imgTitle: "", url: "", listLabel: "", color: "#ffffff" }, todo: [] };
+	state = { update: false, ctg: this.props.ctg, info: { text: "", imgTitle: "", url: "", listLabel: "", color: "#ffffff" }, todo: [] };
 
 	componentDidMount() {
 		var note = this.props.note;

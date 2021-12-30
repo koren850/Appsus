@@ -19,3 +19,11 @@
 .note-todo ul {
 	margin: 0;
 }
+
+.todos-li {
+	cursor: pointer;
+}
+
+.done {
+	text-decoration: line-through;
+}

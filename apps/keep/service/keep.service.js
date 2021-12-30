@@ -13,7 +13,7 @@ const KEY = 'keepsDB';
 const gNotes = [
     { id: utilsService.generateId(), type: "NoteTxt", isPinned: true, info: { txt: "Fullstack Me Baby!" }, style: { backgroundColor: "#0fd777" } },
     { id: utilsService.generateId(), type: "NoteImg", isPinned: true, info: { url: "https://i.natgeofe.com/n/abf58ec8-ac78-4108-adbe-918fa5bda2e5/mountain-gorilla_2x3.jpg", title: "Bobi and Me" }, style: { backgroundColor: "#06760d" } },
-    { id: utilsService.generateId(), type: "NoteTodos", isPinned: true, info: { label: "Get my stuff together", todos: [{ txt: "Driving liscence", doneAt: null }, { txt: "Coding power", doneAt: 187111111 }] }, style: { backgroundColor: "#09876d" } },
+    { id: utilsService.generateId(), type: "NoteTodos", isPinned: true, info: { label: "Get my stuff together", todos: [{ txt: "Driving liscence", done: false }, { txt: "Coding power", done: false }] }, style: { backgroundColor: "#09876d" } },
     { id: utilsService.generateId(), type: 'NoteVideo', isPinned: true, info: { url: 'https://www.youtube.com/embed/tMDw57CWH7U' }, style: { backgroundColor: "#34569d" } }
 ];
 
@@ -25,24 +25,20 @@ function query(filterBy = null) {
         console.log('from json')
     }
     else console.log('from storage')
-    if (!filterBy) return Promise.resolve(notes)
+    if (!filterBy) return Promise.resolve({ notes: notes })
     const filteredNotes = _getFilteredNotes(notes, filterBy)
-    return Promise.resolve(filteredNotes)
+    console.log(filteredNotes)
+    return Promise.resolve({ notes: filteredNotes, ctg: filterBy.ctg })
 
 }
 function _getFilteredNotes(notes, filterBy) {
-    let { name, minPrice, maxPrice } = filterBy
-    minPrice = minPrice ? minPrice : 0
-    maxPrice = maxPrice ? maxPrice : Infinity
-    return notes.filter(book => {
-        return book.title.includes(name) && book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice
-    })
+    return notes.filter(note => note.type === filterBy.ctg)
 }
 
 
 
 function addNote(ctg, text, url, imgTitle, listLabel, todo, color) {
-    if (todo && todo.length) var todos = todo.map(txt => ({ txt: txt, doneAt: null }))
+    if (todo && todo.length) var todos = todo.map(txt => ({ txt: txt, doneAt: false }))
     let note;
     if (ctg === 'NoteTxt') note = { id: utilsService.generateId(), type: 'NoteTxt', isPinned: false, info: { txt: text }, style: { backgroundColor: color } };
     if (ctg === 'NoteImg') note = { id: utilsService.generateId(), type: 'NoteImg', isPinned: false, info: { url: url, title: imgTitle }, style: { backgroundColor: color } };

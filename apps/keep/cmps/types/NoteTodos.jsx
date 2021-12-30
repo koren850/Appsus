@@ -1,6 +1,21 @@
 export class NoteTodos extends React.Component {
-	state = {};
-	componentDidMount() {}
+	state = { ...this.props.note.info.todos };
+	componentDidMount() {
+		console.log(this.props.note.info.todos);
+	}
+
+	componentDidUpdate() {
+		console.log(this.state);
+	}
+
+	toggleTodo = (idx) => {
+		this.setState(
+			(prev) => ({ ...prev, [idx]: { txt: this.state[idx].txt, done: !this.state[idx].done } }),
+			() => {
+				console.log(this.state);
+			}
+		);
+	};
 
 	render() {
 		return (
@@ -12,7 +27,11 @@ export class NoteTodos extends React.Component {
 				<div> {this.props.note.info.label}</div>
 				<ul className={"flex"}>
 					{this.props.note.info.todos.map((todo, idx) => {
-						return <li key={idx}>{todo.txt}</li>;
+						return (
+							<li key={idx} onClick={() => this.toggleTodo(idx)} className={`todos-li ${this.state[idx].done ? "done" : ""}`}>
+								{todo.txt}
+							</li>
+						);
 					})}
 				</ul>
 				{this.props.isHover && <button onClick={(ev) => this.props.delete(ev, this.props.note.id)} className='fas trash' id='delete-note'></button>}
