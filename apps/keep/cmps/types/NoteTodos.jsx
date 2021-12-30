@@ -2,6 +2,7 @@ export class NoteTodos extends React.Component {
 	state = { ...this.props.note.info.todos };
 	componentDidMount() {
 		console.log(this.props.note.info.todos);
+		// this.props.loadNotes();
 	}
 
 	componentDidUpdate() {

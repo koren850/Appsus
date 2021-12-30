@@ -63,6 +63,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						update={updateNote}
 						duplicate={duplicateNote}
 						delete={approveDelete}
+						loadNotes={loadNotes}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
