@@ -1,3 +1,6 @@
+/* fonts */
+@import "../css/parts/fonts.css";
+
 /* cmps */
 @import "../css/cmps/user-msg.css";
 @import "../css/cmps/app-header.css";
@@ -23,9 +26,6 @@
 @import "../css/apps/mail/mail-preview.css";
 @import "../css/apps/mail/mail-list.css";
 @import "../css/apps/mail/mail-compose.css";
-
-/* fonts */
-@import "../css/parts/fonts.css";
 
 * {
 	box-sizing: border-box;

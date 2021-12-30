@@ -30,3 +30,8 @@
 	cursor: pointer;
 	font-size: 3rem;
 }
+
+#active-ctg {
+	background-color: rgb(226, 218, 218);
+	border: 2px solid;
+}

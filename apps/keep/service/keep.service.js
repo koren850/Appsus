@@ -31,7 +31,6 @@ function query(filterBy = null) {
 
 function addNote(ctg, text, url, imgTitle, listLabel, todo, color) {
     if (todo && todo.length) var todos = todo.map(txt => ({ txt: txt, doneAt: null }))
-    console.log(todos)
     var note;
     if (ctg === 'NoteTxt') note = { id: utilsService.generateId(), type: 'NoteTxt', isPinned: false, info: { txt: text }, style: { backgroundColor: color } };
     if (ctg === 'NoteImg') note = { id: utilsService.generateId(), type: 'NoteImg', isPinned: false, info: { url: url, title: imgTitle }, style: { backgroundColor: color } };
