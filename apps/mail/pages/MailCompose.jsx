@@ -1,5 +1,5 @@
 import { mailService } from '../services/mail.service.js'
-import {utilsService} from '../../../utils.service.js/'
+import {utilsService} from '../../../services/utils.service.js'
 import {swalService} from '../../../services/swal.service.js'
 export class MailCompose extends React.Component {
 
@@ -13,6 +13,7 @@ export class MailCompose extends React.Component {
             isRead: false,
             isSent: true,
             isStar: false,
+            isDraft: false,
             isDeleted:false,
             sentAt: new Date(),
             from: mailService.getUser().mail,
@@ -44,6 +45,7 @@ export class MailCompose extends React.Component {
             <main></main>
             <footer>
             <button className={'mail-compose send'}>Send</button>
+            <button className={'mail-compose far edit'}></button>
             <button className={'mail-compose fas trash'} type="button" onClick={this.deleteMail}></button>
             </footer>
             </form>

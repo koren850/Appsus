@@ -2,6 +2,7 @@ import { mailService } from "../services/mail.service.js";
 import {MailCompose} from "../pages/MailCompose.jsx"
 import {MailDetails} from "../pages/MailDetails.jsx"
 import { MailList } from "../cmps/MailList.jsx";
+import { MailFilter } from "../cmps/MailFilter.jsx";
 
 const { Route, Switch } = ReactRouterDOM;
 export class MailApp extends React.Component {
@@ -18,8 +19,8 @@ export class MailApp extends React.Component {
 		}
 	}
 
-	loadMails = () => {
-		mailService.query().then((mails) => {
+	loadMails = (filterBy) => {
+		mailService.query(filterBy).then((mails) => {
 			this.setState((prevState) => ({ ...prevState, mails }));
 		});
 	};
@@ -30,9 +31,10 @@ export class MailApp extends React.Component {
 			<section>
                 <Switch>
                 <Route component={MailCompose} path='/mail/compose'/>
-                <Route component={MailDetails} path='/mail/:mailId'/>
+                <Route component={(ev)=> <MailDetails ev={ev} loadMails={this.loadMails}/>} path='/mail/:mailId'/>
 				<MailList mails={mails} />
                 </Switch>
+                <MailFilter loadMails={this.loadMails}/>
 			</section>
 		);
 	}
