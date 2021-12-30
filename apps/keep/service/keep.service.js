@@ -30,18 +30,17 @@ function query(filterBy = null, textFilter = null) {
     // if (!filterBy) return Promise.resolve({ notes })
     let filteredNotes = _getFilteredNotes(notes, filterBy)
     if (textFilter) filteredNotes = fillterText(filteredNotes, textFilter, filterBy)
-    console.log(notes)
     return Promise.resolve({ notes: filteredNotes, ctg: filterBy, textFilter })
 }
 
-function fillterText(filteredNotes, txt, ctg) {
+function fillterText(filteredNotes, txt) {
     // console.log(txt, ctg)
     console.log(filteredNotes)
     let textFilltered = filteredNotes.filter(note => {
-        if (note.type === 'NoteTxt' && note.info.txt.includes(txt)) return note
-        if (note.type === ('NoteImg') && (note.info.url.includes(txt) || note.info.title.includes(txt))) return note
-        if (note.type === ('NoteVideo') && (note.info.url.includes(txt))) return note
-        if (note.type === ('NoteTodos') && (note.info.label.includes(txt) || note.info.todos.some(todo => todo.txt.includes(txt)))) return note
+        if (note.type === 'NoteTxt' && (note.info.txt.toLowerCase().includes(txt.toLowerCase()))) return note
+        if (note.type === 'NoteImg' && (note.info.url.toLowerCase().includes(txt.toLowerCase()) || note.info.title.toLowerCase().includes(txt.toLowerCase()))) return note
+        if (note.type === 'NoteVideo' && (note.info.url.toLowerCase().includes(txt.toLowerCase().toLowerCase()))) return note
+        if (note.type === 'NoteTodos' && (note.info.label.toLowerCase().includes(txt.toLowerCase()) || note.info.todos.some(todo => todo.txt.toLowerCase().includes(txt.toLowerCase())))) return note
     })
     return textFilltered
 }

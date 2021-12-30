@@ -15,14 +15,14 @@ export class NoteFillter extends React.Component {
 		const value = target.type === "number" ? +target.value : target.value;
 		if (value === this.state.ctg) {
 			this.setState(
-				(prevState) => ({ ...prevState, ctg: null }),
+				(prevState) => ({ ...prevState, ctg: null, textFillter: "" }),
 				() => {
 					this.props.loadNotes();
 				}
 			);
 		} else {
 			this.setState(
-				(prevState) => ({ ...prevState, ctg: value }),
+				(prevState) => ({ ...prevState, ctg: value, textFillter: "" }),
 				() => {
 					this.props.loadNotes(this.state.ctg, null);
 				}
@@ -35,7 +35,7 @@ export class NoteFillter extends React.Component {
 		return (
 			<section>
 				<Link className='fas plus' to='/keep/add'></Link>
-				<input className='flex' placeholder='Enter Text' type='text' name='text' value={textFillter} onChange={this.handleChange} />
+				<input className='flex' placeholder='Enter Text' type='search' name='text' value={textFillter} onChange={this.handleChange} />
 				<button id={`${this.props.ctg === "NoteTxt" ? "active-ctg" : ""}`} value='NoteTxt' onClick={this.handleChange} className='fillter-btn fas text'></button>
 				<button id={`${this.props.ctg === "NoteImg" ? "active-ctg" : ""}`} value='NoteImg' onClick={this.handleChange} className='fillter-btn far image'></button>
 				<button id={`${this.props.ctg === "NoteVideo" ? "active-ctg" : ""}`} value='NoteVideo' onClick={this.handleChange} className='fillter-btn fab video'></button>
