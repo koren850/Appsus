@@ -15,7 +15,7 @@ font-size: 50px;
 
 .mail-list.gradient {
     z-index: -1;
-    background-image: linear-gradient(to bottom right, yellow,green,red,blue,black);     height:40px;
+    background-image: linear-gradient(to bottom right, yellow,green,red,green,yellow,blue,red,blue);     height:40px;
     width:40px;
     top: 30%;
     border-radius: 50%;

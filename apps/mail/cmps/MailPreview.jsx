@@ -1,13 +1,13 @@
 import { MailTxt } from "./MailTxt.jsx";
 import { mailService } from "../services/mail.service.js";
 import {swalService} from "../../../services/swal.service.js";
-// const { Link } = ReactRouterDOM;
 
 export class MailPreview extends React.Component {
   state = {
     mail: this.props.mail,
     isLongTxtShown: false,
     time:this.props.mail.sentAt,
+    showDeleted:false,
   }
   
   moveToDeleted = (currMail) => {
@@ -23,6 +23,10 @@ export class MailPreview extends React.Component {
 
   componentDidMount() {
     this.timeInterval = setInterval(this.setTime,5000);
+  }
+
+  componentDidUpdate() {
+    if (mailService.checkDeletedFilter() !== this.state.showDeleted) this.setState({showDeleted:true})
   }
 
   componentWillUnmount() {
@@ -94,7 +98,7 @@ export class MailPreview extends React.Component {
     const isFavoriteClass = currMail.isStar ? "on" : "";
     const sentTime = this.getSentTime(currMail.sentAt);
     return (
-    !currMail.isDeleted &&  <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container" to={`/mail/${currMail.id}`}>
+    !currMail.isDeleted && !this.state.showDeleted && <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container" to={`/mail/${currMail.id}`}>
         <button
           className={`fas star ${isFavoriteClass}`}
           onClick={() => this.toggleFavorite(currMail)}
