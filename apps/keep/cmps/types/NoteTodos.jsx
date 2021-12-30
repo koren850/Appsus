@@ -1,19 +1,16 @@
+import { NoteService } from "../../service/keep.service.js";
 export class NoteTodos extends React.Component {
 	state = { ...this.props.note.info.todos };
 	componentDidMount() {
-		console.log(this.props.note.info.todos);
+		console.log(this.props.note);
 		// this.props.loadNotes();
-	}
-
-	componentDidUpdate() {
-		console.log(this.state);
 	}
 
 	toggleTodo = (idx) => {
 		this.setState(
 			(prev) => ({ ...prev, [idx]: { txt: this.state[idx].txt, done: !this.state[idx].done } }),
 			() => {
-				console.log(this.state);
+				NoteService.toggleTodoDone(this.state[idx].done, idx, this.props.note.id);
 			}
 		);
 	};

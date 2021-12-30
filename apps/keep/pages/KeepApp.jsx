@@ -20,9 +20,9 @@ export class KeepApp extends React.Component {
 		if (this.state.add && this.props.location.pathname === "/keep") this.setState({ add: false }, this.loadNotes());
 	}
 
-	loadNotes = (filterBy = null) => {
+	loadNotes = (filterBy = null, txtFillter = null) => {
 		// const { filterBy } = this.state;
-		NoteService.query(filterBy).then((notes) => {
+		NoteService.query(filterBy, txtFillter).then((notes) => {
 			this.setState({ notes: notes.notes, add: false, ctg: notes.ctg });
 		});
 	};

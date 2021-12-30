@@ -5,7 +5,9 @@ export const NoteService = {
     addNote,
     deleteNote,
     duplicateNote,
-    updateNote
+    updateNote,
+    toggleTodoDone,
+    fillterText
 }
 
 const KEY = 'keepsDB';
@@ -17,7 +19,7 @@ const gNotes = [
     { id: utilsService.generateId(), type: 'NoteVideo', isPinned: true, info: { url: 'https://www.youtube.com/embed/tMDw57CWH7U' }, style: { backgroundColor: "#34569d" } }
 ];
 
-function query(filterBy = null) {
+function query(filterBy = null, textFilter = null) {
     let notes = _loadFromStorage()
     if (!notes || !notes.length) {
         notes = gNotes
@@ -25,14 +27,29 @@ function query(filterBy = null) {
         console.log('from json')
     }
     else console.log('from storage')
-    if (!filterBy) return Promise.resolve({ notes: notes })
-    const filteredNotes = _getFilteredNotes(notes, filterBy)
-    console.log(filteredNotes)
-    return Promise.resolve({ notes: filteredNotes, ctg: filterBy.ctg })
-
+    // if (!filterBy) return Promise.resolve({ notes })
+    let filteredNotes = _getFilteredNotes(notes, filterBy)
+    if (textFilter) filteredNotes = fillterText(filteredNotes, textFilter, filterBy)
+    console.log(notes)
+    return Promise.resolve({ notes: filteredNotes, ctg: filterBy, textFilter })
 }
+
+function fillterText(filteredNotes, txt, ctg) {
+    // console.log(txt, ctg)
+    console.log(filteredNotes)
+    let textFilltered = filteredNotes.filter(note => {
+        if (note.type === 'NoteTxt' && note.info.txt.includes(txt)) return note
+        if (note.type === ('NoteImg') && (note.info.url.includes(txt) || note.info.title.includes(txt))) return note
+        if (note.type === ('NoteVideo') && (note.info.url.includes(txt))) return note
+        if (note.type === ('NoteTodos') && (note.info.label.includes(txt) || note.info.todos.some(todo => todo.txt.includes(txt)))) return note
+    })
+    return textFilltered
+}
+
+
 function _getFilteredNotes(notes, filterBy) {
-    return notes.filter(note => note.type === filterBy.ctg)
+    if (!filterBy) return notes
+    return notes.filter(note => note.type === filterBy)
 }
 
 
@@ -92,6 +109,14 @@ function getNoteById(noteId) {
         return noteId === note.id
     })
     return ({ note, currIdx })
+}
+
+function toggleTodoDone(val, idx, id) {
+    const notes = _loadFromStorage()
+    var note = getNoteById(id)
+    console.log(notes[note.currIdx].info.todos[idx].done)
+    notes[note.currIdx].info.todos[idx].done = val
+    _saveToStorage(notes)
 }
 
 

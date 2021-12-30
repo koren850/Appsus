@@ -1,36 +1,41 @@
 import { NoteService } from "../service/keep.service.js";
 const { Link } = ReactRouterDOM;
 export class NoteFillter extends React.Component {
-	state = { filterBy: {}, currFillter: "text" };
+	state = { ctg: null, textFillter: "" };
 
 	componentDidMount() {}
 
 	handleChange = ({ target }) => {
-		const field = "ctg";
+		if (target.name === "text") {
+			this.setState({ textFillter: target.value }, () => {
+				this.props.loadNotes(this.state.ctg, this.state.textFillter);
+			});
+			return;
+		}
 		const value = target.type === "number" ? +target.value : target.value;
-		if (value === this.state.filterBy[field]) {
+		if (value === this.state.ctg) {
 			this.setState(
-				(prevState) => ({ filterBy: { ...prevState.filterBy, [field]: null } }),
+				(prevState) => ({ ...prevState, ctg: null }),
 				() => {
 					this.props.loadNotes();
 				}
 			);
 		} else {
 			this.setState(
-				(prevState) => ({ filterBy: { ...prevState.filterBy, [field]: value } }),
+				(prevState) => ({ ...prevState, ctg: value }),
 				() => {
-					this.props.loadNotes(this.state.filterBy);
+					this.props.loadNotes(this.state.ctg, null);
 				}
 			);
 		}
 	};
 
 	render() {
-		const { value } = this.state;
+		const { textFillter } = this.state;
 		return (
 			<section>
 				<Link className='fas plus' to='/keep/add'></Link>
-				<input className='flex' placeholder='Enter Text' type='text' name='text' value={value} onChange={this.handleChange} />
+				<input className='flex' placeholder='Enter Text' type='text' name='text' value={textFillter} onChange={this.handleChange} />
 				<button id={`${this.props.ctg === "NoteTxt" ? "active-ctg" : ""}`} value='NoteTxt' onClick={this.handleChange} className='fillter-btn fas text'></button>
 				<button id={`${this.props.ctg === "NoteImg" ? "active-ctg" : ""}`} value='NoteImg' onClick={this.handleChange} className='fillter-btn far image'></button>
 				<button id={`${this.props.ctg === "NoteVideo" ? "active-ctg" : ""}`} value='NoteVideo' onClick={this.handleChange} className='fillter-btn fab video'></button>
