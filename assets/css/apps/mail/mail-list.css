@@ -32,6 +32,7 @@ background-color: #fff;
 border-color: rgb(207, 186, 186);
 width:200px;
 border-radius: 25px;
+cursor: pointer;
 }
 
 .mail-list.compose-span {
@@ -39,6 +40,5 @@ border-radius: 25px;
     left: 15px;
     top: 12%;
     margin-block-end: 50%;
-    height:100%;
     align-items:center;
 }

@@ -1,8 +1,63 @@
 .mail-compose.container {
-background-color: rgb(243, 242, 240);
+background-color: rgb(245, 245, 245);
 height:80vh;
 width:90vw;
 margin:auto;
 margin-block-start: 5vh;
-border-radius:5%
+position: relative;
+border-radius:5%;
+border:1px solid black;
+overflow: hidden;
+}
+
+.mail-compose header {
+color: #fff;
+font-weight: bolder;
+background-color: rgb(39, 38, 38);
+}
+
+.mail-compose.line {
+    width:100%;
+    border-block-end: 1px solid black;
+    font-size: 20px;
+    display:flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.mail-compose footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 1%;
+}
+
+.mail-compose footer button {
+    font-size:30px;
+    background-color:inherit;
+    border:unset;
+    border: 5px;
+}
+
+.mail-compose.send {
+    color: #FFF;
+    border: 2px solid black;
+    background-color: rgb(39, 38, 38);
+    border-radius: 10%;
+}
+
+.mail-compose.line input {
+    background-color:inherit;
+    border: unset;
+    flex-grow: 1;
+}
+
+.mail-compose #subject {
+    border: unset;
+flex-grow: 1;
+background-color:inherit;
+height:700px;
+width:100%;
 }
