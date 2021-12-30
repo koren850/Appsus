@@ -1,6 +1,7 @@
+import { NoteService } from "../service/keep.service.js";
 const { Link } = ReactRouterDOM;
 export class NoteFillter extends React.Component {
-	state = { filterBy: {}, currFillter: "text" };
+	state = { filterBy: null, currFillter: "text" };
 
 	componentDidMount() {}
 
@@ -16,23 +17,20 @@ export class NoteFillter extends React.Component {
 		);
 	};
 
+	setFillter = (fillter) => {
+		NoteService.query(fillter);
+	};
+
 	render() {
 		const { value } = this.state;
 		return (
 			<section>
 				<Link className='fas plus' to='/keep/add'></Link>
-				<input
-					className='flex'
-					placeholder='Enter Text'
-					type='text'
-					name='text'
-					value={value}
-					onChange={this.handleChange}
-				/>
-				<button className='fas text'></button>
-				<button className='far image'></button>
-				<button className='fab video'></button>
-				<button className='fas list'></button>
+				<input className='flex' placeholder='Enter Text' type='text' name='text' value={value} onChange={this.handleChange} />
+				<button onClick={() => this.setFillter("NoteTxt")} className='fillter-btn fas text'></button>
+				<button onClick={() => this.setFillter("NoteImg")} className='fillter-btn far image'></button>
+				<button onClick={() => this.setFillter("NoteVideo")} className='fillter-btn fab video'></button>
+				<button onClick={() => this.setFillter("NoteTodos")} className='fillter-btn fas list'></button>
 			</section>
 		);
 	}

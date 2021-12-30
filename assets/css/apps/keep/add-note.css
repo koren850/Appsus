@@ -22,11 +22,9 @@
 	background-color: #fff;
 	align-items: center;
 	justify-content: space-evenly;
+	border-radius: 40px;
 }
 
-.add-note-form input {
-	height: fit-content;
-}
 .add-note-ctg {
 	cursor: pointer;
 	font-size: 3rem;

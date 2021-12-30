@@ -9,7 +9,8 @@
 }
 
 #delete-note,
-#duplicate-note {
+#duplicate-note,
+#edit-note {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -22,7 +23,14 @@
 #duplicate-note {
 	right: 2.7rem;
 }
+#edit-note {
+	right: 5.5rem;
+}
 
 .duplicate::before {
 	content: "\f24d";
+}
+
+.edit::before {
+	content: "\f044";
 }
