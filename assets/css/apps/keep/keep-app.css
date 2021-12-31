@@ -8,9 +8,18 @@
 	font-weight: bold;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.267);
 	gap: 20px;
+	background-color: var(--back);
 }
 .no-notes {
 	font-size: 3rem;
 	text-align: center;
 	margin: auto;
+}
+
+.note-list {
+	margin: auto;
+	width: 90%;
+	column-count: 5;
+	column-width: 300px;
+	background-color: var(--back);
 }
