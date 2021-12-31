@@ -18,7 +18,7 @@ export class MailTxt extends React.Component {
     else if (!this.state.isLongTxtShown) {
       this.setState({ textShown: fullText.slice(0, 40) + "..." });
     } else {
-      this.setState({ textShown: fullText.slice(0, 100) + "..." });
+      this.setState({ textShown: fullText.slice(0, 40) + "..." });
     }
   };
 

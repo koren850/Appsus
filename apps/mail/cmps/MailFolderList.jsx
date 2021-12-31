@@ -42,15 +42,15 @@ export class MailFolderList extends React.Component {
     const { Link } = ReactRouterDOM;
     return (
         <React.Fragment>
-        <input type="search" onChange={this.handleChange} />
+        <input placeholder="ENTER TEXT TO SEARCH" id="search" type="search" onChange={this.handleChange} />
         <Link to={"/mail/compose"} className={'link'}>
-          <button className={'mail-folder btn flex between align-center'}>
+          <button className={'mail-folder compose btn flex between align-center'}>
             <span className={"fas pluss mfl flex center"}></span>
             <span className={"mfl"}>Compose</span>
           </button>
         </Link>
         <aside className={"flex flex-column sidebar-layout"}>
-        <button onClick={() => this.handleChange(["isSent"])} className={'mail-folder btn flex between align-center'}><span className={'far inbox-btn mfl flex center'}></span><span className={'mfl'}>Inbox</span></button>
+        <button onClick={() => this.handleChange(["isSent"])} className={'mail-folder btn flex between align-center active'}><span className={'far inbox-btn mfl flex center'}></span><span className={'mfl'}>Inbox</span></button>
         <button onClick={() => this.handleChange("isStar")} className={'mail-folder btn flex between align-center'}><span className={'far favorite-btn mfl flex center'}></span><span className={'mfl'}>Favorite</span></button>
         <button onClick={() => this.handleChange(["isRead"])}className={'mail-folder btn flex between align-center'}><span className={'far unread-btn mfl flex center'}></span><span  className={'mfl'}>UnRead</span></button>
         <button onClick={() => this.handleChange("isRead")}className={'mail-folder btn flex between align-center'}><span className={'fas read-btn mfl flex center'}></span><span  className={'mfl'}>Read</span></button>

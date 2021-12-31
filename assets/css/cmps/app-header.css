@@ -3,6 +3,7 @@
 	align-items: center;
 	background-color: var(--head);
 	height: 10vh;
+    margin-block-end:2vh;
 }
 
 .app-header .main-nav a {

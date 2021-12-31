@@ -1,19 +1,24 @@
 meter::-webkit-meter-bar {
-  background: #8d8d8a;
-  border: 2px solid rgb(43, 40, 40);
-  height:30px;
-  width: 150px;
+  background: var(--dark);
+  border: 1px solid rgb(43, 40, 40);
+  height: 30px;
+  width: 7.5vw;
+  position: fixed;
+  top: 58%;
+  left: 3.5vw;
+  margin-block-start: 50px;
 }
 
 .meter-span {
-  position: relative;
-  color: rgb(255, 255, 255);
-  font-weight: 900;
-  left: -1.5%;
+    position: fixed;
+    color: var(--main);
+    font-weight: 900;
+    left: 6vw;
+    top: 58.4%;
+    margin-block-start: 50px;
 }
 
 meter::-webkit-meter-optimum-value {
-  box-shadow: 0 5px 5px -5px #999 inset;
   background-image: linear-gradient(
     40deg,
     #1c8bf1 5%,
@@ -27,7 +32,6 @@ meter::-webkit-meter-optimum-value {
     #03182e 100%
   );
 }
-
 
 .read-btn::before {
   content: "\f658";
@@ -67,7 +71,10 @@ meter::-webkit-meter-optimum-value {
 .mfl {
   width: 50%;
   display: flex;
+  background-color:none;
 }
+
+
 
 .pluss {
   background: -webkit-linear-gradient(
@@ -78,41 +85,72 @@ meter::-webkit-meter-optimum-value {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+    font-size: 40px;
+}
+
+
+.mail-folder.btn:first-child {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.mail-folder.btn:last-child {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.mail-folder.btn:hover {
+  background: var(--dark);
+  color: whitesmoke;
+}
+
+.mail-folder.btn:hover span {
+    color: var(--main);
 }
 
 .mail-folder.btn {
-  background-color: #fff;
+  background-color:white;
   border: unset;
   padding: 0;
   margin: 0;
   border-color: rgb(207, 186, 186);
   width: 12vw;
   height: 50px;
-    font-family: monst, serif;
-    color: rgb(12, 11, 11);
-    font-weight: bold;
+  font-family: monst, serif;
+  color: rgb(12, 11, 11);
+  font-weight: bold;
   cursor: pointer;
-  margin-inline-start: 10px;
+  margin-inline-start: 1.4vw;
 }
 
-.mail-folder.btn:first-child {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
-
-.mail-folder.btn:last-child {
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-
-.mail-folder.btn:hover {
-    background:whitesmoke
+.mail-folder.btn.active {
+  border-block-start:solid 2px var(--dark);
+  border-block-end:solid 2px var(--dark);
 }
 
 .link {
-    text-decoration: unset;
+  text-decoration: none;
+  max-width:100px;
 }
 
 .sidebar-layout {
-    position:fixed;
+  position: fixed;
+  top:20%;
+}
+
+#search {
+position: absolute;
+left: 50%;
+transform:translateX(-50%);
+height:50px;
+width:400px;
+text-align: center;
+border-color:var(--dark);;
+border-radius: 25px;
+}
+
+.compose {
+    position: fixed;
+    width: 100%;
+    display: inline-flex;
 }

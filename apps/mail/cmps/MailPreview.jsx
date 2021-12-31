@@ -98,19 +98,18 @@ export class MailPreview extends React.Component {
     const isFavoriteClass = currMail.isStar ? "on" : "";
     const sentTime = this.getSentTime(currMail.sentAt);
     return (
-    <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container layout" to={`/mail/${currMail.id}`}>
+    <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview each-mail container layout" to={`/mail/${currMail.id}`}>
         <button
           className={`fas star ${isFavoriteClass}`}
           onClick={() => this.toggleFavorite(currMail)}
         ></button>
-        <p className={isReadClass}>{currMail.from}</p>
-        <div
-          className="mail-preview"
+        <p className={isReadClass+' mail-preview-name'}>{currMail.from}</p>
+        <div className="mail-preview-txt-container"
           >
           <MailTxt mail={currMail} isLongTxtShown={this.state.isLongTxtShown} 
             toggleIsRead={this.toggleIsRead}
             moveToDeleted={this.moveToDeleted}
             />
         </div>
-            <p>{sentTime}</p>
+            <p className={'mail-preview-time flex align-center'}>{sentTime}</p>
       </div>)}}
