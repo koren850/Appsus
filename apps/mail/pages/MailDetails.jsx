@@ -19,16 +19,18 @@ export class MailDetails extends React.Component {
     const { Link } = ReactRouterDOM;
         const {mailId} = this.props.ev.match.params;
         const currMail = mailService.getMailById(mailId);
-        return (<section className={'mail-compose container'}>
-        <header className={'mail-compose line'}>Reading Message</header>
-        <article className={'mail-compose line'}><p>Subject : {currMail.subject}</p></article>
-        <article className={'mail-compose line'}><p>From : {currMail.from}, to <span>&lt;{currMail.to}&gt;</span></p></article>
-        <article>{currMail.body}</article>
-        <main></main>
-        <footer>
+        const sentAt = mailService.getSentTime(currMail.sentAt);
+        return (<section className={'mail-compose container layout'}>
+            <div className={'layout-container flex-column'}>
+        <header className={'mail-compose line layout'}>Reading Message</header>
+        <article className={'mail-compose line layout'}><p>Subject : {currMail.subject}</p></article>
+        <article className={'mail-compose line layout'}><p>From : <span>{currMail.from}</span>, to <span>&lt;{currMail.to}&gt;</span><span className={'mail-details-time'}>{sentAt}</span></p></article>
+        <article className={'layout main-txt'}>{currMail.body}</article>
+        <footer className={'mail-details btn'}>
         <button className={'mail-compose fas trash'} type="button" onClick={()=>this.moveToDeleted(currMail)}></button>
-        <Link className={'mail-compose fas expand'} to="/mail"></Link>
+        <Link className={'mail-compose fas compress'} to="/mail"></Link>
         </footer>
+            </div>
     </section>)
     }
 }

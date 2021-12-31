@@ -26,7 +26,7 @@ export class BookApp extends React.Component {
 	render() {
 		const { books } = this.state;
 		return (
-			<section>
+			<section className={'book-container'}>
 				<header className='book-header'>
 					<AddBook loadBooks={this.loadBooks} />
 				</header>

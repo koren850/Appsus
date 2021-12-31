@@ -101,11 +101,17 @@ meter::-webkit-meter-optimum-value {
 
 .mail-folder.btn:hover {
   background: var(--dark);
-  color: whitesmoke;
 }
 
 .mail-folder.btn:hover span {
     color: var(--main);
+}
+
+.mail-folder.btn:hover .pluss  {
+    color: rgb(238, 234, 234);
+    background:unset;
+ -webkit-background-clip: unset; 
+    -webkit-text-fill-color: unset;
 }
 
 .mail-folder.btn {
@@ -154,3 +160,4 @@ border-radius: 25px;
     width: 100%;
     display: inline-flex;
 }
+

@@ -55,7 +55,12 @@
 }
 
 .bold {
-  font-weight: bolder;
+  font-weight: 900;
+}
+
+.light {
+    font-weight: 400;
+
 }
 
 .mail-txt.container {
@@ -63,12 +68,15 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  font-size: 0.8vw;
 }
 
 .mail-preview-time {
   grid-column: 12/13;
-  font-size: 0.74vw;
+  font-size: 0.6vw;
   width: 100%;
+  font-weight: 400;
+  padding-inline-start: 15px;
 }
 
 .mail-preview-name {

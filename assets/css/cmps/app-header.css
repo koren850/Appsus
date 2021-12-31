@@ -1,7 +1,7 @@
 .app-header {
 	display: flex;
 	align-items: center;
-	background-color: var(--head);
+	background-color: var(--dark);
 	height: 10vh;
     margin-block-end:2vh;
 }
@@ -22,9 +22,13 @@
 }
 
 .app-header .main-nav a.active {
-	color: var(--dark);
+	color: var(--back);
 	font-weight: 800;
 	text-decoration: underline;
+}
+
+.app-header .main-nav a:hover {
+    color: whitesmoke;
 }
 
 .app-header .main-nav a.my-active {
