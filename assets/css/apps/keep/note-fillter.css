@@ -28,4 +28,11 @@
 	border-radius: 15px;
 	border: none;
 	text-align: center;
+	color: var(--dark);
+	font-weight: bold;
+}
+
+.text-fillter::placeholder {
+	color: var(--dark);
+	font-weight: bold;
 }

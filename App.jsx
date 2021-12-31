@@ -24,8 +24,10 @@ export function App() {
 						<Route component={Home} path='/' />
 					</Switch>
 				</main>
-				<footer>
-					Sprint 3 <span>Appsus</span> by
+				<footer className='main-footer'>
+					<h1>
+						Sprint 3: <span className='logo'>Appsus</span> by Michael Aharoni & Koren Aharon ©
+					</h1>
 				</footer>
 			</section>
 		</Router>

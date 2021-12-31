@@ -25,13 +25,12 @@ export class BookApp extends React.Component {
 
 	render() {
 		const { books } = this.state;
-        console.log('fafa',this.props.match)
 		return (
 			<section>
 				<header className='book-header'>
 					<AddBook loadBooks={this.loadBooks} />
 				</header>
-				  {this.props.match.path === '/book' && <BookFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter} />}
+				{this.props.match.path === "/book" && <BookFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter} />}
 				<Switch>
 					<Route component={BookDetails} path='/book/:bookId' />
 					<BookList books={books} />

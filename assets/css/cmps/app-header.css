@@ -5,17 +5,31 @@
 	height: 10vh;
 }
 
+.logo {
+	font-family: "appsus";
+	font-weight: 900;
+	font-size: 3em;
+	margin: 0;
+}
+
 .app-header .main-nav a {
 	text-decoration: none;
 	color: inherit;
+	font-size: 1.7em;
+	font-family: "monst";
+	font-weight: 500;
 }
 
 .app-header .main-nav a.active {
 	color: var(--dark);
+	font-weight: 800;
+	text-decoration: underline;
 }
 
 .app-header .main-nav a.my-active {
-	color: #ce0000;
+	color: #8a0d0d;
+	font-weight: 900;
+	text-decoration: underline;
 }
 
 .app-header .main-nav > *:not(:last-child) {
