@@ -16,11 +16,12 @@ export class NoteTodos extends React.Component {
 	};
 
 	render() {
+		const isHover = this.props.isHover;
 		return (
 			<div
 				onMouseEnter={() => this.props.onMousetoggle(true)}
 				onMouseLeave={() => this.props.onMousetoggle(false)}
-				style={{ backgroundColor: this.props.color }}
+				style={!isHover ? { backgroundColor: this.props.color } : { backgroundColor: this.props.color, boxShadow: `0px 0px 50px 5px ${this.props.color}` }}
 				className={`note-preview note-todo`}>
 				<div> {this.props.note.info.label}</div>
 				<ul className={"flex"}>
