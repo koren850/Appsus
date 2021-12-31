@@ -24,6 +24,9 @@ export function App() {
 						<Route component={Home} path='/' />
 					</Switch>
 				</main>
+				<footer>
+					Sprint 3 <span>Appsus</span> by
+				</footer>
 			</section>
 		</Router>
 	);
