@@ -14,13 +14,15 @@
 
 .fab {
 	font-family: "fab";
+	color: var(--dark);
 }
 
 .far {
 	font-family: "far";
+	color: var(--dark);
 }
 
 .fas {
 	font-family: "fas";
+	color: var(--dark);
 }
-

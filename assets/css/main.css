@@ -33,10 +33,10 @@
 @import "../css/apps/mail/mail-folder-list.css";
 @import "../css/apps/mail/mail-txt.css";
 
-
-.books-filter {
-    display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 5vh;
+/* color plate */
+#root {
+	--head: #f0e5cf;
+	--main: #f7f6f2;
+	--back: #c8c6c6;
+	--dark: #4b6587;
 }

@@ -1,7 +1,7 @@
 .app-header {
 	display: flex;
 	align-items: center;
-	background-color: #fff;
+	background-color: var(--head);
 	height: 10vh;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .app-header .main-nav a.active {
-	color: #316a81;
+	color: var(--dark);
 }
 
 .app-header .main-nav a.my-active {

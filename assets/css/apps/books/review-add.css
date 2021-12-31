@@ -28,3 +28,11 @@
 	text-align: center;
 	width: 100%;
 }
+
+.books-filter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+	background-color: var(--back);
+}

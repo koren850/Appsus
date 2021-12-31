@@ -1,7 +1,7 @@
 .book-preview {
 	margin: 0;
 	display: grid;
-	background-color: rgb(195, 192, 138);
+	background-color: var(--dark);
 	cursor: pointer;
 }
 
@@ -17,6 +17,5 @@
 }
 .clean-link {
 	text-decoration: none;
-	color: inherit;
-    color:#f02121
+	color: var(--main);
 }

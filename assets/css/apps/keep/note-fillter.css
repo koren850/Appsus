@@ -23,8 +23,9 @@
 }
 
 .text-fillter {
-	height: 2rem;
+	height: 3rem;
 	display: flex;
-	background-color: inherit;
 	border-radius: 15px;
+	border: none;
+	text-align: center;
 }
