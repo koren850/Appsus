@@ -26,10 +26,8 @@ export class AddNote extends React.Component {
 		const { todo, ctg, id } = this.state;
 		if (ctg === "NoteTxt") {
 			action === "add" ? NoteService.addNote(ctg, text, null, null, null, null, color) : NoteService.updateNote(id, ctg, text, null, null, null, null, color);
-		} else if (ctg === "NoteImg")
+		} else if (ctg === "NoteImg" || ctg === "NoteVideo")
 			action === "add" ? NoteService.addNote(ctg, null, url, imgTitle, null, null, color) : NoteService.updateNote(id, ctg, null, url, imgTitle, null, null, color);
-		else if (ctg === "NoteVideo")
-			action === "add" ? NoteService.addNote(ctg, null, url, null, null, null, color) : NoteService.updateNote(id, ctg, null, url, null, null, null, color);
 		else if (ctg === "NoteTodos")
 			action === "add" ? NoteService.addNote(ctg, null, null, null, listLabel, todo, color) : NoteService.updateNote(id, ctg, null, null, null, listLabel, todo, color);
 		this.props.loadNotes();
@@ -78,7 +76,9 @@ export class AddNote extends React.Component {
 						)}
 					</div>
 					{ctg === "NoteTxt" && <input onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='enter text here' type='text' />}
-					{ctg === "NoteImg" && <input onChange={(ev) => this.handleChange(ev, "imgTitle")} value={info.imgTitle} placeholder='enter img title here' type='text' />}
+					{(ctg === "NoteImg" || ctg === "NoteVideo") && (
+						<input onChange={(ev) => this.handleChange(ev, "imgTitle")} value={info.imgTitle} placeholder='enter img title here' type='text' />
+					)}
 					{(ctg === "NoteImg" || ctg === "NoteVideo") && <input onChange={(ev) => this.handleChange(ev, "url")} value={info.url} placeholder='enter url here' type='text' />}
 					{ctg === "NoteTodos" && (
 						<div>
