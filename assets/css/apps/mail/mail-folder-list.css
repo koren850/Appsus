@@ -19,4 +19,8 @@ meter::-webkit-meter-optimum-value { /* bar color */
     );
   }
 
+    .sidebar-layout meter {
+      height: 50px;
+      width: 150px;
+  }
   

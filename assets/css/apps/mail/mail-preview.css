@@ -1,5 +1,6 @@
-
-.fas, .fab, .far {
+.fas,
+.fab,
+.far {
   background-color: inherit;
   border: unset;
   display: inline-block;
@@ -8,40 +9,39 @@
 }
 
 .star.on {
-    color: rgb(255, 238, 0);
+  color: rgb(255, 238, 0);
 }
 .star::before {
   content: "\f005";
 }
 
 .letter-read::before {
-    content: "\f2b6";
+  content: "\f2b6";
 }
 .letter-unread::before {
-    content: "\f0e0";
+  content: "\f0e0";
 }
 .trash::before {
-    content: "\f2ed";
+  content: "\f2ed";
 }
 
 .mail-preview {
-display:flex;
-align-items:center;
+  display: flex;
+  align-items: center;
 }
 
 .mail-preview.container {
-    padding-inline-start: 30px;
-    padding-inline-end: 30px;
+  padding-inline-start: 30px;
+  padding-inline-end: 30px;
   display: flex;
   justify-content: space-between;
-  margin-inline-end: 10px;
-    border-inline-start: 1px solid black;
-    border-inline-end: 1px solid black;
-    border-block-end: 1px solid black;
+  border-inline-start: 1px solid black;
+  border-inline-end: 1px solid black;
+  border-block-end: 1px solid black;
 }
 
 .mail-preview.container:first-of-type {
-    border-block-start: 1px solid black;
+  border-block-start: 1px solid black;
 }
 
 .mail-preview.title {
@@ -50,13 +50,13 @@ align-items:center;
 }
 
 .bold {
-font-weight: bolder;
+  font-weight: bolder;
 }
 
 .mail-txt.container {
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    width: 60vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 60vw;
 }
