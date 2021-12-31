@@ -1,6 +1,16 @@
 .keep-header {
+	height: 10vh;
+	display: flex;
 	text-align: center;
+	justify-content: center;
+	align-items: center;
 	font-size: 2rem;
-	margin: 1rem 0;
 	font-weight: bold;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+	gap: 20px;
+}
+.no-notes {
+	font-size: 3rem;
+	text-align: center;
+	margin: auto;
 }

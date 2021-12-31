@@ -14,7 +14,17 @@
 	content: "\f0fe";
 	font-size: 3rem;
 }
+.plus {
+	text-decoration: none;
+}
 
 .fillter-btn {
 	font-size: 3rem;
+}
+
+.text-fillter {
+	height: 2rem;
+	display: flex;
+	background-color: inherit;
+	border-radius: 15px;
 }

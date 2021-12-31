@@ -1,7 +1,7 @@
 export class NoteVideo extends React.Component {
 	state = {};
 	componentDidMount() {
-		console.log(this.props.note.info.url);
+		console.log(this.props.note.type);
 	}
 
 	emedUrl = (url) => {
@@ -19,7 +19,7 @@ export class NoteVideo extends React.Component {
 				<iframe
 					width='300'
 					height='400'
-					style={{ border: `20px solid ${this.props.note.style.backgroundColor}`, borderTop: 0 }}
+					style={{ border: `20px solid ${this.props.note.style.backgroundColor}`, borderTop: 0, borderWidth: "0px 20px 2.5rem" }}
 					frameBorder='3'
 					allow='autoplay; enctypted-media'
 					allowFullScreen

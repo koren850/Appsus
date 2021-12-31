@@ -26,9 +26,6 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 		console.log(note);
 		click(ev, note);
 		ev.stopPropagation();
-		// NoteService.duplicateNote(note.id);
-		// loadNotes();
-		// swalService.userModal(undefined, "Note updated ");
 	}
 
 	function getCmp(note) {

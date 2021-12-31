@@ -6,6 +6,7 @@ export class AddNote extends React.Component {
 	state = { update: false, ctg: this.props.ctg, info: { text: "", imgTitle: "", url: "", listLabel: "", color: "#ffffff" }, todo: [] };
 
 	componentDidMount() {
+		// console.log(this.state.update);
 		var note = this.props.note;
 		console.log(note);
 		if (note)
@@ -61,6 +62,7 @@ export class AddNote extends React.Component {
 
 	render() {
 		const { ctg, info, todo, update } = this.state;
+		console.log(update);
 		return (
 			<div>
 				<Link className='add-note' to='/keep' />
@@ -75,23 +77,32 @@ export class AddNote extends React.Component {
 							<button type='button' onClick={() => this.setCtg("NoteTodos")} className='fas list add-note-ctg' id={`${ctg === "NoteTodos" ? "active-ctg" : ""}`}></button>
 						)}
 					</div>
-					{ctg === "NoteTxt" && <input onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='enter text here' type='text' />}
+					{ctg === "NoteTxt" && <input className='note-text-add' onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='enter text here' type='text' />}
 					{(ctg === "NoteImg" || ctg === "NoteVideo") && (
 						<input onChange={(ev) => this.handleChange(ev, "imgTitle")} value={info.imgTitle} placeholder='enter img title here' type='text' />
 					)}
 					{(ctg === "NoteImg" || ctg === "NoteVideo") && <input onChange={(ev) => this.handleChange(ev, "url")} value={info.url} placeholder='enter url here' type='text' />}
 					{ctg === "NoteTodos" && (
 						<div>
-							<label htmlFor={"label"}>Enter list label: </label>
-							<input onChange={(ev) => this.handleChange(ev, "listLabel")} value={info.listLabel} placeholder='enter list label here' type='text' id='label' />
+							<label htmlFor={"label"}>{!update ? "Enter list label: " : "List label: "} </label>
+							<input onChange={(ev) => this.handleChange(ev, "listLabel")} value={info.listLabel} placeholder={"enter list label here"} type='text' id='label' />
 						</div>
 					)}
 					{ctg === "NoteTodos" &&
-						todo.map((t, idx) => {
+						todo.map((nul, idx) => {
 							return (
 								<div key={`todo-container${idx}`}>
-									<label htmlFor={`todo-${idx}`}>Enter todo {idx + 1}: </label>
-									<input key={`todo${idx}`} onChange={(ev) => this.handleChange(ev, "todo", idx)} value={todo[idx]} placeholder='enter todo here' type='text' id={`todo-${idx}`} />
+									<label htmlFor={`todo-${idx}`}>
+										{!update ? "Enter todo: " : "Todo: "} {idx + 1}:{" "}
+									</label>
+									<input
+										key={`todo${idx}`}
+										onChange={(ev) => this.handleChange(ev, "todo", idx)}
+										value={todo[idx]}
+										placeholder={"enter todo here"}
+										type='text'
+										id={`todo-${idx}`}
+									/>
 								</div>
 							);
 						})}

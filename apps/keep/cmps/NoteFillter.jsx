@@ -5,6 +5,10 @@ export class NoteFillter extends React.Component {
 
 	componentDidMount() {}
 
+	componentDidUpdate() {
+		console.log("ctg:", this.state.ctg, "text:", this.state.textFillter);
+	}
+
 	handleChange = ({ target }) => {
 		if (target.name === "text") {
 			this.setState({ textFillter: target.value }, () => {
@@ -33,9 +37,9 @@ export class NoteFillter extends React.Component {
 	render() {
 		const { textFillter } = this.state;
 		return (
-			<section>
+			<section className='keep-header'>
 				<Link className='fas plus' to='/keep/add'></Link>
-				<input className='flex' placeholder='Enter Text' type='search' name='text' value={textFillter} onChange={this.handleChange} />
+				<input className='text-fillter flex' placeholder='Fillter by Text' type='search' name='text' value={textFillter} onChange={this.handleChange} />
 				<button id={`${this.props.ctg === "NoteTxt" ? "active-ctg" : ""}`} value='NoteTxt' onClick={this.handleChange} className='fillter-btn fas text'></button>
 				<button id={`${this.props.ctg === "NoteImg" ? "active-ctg" : ""}`} value='NoteImg' onClick={this.handleChange} className='fillter-btn far image'></button>
 				<button id={`${this.props.ctg === "NoteVideo" ? "active-ctg" : ""}`} value='NoteVideo' onClick={this.handleChange} className='fillter-btn fab video'></button>

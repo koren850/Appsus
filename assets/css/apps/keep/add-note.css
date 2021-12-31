@@ -34,3 +34,7 @@
 	background-color: rgb(245, 164, 164);
 	border: 2px solid;
 }
+
+.note-text-add {
+	height: 2rem;
+}

@@ -3,13 +3,15 @@
 	position: relative;
 	width: 300px;
 	height: max-content;
-	min-height: 250px;
+	min-height: 150px;
 	padding: 20px;
 	margin: 20px;
 	border-radius: 15px;
 }
 
 .note-list {
+	margin: auto;
+	width: 90%;
 	column-count: 5;
 	column-width: 300px;
 }

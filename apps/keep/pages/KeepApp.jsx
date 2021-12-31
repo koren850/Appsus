@@ -40,7 +40,6 @@ export class KeepApp extends React.Component {
 					<Route component={(ev) => <AddNote loadNotes={this.loadNotes} ev={ev} ctg={ctg} />} exact path='/keep/add' />
 					<Route component={(ev) => <AddNote note={this.state.currNoteUpdate} loadNotes={this.loadNotes} ev={ev} />} exact path='/keep/update' />
 				</Switch>
-				<header className='keep-header'>Keep app</header>
 				<NoteFillter loadNotes={this.loadNotes} ctg={ctg} />
 				<NoteList onClickNote={this.onClickNote} loadNotes={this.loadNotes} notes={notes} />
 			</section>
