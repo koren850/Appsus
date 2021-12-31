@@ -39,29 +39,29 @@ export class MailFolderList extends React.Component {
   }
 
   render() {
-const { Link } = ReactRouterDOM;
+    const { Link } = ReactRouterDOM;
     return (
-          <aside className={'flex flex-column sidebar-layout'}>
-        <Link to={"/mail/compose"}>
-          <button className={"mail-list btn"}>
-            <span className={"mail-list compose-span"}>Compose</span>
-            <span className={"mail-list fas fa-plus"}>
-              <span className={"mail-list gradient"}></span>
-            </span>
+        <React.Fragment>
+        <input type="search" onChange={this.handleChange} />
+        <Link to={"/mail/compose"} className={'link'}>
+          <button className={'mail-folder btn flex between align-center'}>
+            <span className={"fas pluss mfl flex center"}></span>
+            <span className={"mfl"}>Compose</span>
           </button>
         </Link>
-        <button onClick={() => this.handleChange("")}>All</button>
-        <button onClick={() => this.handleChange("isStar")}>Favorite</button>
-        <button onClick={() => this.handleChange("isSent")}>Sent</button>
-        <button onClick={() => this.handleChange("isDeleted")}>Deleted</button>
-        <button onClick={() => this.handleChange("isRead")}>Read</button>
-        <button onClick={() => this.handleChange(["isRead"])}>Un Read</button>
-        <button onClick={() => this.handleChange(["isSent"])}>InComming</button>
-        <button onClick={() => this.handleChange("isDraft")}>Draft</button>
-        <input type="search" onChange={this.handleChange} />
-        <meter value={this.meterPrecents} min="0" max="100"></meter>
-        <span>{this.meterPrecents}%</span>
-          </aside>
+        <aside className={"flex flex-column sidebar-layout"}>
+        <button onClick={() => this.handleChange(["isSent"])} className={'mail-folder btn flex between align-center'}><span className={'far inbox-btn mfl flex center'}></span><span className={'mfl'}>Inbox</span></button>
+        <button onClick={() => this.handleChange("isStar")} className={'mail-folder btn flex between align-center'}><span className={'far favorite-btn mfl flex center'}></span><span className={'mfl'}>Favorite</span></button>
+        <button onClick={() => this.handleChange(["isRead"])}className={'mail-folder btn flex between align-center'}><span className={'far unread-btn mfl flex center'}></span><span  className={'mfl'}>UnRead</span></button>
+        <button onClick={() => this.handleChange("isRead")}className={'mail-folder btn flex between align-center'}><span className={'fas read-btn mfl flex center'}></span><span  className={'mfl'}>Read</span></button>
+        <button onClick={() => this.handleChange("isSent")}className={'mail-folder btn flex between align-center'}><span className={'far sent-btn mfl flex center'}></span><span  className={'mfl'}>Sent</span></button>
+        <button onClick={() => this.handleChange("")}className={'mail-folder btn flex between align-center'}><span className={'fas all-btn mfl flex center'}></span><span  className={'mfl'}>All</span></button>
+        <button onClick={() => this.handleChange("isDraft")}className={'mail-folder btn flex between align-center'}><span className={'far draft-btn mfl flex center'}></span><span  className={'mfl'}>Draft</span></button>
+        <button onClick={() => this.handleChange("isDeleted")}className={'mail-folder btn flex between align-center'}><span className={'far deleted-btn mfl flex center'}></span><span  className={'mfl'}>Deleted</span></button>
+      </aside>
+      <meter value={this.meterPrecents} min="0" max="100"></meter>
+      <span className={'meter-span'}>{this.meterPrecents}%</span>
+        </React.Fragment>
     );
   }
 }
