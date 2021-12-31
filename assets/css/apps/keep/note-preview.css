@@ -6,10 +6,12 @@
 	min-height: 250px;
 	padding: 20px;
 	margin: 20px;
+	border-radius: 15px;
 }
 
 .note-list {
 	column-count: 5;
+	column-width: 300px;
 }
 
 #delete-note,
