@@ -5,3 +5,7 @@
 .compress::before {
     content: "\f066";
 }
+
+.hover-btns {
+    padding-inline-end: 2vw;
+}

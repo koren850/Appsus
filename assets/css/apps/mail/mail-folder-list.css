@@ -5,7 +5,7 @@ meter::-webkit-meter-bar {
   width: 7.5vw;
   position: fixed;
   top: 58%;
-  left: 3.5vw;
+  left: 3.6vw;
   margin-block-start: 50px;
 }
 
@@ -13,7 +13,7 @@ meter::-webkit-meter-bar {
     position: fixed;
     color: var(--main);
     font-weight: 900;
-    left: 6vw;
+    left: 6.5vw;
     top: 58.4%;
     margin-block-start: 50px;
 }
@@ -89,12 +89,12 @@ meter::-webkit-meter-optimum-value {
 }
 
 
-.mail-folder.btn:first-child {
+.compose, .sidebar-layout .first {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
 
-.mail-folder.btn:last-child {
+.compose, .sidebar-layout .last {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
@@ -128,6 +128,9 @@ meter::-webkit-meter-optimum-value {
   cursor: pointer;
   margin-inline-start: 1.4vw;
 }
+.sidebar-layout >* {
+    text-decoration: unset;
+}
 
 .mail-folder.btn.active {
   border-block-start:solid 2px var(--dark);
@@ -159,5 +162,10 @@ border-radius: 25px;
     position: fixed;
     width: 100%;
     display: inline-flex;
+    font-size: 1vw;
+    font-weight: bolder;
 }
 
+.compose > * {
+    font-weight: 900;
+}

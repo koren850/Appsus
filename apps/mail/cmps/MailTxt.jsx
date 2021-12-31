@@ -32,7 +32,7 @@ export class MailTxt extends React.Component {
 {this.state.isLongTxtShown && <p className={`mail-preview title ${isReadClass}`}>{currMail.to}</p>}        {!textShown && <Loader />}
 {this.state.isLongTxtShown && <p className={`mail-preview title ${isReadClass}`}>{currMail.subject}</p>}        {!textShown && <Loader />}
         {textShown && <p className={`mail-preview mail-txt ${isReadClass}`}>{textShown}</p>}
-    <div>
+    <div className={'hover-btns'}>
         {this.state.isLongTxtShown && <button
     className={`far ${letterClass}`}
     onClick={() => this.props.toggleIsRead(currMail)}

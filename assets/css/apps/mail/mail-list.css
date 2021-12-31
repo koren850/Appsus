@@ -2,3 +2,11 @@
 .mail-list-container {
     margin-block-start: 55px;
 }
+
+.nothing-to-show {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    font-weight: 200;
+}

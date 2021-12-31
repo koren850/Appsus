@@ -18,7 +18,7 @@
     .mail-compose.line {
         width:100%;
         border-block-end: 1px solid var(--dark);
-        font-size: 1.4vw;
+        font-size: 1vw;
         position: relative;
         width: 100%;
     }
