@@ -1,15 +1,30 @@
 @font-face {
 	font-family: fab;
-	src: url("../parts/fa/fa-brands-400.ttf");
+	src: url("../../fonts/fa-brands-400.ttf");
 }
 @font-face {
 	font-family: fas;
-	src: url("../parts/fa/fa-solid-900.ttf");
+	src: url("../../fonts/fa-solid-900.ttf");
 }
 
 @font-face {
 	font-family: far;
-	src: url("../parts/fa/fa-regular-400.ttf");
+	src: url("../../fonts/fa-regular-400.ttf");
+}
+
+@font-face {
+    font-family: monst;
+    src: url("../../fonts/Montserrat-ExtraLight.ttf");
+}
+
+@font-face {
+    font-family: lato;
+    src: url("../../fonts/Lato-Bold.ttf");
+}
+
+@font-face {
+    font-family: euro;
+    src: url("../../fonts/eurof55.ttf");
 }
 
 .fab {

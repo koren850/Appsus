@@ -24,10 +24,19 @@
 	justify-content: space-between;
 }
 
+.around {
+    justify-content: space-around;
+}
+
 .align-center {
 	align-items: center;
+}
+
+.center {
+    justify-content: center;
 }
 
 .sidebar-layout {
 	max-width: 10vw;
 }
+

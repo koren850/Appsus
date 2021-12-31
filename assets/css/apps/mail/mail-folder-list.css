@@ -1,26 +1,118 @@
+meter::-webkit-meter-bar {
+  background: #8d8d8a;
+  border: 2px solid rgb(43, 40, 40);
+  height:30px;
+  width: 150px;
+}
+
+.meter-span {
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  left: -1.5%;
+}
+
+meter::-webkit-meter-optimum-value {
+  box-shadow: 0 5px 5px -5px #999 inset;
+  background-image: linear-gradient(
+    40deg,
+    #1c8bf1 5%,
+    #5085e6 5%,
+    #5091e6 15%,
+    #7285d8 25%,
+    #6898f2 35%,
+    #6055f7 55%,
+    #1100ff 65%,
+    #01438a 85%,
+    #03182e 100%
+  );
+}
 
 
-meter::-webkit-meter-bar {background: #8d8d8a;
-    border: 2px solid rgb(43, 40, 40);
-} /*background color of bar*/
-meter::-webkit-meter-optimum-value { /* bar color */
-    box-shadow: 0 5px 5px -5px #999 inset;
-    background-image: linear-gradient(
-      40deg, 
-      #1c8bf1 5%, 
-      #5085e6 5%,
-      #5091e6 15%,
-      #7285d8 25%,
-      #6898f2 35%,
-      #6055f7 55%,
-      #1100ff 65%,
-      #01438a 85%,
-      #03182e 100%
-    );
-  }
+.read-btn::before {
+  content: "\f658";
+}
 
-    .sidebar-layout meter {
-      height: 50px;
-      width: 150px;
-  }
-  
+.all-btn::before {
+  content: "\f674";
+}
+
+.favorite-btn::before {
+  content: "\f005";
+}
+
+.inbox-btn::before {
+  content: "\f0e0";
+}
+
+.unread-btn::before {
+  content: "\f2bb";
+}
+
+.sent-btn::before {
+  content: "\f1d8";
+}
+
+.draft-btn::before {
+  content: "\f249";
+}
+
+.deleted-btn::before {
+  content: "\f2ed";
+}
+
+.pluss::before {
+  content: " \f067";
+}
+.mfl {
+  width: 50%;
+  display: flex;
+}
+
+.pluss {
+  background: -webkit-linear-gradient(
+    yellow,
+    red,
+    rgb(7, 233, 44),
+    rgb(25, 10, 226)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mail-folder.btn {
+  background-color: #fff;
+  border: unset;
+  padding: 0;
+  margin: 0;
+  border-color: rgb(207, 186, 186);
+  width: 12vw;
+  height: 50px;
+    font-family: monst, serif;
+    color: rgb(12, 11, 11);
+    font-weight: bold;
+  cursor: pointer;
+  margin-inline-start: 10px;
+}
+
+.mail-folder.btn:first-child {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.mail-folder.btn:last-child {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.mail-folder.btn:hover {
+    background:whitesmoke
+}
+
+.link {
+    text-decoration: unset;
+}
+
+.sidebar-layout {
+    position:fixed;
+}
