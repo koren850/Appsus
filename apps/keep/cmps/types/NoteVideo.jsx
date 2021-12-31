@@ -9,11 +9,12 @@ export class NoteVideo extends React.Component {
 	};
 
 	render() {
+		const isHover = this.props.isHover;
 		return (
 			<div
 				onMouseEnter={() => this.props.onMousetoggle(true)}
 				onMouseLeave={() => this.props.onMousetoggle(false)}
-				style={{ backgroundColor: this.props.color }}
+				style={!isHover ? { backgroundColor: this.props.color } : { backgroundColor: this.props.color, boxShadow: `0px 0px 50px 5px ${this.props.color}` }}
 				className={`note-preview note-video`}>
 				<h2 className='video-label'>{this.props.note.info.title}</h2>
 				<iframe
