@@ -1,33 +1,33 @@
 .layout-container {
-display: flex;
-align-items: center;
-justify-content:center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .layout {
-width: 70%;
+	width: 70%;
 }
 
 .flex-column {
-    flex-direction: column;
+	flex-direction: column;
 }
 
 .inline-block {
-    display: inline-block;
+	display: inline-block;
 }
 
 .flex {
-    display: flex;
+	display: flex;
 }
 
 .between {
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .align-center {
-    align-items: center;
+	align-items: center;
 }
 
 .sidebar-layout {
-    max-width: 10vw;
+	max-width: 10vw;
 }
