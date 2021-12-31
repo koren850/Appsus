@@ -1,4 +1,6 @@
-/* fonts */
+/* parts */
+@import "../css/parts/basics.css";
+@import "../css/parts/layout.css";
 @import "../css/parts/fonts.css";
 
 /* cmps */
@@ -26,24 +28,15 @@
 @import "../css/apps/mail/mail-preview.css";
 @import "../css/apps/mail/mail-list.css";
 @import "../css/apps/mail/mail-compose.css";
+@import "../css/apps/mail/mail-details.css";
+@import "../css/apps/mail/mail-filter.css";
+@import "../css/apps/mail/mail-folder-list.css";
 @import "../css/apps/mail/mail-txt.css";
 
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background-color: #dddddd;
-	margin: 0;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
 
 .books-filter {
-	display: flex;
+    display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 5vh;
-}
-.flex {
-	display: flex;
 }

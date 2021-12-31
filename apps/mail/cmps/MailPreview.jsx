@@ -98,7 +98,7 @@ export class MailPreview extends React.Component {
     const isFavoriteClass = currMail.isStar ? "on" : "";
     const sentTime = this.getSentTime(currMail.sentAt);
     return (
-    <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container" to={`/mail/${currMail.id}`}>
+    <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview container layout" to={`/mail/${currMail.id}`}>
         <button
           className={`fas star ${isFavoriteClass}`}
           onClick={() => this.toggleFavorite(currMail)}

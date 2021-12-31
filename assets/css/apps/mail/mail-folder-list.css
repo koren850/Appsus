@@ -1,0 +1,22 @@
+
+
+meter::-webkit-meter-bar {background: #8d8d8a;
+    border: 2px solid rgb(43, 40, 40);
+} /*background color of bar*/
+meter::-webkit-meter-optimum-value { /* bar color */
+    box-shadow: 0 5px 5px -5px #999 inset;
+    background-image: linear-gradient(
+      40deg, 
+      #1c8bf1 5%, 
+      #5085e6 5%,
+      #5091e6 15%,
+      #7285d8 25%,
+      #6898f2 35%,
+      #6055f7 55%,
+      #1100ff 65%,
+      #01438a 85%,
+      #03182e 100%
+    );
+  }
+
+  
