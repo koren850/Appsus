@@ -16,7 +16,7 @@ const gNotes = [
     { id: utilsService.generateId(), type: "NoteTxt", isPinned: true, info: { txt: "Fullstack Me Baby!" }, style: { backgroundColor: "#0fd777" } },
     { id: utilsService.generateId(), type: "NoteImg", isPinned: true, info: { url: "https://i.natgeofe.com/n/abf58ec8-ac78-4108-adbe-918fa5bda2e5/mountain-gorilla_2x3.jpg", title: "Bobi and Me" }, style: { backgroundColor: "#06760d" } },
     { id: utilsService.generateId(), type: "NoteTodos", isPinned: true, info: { label: "Get my stuff together", todos: [{ txt: "Driving liscence", done: false }, { txt: "Coding power", done: false }] }, style: { backgroundColor: "#09876d" } },
-    { id: utilsService.generateId(), type: 'NoteVideo', isPinned: true, info: { url: 'https://www.youtube.com/embed/tMDw57CWH7U' }, style: { backgroundColor: "#34569d" } }
+    { id: utilsService.generateId(), type: 'NoteVideo', isPinned: true, info: { url: 'https://www.youtube.com/watch?v=LHAgUebnlXI', title: 'Lobsters' }, style: { backgroundColor: "#34569d" } }
 ];
 
 function query(filterBy = null, textFilter = null) {
@@ -30,18 +30,17 @@ function query(filterBy = null, textFilter = null) {
     // if (!filterBy) return Promise.resolve({ notes })
     let filteredNotes = _getFilteredNotes(notes, filterBy)
     if (textFilter) filteredNotes = fillterText(filteredNotes, textFilter, filterBy)
-    console.log(notes)
     return Promise.resolve({ notes: filteredNotes, ctg: filterBy, textFilter })
 }
 
-function fillterText(filteredNotes, txt, ctg) {
+function fillterText(filteredNotes, txt) {
     // console.log(txt, ctg)
     console.log(filteredNotes)
     let textFilltered = filteredNotes.filter(note => {
-        if (note.type === 'NoteTxt' && note.info.txt.includes(txt)) return note
-        if (note.type === ('NoteImg') && (note.info.url.includes(txt) || note.info.title.includes(txt))) return note
-        if (note.type === ('NoteVideo') && (note.info.url.includes(txt))) return note
-        if (note.type === ('NoteTodos') && (note.info.label.includes(txt) || note.info.todos.some(todo => todo.txt.includes(txt)))) return note
+        if (note.type === 'NoteTxt' && (note.info.txt.toLowerCase().includes(txt.toLowerCase()))) return note
+        if (note.type === 'NoteImg' && (note.info.url.toLowerCase().includes(txt.toLowerCase()) || note.info.title.toLowerCase().includes(txt.toLowerCase()))) return note
+        if (note.type === 'NoteVideo' && (note.info.url.toLowerCase().includes(txt.toLowerCase().toLowerCase()))) return note
+        if (note.type === 'NoteTodos' && (note.info.label.toLowerCase().includes(txt.toLowerCase()) || note.info.todos.some(todo => todo.txt.toLowerCase().includes(txt.toLowerCase())))) return note
     })
     return textFilltered
 }
@@ -57,10 +56,9 @@ function _getFilteredNotes(notes, filterBy) {
 function addNote(ctg, text, url, imgTitle, listLabel, todo, color) {
     if (todo && todo.length) var todos = todo.map(txt => ({ txt: txt, doneAt: false }))
     let note;
-    if (ctg === 'NoteTxt') note = { id: utilsService.generateId(), type: 'NoteTxt', isPinned: false, info: { txt: text }, style: { backgroundColor: color } };
-    if (ctg === 'NoteImg') note = { id: utilsService.generateId(), type: 'NoteImg', isPinned: false, info: { url: url, title: imgTitle }, style: { backgroundColor: color } };
-    if (ctg === 'NoteVideo') note = { id: utilsService.generateId(), type: 'NoteVideo', isPinned: false, info: { url: url }, style: { backgroundColor: color } }
-    if (ctg === 'NoteTodos') note = { id: utilsService.generateId(), type: 'NoteTodos', isPinned: false, info: { label: listLabel, todos: todos }, style: { backgroundColor: color } };
+    if (ctg === 'NoteTxt') note = { id: utilsService.generateId(), type: ctg, isPinned: false, info: { txt: text }, style: { backgroundColor: color } };
+    if (ctg === 'NoteImg' || ctg === 'NoteVideo') note = { id: utilsService.generateId(), type: ctg, isPinned: false, info: { url: url, title: imgTitle }, style: { backgroundColor: color } };
+    if (ctg === 'NoteTodos') note = { id: utilsService.generateId(), type: ctg, isPinned: false, info: { label: listLabel, todos: todos }, style: { backgroundColor: color } };
     let notes = _loadFromStorage();
     notes.unshift(note);
     _saveToStorage(notes);
@@ -72,8 +70,7 @@ function updateNote(id, ctg, text, url, imgTitle, listLabel, todo, color) {
     let note;
     let idx = getNoteById(id)
     if (ctg === 'NoteTxt') note = { id: utilsService.generateId(), type: 'NoteTxt', isPinned: false, info: { txt: text }, style: { backgroundColor: color } };
-    if (ctg === 'NoteImg') note = { id: utilsService.generateId(), type: 'NoteImg', isPinned: false, info: { url: url, title: imgTitle }, style: { backgroundColor: color } };
-    if (ctg === 'NoteVideo') note = { id: utilsService.generateId(), type: 'NoteVideo', isPinned: false, info: { url: url }, style: { backgroundColor: color } }
+    if (ctg === 'NoteImg' || ctg === 'NoteVideo') note = { id: utilsService.generateId(), type: 'NoteImg', isPinned: false, info: { url: url, title: imgTitle }, style: { backgroundColor: color } };
     if (ctg === 'NoteTodos') note = { id: utilsService.generateId(), type: 'NoteTodos', isPinned: false, info: { label: listLabel, todos: todos }, style: { backgroundColor: color } };
     let notes = _loadFromStorage();
     notes.splice(idx.currIdx, 1, note)
