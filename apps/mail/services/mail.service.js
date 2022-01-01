@@ -202,7 +202,9 @@ function deleteMail(currMail) {
 
 function addMail(mail) {
   const mails = _loadFromStorage();
-  mails.unshift(mail);
+    const mailIdx = mails.findIndex((currMail) =>currMail.id === mail.id);
+    if (mailIdx === -1) mails.unshift(mail);
+    else mails[mailIdx] = mail;
   _saveToStorage(mails);
 }
 
