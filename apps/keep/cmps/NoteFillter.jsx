@@ -38,12 +38,32 @@ export class NoteFillter extends React.Component {
 		const { textFillter } = this.state;
 		return (
 			<section className='keep-header'>
-				<Link className='fas plus' to='/keep/add'></Link>
-				<input className='text-fillter flex' placeholder='Fillter by Text' type='search' name='text' value={textFillter} onChange={this.handleChange} />
-				<button id={`${this.props.ctg === "NoteTxt" ? "active-ctg" : ""}`} value='NoteTxt' onClick={this.handleChange} className='fillter-btn fas text'></button>
-				<button id={`${this.props.ctg === "NoteImg" ? "active-ctg" : ""}`} value='NoteImg' onClick={this.handleChange} className='fillter-btn far image'></button>
-				<button id={`${this.props.ctg === "NoteVideo" ? "active-ctg" : ""}`} value='NoteVideo' onClick={this.handleChange} className='fillter-btn fab video'></button>
-				<button id={`${this.props.ctg === "NoteTodos" ? "active-ctg" : ""}`} value='NoteTodos' onClick={this.handleChange} className='fillter-btn fas list'></button>
+				<Link title='Add note' className='fas plus' to='/keep/add'></Link>
+				<input className='text-fillter flex' placeholder='Filter by Text' type='search' name='text' value={textFillter} onChange={this.handleChange} />
+				<button
+					title='Filter by text'
+					id={`${this.props.ctg === "NoteTxt" ? "active-ctg" : ""}`}
+					value='NoteTxt'
+					onClick={this.handleChange}
+					className='fillter-btn fas text'></button>
+				<button
+					title='Filter by image'
+					id={`${this.props.ctg === "NoteImg" ? "active-ctg" : ""}`}
+					value='NoteImg'
+					onClick={this.handleChange}
+					className='fillter-btn far image'></button>
+				<button
+					title='Filter by video'
+					id={`${this.props.ctg === "NoteVideo" ? "active-ctg" : ""}`}
+					value='NoteVideo'
+					onClick={this.handleChange}
+					className='fillter-btn fab video'></button>
+				<button
+					title='Filter by list'
+					id={`${this.props.ctg === "NoteTodos" ? "active-ctg" : ""}`}
+					value='NoteTodos'
+					onClick={this.handleChange}
+					className='fillter-btn fas list'></button>
 			</section>
 		);
 	}

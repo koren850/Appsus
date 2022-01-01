@@ -12,12 +12,17 @@ export class NoteTxt extends React.Component {
 				className={`note-preview note-text`}>
 				<span>{this.props.note.info.txt}</span>
 				{(this.props.note.isPinned || this.props.isHover) && (
-					<button style={this.props.note.isPinned ? { color: "yellow" } : {}} onClick={(ev) => this.props.pin(ev, this.props.note.id)} className='fas pin' id='pin-note'></button>
+					<button
+						title='Pin note'
+						style={this.props.note.isPinned ? { color: "yellow" } : {}}
+						onClick={(ev) => this.props.pin(ev, this.props.note.id)}
+						className='fas pin'
+						id='pin-note'></button>
 				)}
 				<div className='btn-container flex'>
-					{isHover && <button onClick={(ev) => this.props.delete(ev, this.props.note.id)} className='fas trash' id='delete-note'></button>}
-					{isHover && <button onClick={(ev) => this.props.duplicate(ev, this.props.note.id)} className='fas duplicate' id='duplicate-note'></button>}
-					{isHover && <button onClick={(ev) => this.props.update(ev, this.props.note)} className='far edit' id='edit-note'></button>}
+					{isHover && <button title='Delete note' onClick={(ev) => this.props.delete(ev, this.props.note.id)} className='fas trash' id='delete-note'></button>}
+					{isHover && <button title='Duplicate note' onClick={(ev) => this.props.duplicate(ev, this.props.note.id)} className='fas duplicate' id='duplicate-note'></button>}
+					{isHover && <button title='Update note' onClick={(ev) => this.props.update(ev, this.props.note)} className='far edit' id='edit-note'></button>}
 				</div>
 			</div>
 		);

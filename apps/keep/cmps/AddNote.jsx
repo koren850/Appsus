@@ -6,7 +6,11 @@ export class AddNote extends React.Component {
 	state = { update: false, ctg: this.props.ctg, info: { text: "", imgTitle: "", url: "", listLabel: "", color: "#ffffff" }, todo: [] };
 
 	componentDidMount() {
-		// console.log(this.state.update);
+		const urlSearchParams = new URLSearchParams(this.props.ev.location.search);
+		if (urlSearchParams.get("content")) {
+			this.setState((prev) => ({ ...prev, ctg: "NoteTxt", info: { ...prev.info, text: urlSearchParams.get("content") } }));
+		}
+		console.log(urlSearchParams.get("ctg"));
 		var note = this.props.note;
 		console.log(note);
 		if (note)
@@ -62,19 +66,42 @@ export class AddNote extends React.Component {
 
 	render() {
 		const { ctg, info, todo, update } = this.state;
-		console.log(update);
 		return (
 			<div>
 				<Link className='add-note' to='/keep' />
 				<form style={{ backgroundColor: info.color }} className='add-note-form'>
 					<div className='flex'>
-						{!update && <button type='button' onClick={() => this.setCtg("NoteTxt")} className='fas text add-note-ctg' id={`${ctg === "NoteTxt" ? "active-ctg" : ""}`}></button>}
-						{!update && <button type='button' onClick={() => this.setCtg("NoteImg")} className='far image add-note-ctg' id={`${ctg === "NoteImg" ? "active-ctg" : ""}`}></button>}
 						{!update && (
-							<button type='button' onClick={() => this.setCtg("NoteVideo")} className='fab video add-note-ctg' id={`${ctg === "NoteVideo" ? "active-ctg" : ""}`}></button>
+							<button
+								title='Add text note'
+								type='button'
+								onClick={() => this.setCtg("NoteTxt")}
+								className='fas text add-note-ctg'
+								id={`${ctg === "NoteTxt" ? "active-ctg" : ""}`}></button>
 						)}
 						{!update && (
-							<button type='button' onClick={() => this.setCtg("NoteTodos")} className='fas list add-note-ctg' id={`${ctg === "NoteTodos" ? "active-ctg" : ""}`}></button>
+							<button
+								title='Add image note'
+								type='button'
+								onClick={() => this.setCtg("NoteImg")}
+								className='far image add-note-ctg'
+								id={`${ctg === "NoteImg" ? "active-ctg" : ""}`}></button>
+						)}
+						{!update && (
+							<button
+								title='Add video note'
+								type='button'
+								onClick={() => this.setCtg("NoteVideo")}
+								className='fab video add-note-ctg'
+								id={`${ctg === "NoteVideo" ? "active-ctg" : ""}`}></button>
+						)}
+						{!update && (
+							<button
+								title='Add list note'
+								type='button'
+								onClick={() => this.setCtg("NoteTodos")}
+								className='fas list add-note-ctg'
+								id={`${ctg === "NoteTodos" ? "active-ctg" : ""}`}></button>
 						)}
 					</div>
 					{ctg === "NoteTxt" && <input className='note-text-add' onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='enter text here' type='text' />}
