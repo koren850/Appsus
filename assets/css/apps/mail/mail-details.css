@@ -84,7 +84,7 @@
 
     @media screen and (max-width: 768px){
         .mail-details.line {
-            font-size: 5vw;
+            font-size: 4vw;
         }
         .mail-details.container {
             width: 60%;        }
@@ -93,5 +93,8 @@
             }
             .mail-details-time {
                 bottom:3%;
+            }
+            .mail-details.btn {
+                padding-inline-start: 60px;
             }
     }

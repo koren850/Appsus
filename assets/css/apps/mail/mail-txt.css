@@ -14,6 +14,15 @@
     padding-inline-end: 2vw;
 }
 
+.mail-txt.txt-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.mail-txt.txt-container {
+display: flex;
+}
 @media screen and (max-width: 768px){
     .mail-txt.txt-container {
         display: none;

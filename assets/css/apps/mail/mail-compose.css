@@ -50,7 +50,7 @@
 .mail-compose #subject {
 	border: unset;
 	background-color: inherit;
-	min-height: 365px;
+	height: 365px;
 	width: 33vw;
 }
 
@@ -87,7 +87,7 @@
 	border: unset;
 	flex-grow: 1;
 	background-color: inherit;
-	min-height: 365px;
+	height: 365px;
 	width: 100%;
 }
 
@@ -134,7 +134,9 @@
         font-size: 5vw;
     }
     .mail-compose.container {
-        width: 60%;        }
+        width: 60%;     
+        height: 120vw;
+       }
 
         .mail-details-time {
             bottom:3%;
@@ -144,5 +146,14 @@
         }
         .mail-compose input {
             height:40px;
+        }
+        .mail-compose.btn {
+            margin-top: 200px;
+            background-color:green;
+        }
+
+        .mail-compose #subject {
+            height: 60vw;
+            width:120%;
         }
 }

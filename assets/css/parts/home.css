@@ -1,0 +1,54 @@
+
+
+.home-title.layout-container {
+    font-size:3vw;
+    font-weight: 100;
+    margin: 0px;
+    text-shadow: 5px 5px 5px var(--dark);
+}
+
+.home-title-span {
+    font-size:5vw;
+    font-weight: 900;
+    font-family: appsus;
+    color: rgb(3, 3, 71);
+    text-shadow: 5px 5px 5px var(--dark);
+}
+
+.home-title-a {
+    font-family: appsus;
+    color: var(--dark);
+    font-size:6vw;
+    font-weight: 900;
+    text-shadow: 5px 5px 5px var(--dark);
+}
+
+.home-app-title {
+    text-align: center;
+}
+.home-app-container {
+    width: 30%;
+}
+
+.home-sub-title {
+    text-shadow: 5px 5px 5px var(--dark);
+    text-align: center;
+    font-size: 1vw;
+    color: rgb(3, 3, 71);
+    font-weight: 900;
+}
+
+.home-p {
+    text-align: center;
+    text-shadow: 2px 2px 2px var(--dark);
+    color: rgb(3, 3, 71);
+    font-weight: 100;
+    font-size: 1.3vw;
+    margin:5px;
+}
+
+.home-app-title {
+    text-shadow: 2px 2px 2px var(--dark);
+    font-size: 5vh;
+    margin:0;
+}

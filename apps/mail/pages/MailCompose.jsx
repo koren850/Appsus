@@ -107,7 +107,7 @@ export class MailCompose extends React.Component {
 						<label htmlFor='bcc'>Bcc :</label>
 						<input type='text' id='bcc' placeholder='Example@Jmail.com , ExampleFather@Jmail.com ,ExampleBaby@Jmail.com.' />
 					</article>
-					<section className={"mail-compose line layout"}>
+					<section className={"mail-compose line layout subject-container"}>
 						<article className={"layout"}>
 							<label htmlFor='subject'>Subject :</label>
 							<textarea value={subject} onChange={this.handleChange} name='subject' id='subject' />

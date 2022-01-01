@@ -2,6 +2,7 @@
 @import "../css/parts/basics.css";
 @import "../css/parts/layout.css";
 @import "../css/parts/fonts.css";
+@import "../css/parts/home.css";
 
 /* cmps */
 @import "../css/cmps/user-msg.css";
