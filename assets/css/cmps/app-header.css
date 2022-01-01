@@ -11,6 +11,7 @@
 	font-weight: 900;
 	font-size: 3em;
 	margin: 0;
+	cursor: pointer;
 }
 
 .app-header .main-nav a {
@@ -32,7 +33,7 @@
 }
 
 .app-header .main-nav a.my-active {
-	color: #8a0d0d;
+	color: var(--head);
 	font-weight: 900;
 	text-decoration: underline;
 }
@@ -80,6 +81,36 @@
 	}
 	.hamburger::after {
 		content: "☰";
+	}
+	.member {
+		height: 200px;
+	}
+}
+@media (max-width: 600px) {
+	.member {
+		height: 150px;
+	}
+	.member-info p {
+		font-size: 3.5vw;
+	}
+
+	.main-footer h1 {
+		text-align: center;
+		font-size: 1.3rem;
+	}
+	.keep-header {
+		flex-wrap: wrap;
+	}
+	.text-fillter {
+		width: 70%;
+	}
+	.note-list {
+		display: flex;
+		columns: unset;
+		flex-direction: column;
+		column-width: unset !important;
+		justify-content: center;
+		align-items: center;
 	}
 }
 

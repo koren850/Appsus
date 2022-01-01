@@ -14,7 +14,8 @@
 	position: fixed;
 	z-index: 10;
 	display: flex;
-	height: 50vh;
+	height: fit-content;
+	min-height: 50vh;
 	width: 50vw;
 	top: 50%;
 	left: 50%;
@@ -23,6 +24,35 @@
 	align-items: center;
 	justify-content: space-evenly;
 	border-radius: 40px;
+}
+.add-note-form input {
+	height: 3rem;
+	display: flex;
+	border-radius: 15px;
+	border: none;
+	text-align: center;
+	color: var(--dark);
+	font-weight: bold;
+	background-color: var(--back);
+}
+.input-btn {
+	background-color: var(--back);
+	border: 2px solid var(--dark);
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.list-label-container,
+.todo-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.list-label-container label,
+.todo-container label {
+	text-align: center;
+	margin-bottom: 5px;
 }
 
 .add-note-ctg {
@@ -33,10 +63,10 @@
 #active-ctg {
 	background-color: var(--back);
 	border: 2px solid;
+	border-radius: 20px;
 }
 
 .note-text-add {
-	height: 2rem;
 	width: 50%;
 	height: 50%;
 }
@@ -49,10 +79,6 @@
 	padding: 3px;
 	border-radius: 15px;
 	background-color: var(--back);
-}
-
-.color-container {
-	margin-left: 2.5rem;
 }
 
 .color-container input {

@@ -1,0 +1,67 @@
+.about {
+	width: 80%;
+	height: 65vh;
+	margin: auto;
+}
+
+.team {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 2fr;
+}
+.team img {
+	margin: 0 auto;
+	grid-row: 2/3;
+}
+.member-container {
+	display: flex;
+	flex-direction: column;
+}
+.member {
+	height: 300px;
+	border-radius: 50%;
+}
+
+.member-btns {
+	grid-row: 3/4;
+	display: flex;
+	justify-content: center;
+	height: fit-content;
+	margin-top: 1rem;
+}
+.member-btns a:not(:first-child) {
+	margin-inline-start: 1rem;
+}
+
+.member-info {
+	grid-row: 1/2;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	font-family: euro;
+}
+
+.member-info h1 {
+	margin: 0;
+	font-size: 2.5vw;
+}
+
+.member-info p {
+	max-width: 50%;
+	font-size: 1.5vw;
+}
+
+.git::before {
+	content: "\f092";
+	font-size: 3rem;
+}
+.instagram::before {
+	content: "\e055";
+	font-size: 3rem;
+}
+.linkedin::before {
+	content: "\f08c";
+	font-size: 3rem;
+}

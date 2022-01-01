@@ -110,7 +110,7 @@ export class AddNote extends React.Component {
 					)}
 					{(ctg === "NoteImg" || ctg === "NoteVideo") && <input onChange={(ev) => this.handleChange(ev, "url")} value={info.url} placeholder='enter url here' type='text' />}
 					{ctg === "NoteTodos" && (
-						<div>
+						<div className='list-label-container'>
 							<label htmlFor={"label"}>{!update ? "Enter list label: " : "List label: "} </label>
 							<input onChange={(ev) => this.handleChange(ev, "listLabel")} value={info.listLabel} placeholder={"enter list label here"} type='text' id='label' />
 						</div>
@@ -118,7 +118,7 @@ export class AddNote extends React.Component {
 					{ctg === "NoteTodos" &&
 						todo.map((nul, idx) => {
 							return (
-								<div key={`todo-container${idx}`}>
+								<div className='todo-container' key={`todo-container${idx}`}>
 									<label htmlFor={`todo-${idx}`}>
 										{!update ? "Enter todo: " : "Todo: "} {idx + 1}:{" "}
 									</label>
@@ -134,7 +134,7 @@ export class AddNote extends React.Component {
 							);
 						})}
 					{ctg === "NoteTodos" && (
-						<button type='button' onClick={() => this.addTodo(todo)}>
+						<button className='input-btn' type='button' onClick={() => this.addTodo(todo)}>
 							add more todo
 						</button>
 					)}
@@ -146,12 +146,12 @@ export class AddNote extends React.Component {
 						</div>
 					)}
 					{ctg && !update && (
-						<button type='submit' onClick={(ev) => this.addNote(ev, "add")}>
+						<button className='input-btn' type='submit' onClick={(ev) => this.addNote(ev, "add")}>
 							Add Note
 						</button>
 					)}
 					{ctg && update && (
-						<button type='submit' onClick={(ev) => this.addNote(ev, "update")}>
+						<button className='input-btn' type='submit' onClick={(ev) => this.addNote(ev, "update")}>
 							Update Note
 						</button>
 					)}
