@@ -104,7 +104,7 @@ export class AddNote extends React.Component {
 								id={`${ctg === "NoteTodos" ? "active-ctg" : ""}`}></button>
 						)}
 					</div>
-					{ctg === "NoteTxt" && <input className='note-text-add' onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='enter text here' type='text' />}
+					{ctg === "NoteTxt" && <textarea className='note-text-add' onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='enter text here' type='text' />}
 					{(ctg === "NoteImg" || ctg === "NoteVideo") && (
 						<input onChange={(ev) => this.handleChange(ev, "imgTitle")} value={info.imgTitle} placeholder='enter img title here' type='text' />
 					)}

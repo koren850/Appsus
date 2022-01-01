@@ -4,6 +4,15 @@ import { swalService } from "../../../services/swal.service.js";
 export class MailCompose extends React.Component {
 	state = { isDraft: false, mail: { to: "", title: "", subject: "" } };
 
+	componentDidMount() {
+		console.log(this.props);
+		const urlSearchParams = new URLSearchParams(this.props.location.search);
+		console.log(urlSearchParams.get("title"), "------", urlSearchParams.get("subject"));
+		if (urlSearchParams.get("title") || urlSearchParams.get("subject")) {
+			this.setState((prev) => ({ ...prev, mail: { ...prev.mail, title: urlSearchParams.get("title"), subject: urlSearchParams.get("subject") } }));
+		}
+	}
+
 	handleChange = ({ target }) => {
 		const field = target.name;
 		const value = target.value;
@@ -71,7 +80,7 @@ export class MailCompose extends React.Component {
 	};
 
 	render() {
-		const { to, title, subject } = this.state;
+		const { to, title, subject } = this.state.mail;
 		return (
 			<section className={"mail-compose container"}>
 				<header className={"mail-compose line layout"}>
