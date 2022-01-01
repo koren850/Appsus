@@ -37,12 +37,12 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 	function send(ev, note) {
 		ev.stopPropagation();
 		if (note.type === "NoteImg" || note.type === "NoteVideo")
-			window.location.replace(`/index.html#/mail/compose?title=${note.info.title.replace(" ", "+")}&subject=${note.info.url.replace(" ", "+")}`);
-		if (note.type === "NoteTxt") window.location.replace(`/index.html#/mail/compose?title=Text+note&subject=${note.info.txt.replace(" ", "+")}`);
+			window.location.replace(`#/mail/compose?title=${note.info.title.replace(" ", "+")}&subject=${note.info.url.replace(" ", "+")}`);
+		if (note.type === "NoteTxt") window.location.replace(`#/mail/compose?title=Text+note&subject=${note.info.txt.replace(" ", "+")}`);
 		if (note.type === "NoteTodos") {
 			var todos = note.info.todos.map((todo, idx) => `${idx + 1}. ${todo.txt}%0D%0A`);
 			console.log(todos);
-			window.location.replace(`/index.html#/mail/compose?title=${note.info.label.replace(" ", "+")}&subject=${todos.join("")}`);
+			window.location.replace(`#/mail/compose?title=${note.info.label.replace(" ", "+")}&subject=${todos.join("")}`);
 		}
 	}
 
