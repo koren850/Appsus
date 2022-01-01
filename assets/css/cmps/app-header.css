@@ -112,6 +112,9 @@
 		justify-content: center;
 		align-items: center;
 	}
+	.add-note-form {
+		width: 80%;
+	}
 }
 
 .open {
