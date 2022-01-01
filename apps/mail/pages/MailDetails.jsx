@@ -10,12 +10,12 @@ export class MailDetails extends React.Component {
 		mailService.updateMail(currMail);
 		this.setState({ mail: currMail });
 		swalService.userModal("error", "Mail Deleted");
-		window.location.replace("/index.html#/mail");
+		window.location.replace("/mail");
 		this.props.loadMails();
 	};
 
 	sendAsNote = (subject) => {
-		window.location.replace(`/index.html#/keep/add?content=${subject.replace(" ", "+")}`);
+		window.location.replace(`#/keep/add?content=${subject.replace(" ", "+")}`);
 	};
 
 	render() {
