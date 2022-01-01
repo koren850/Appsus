@@ -6,6 +6,10 @@
     content: "\f066";
 }
 
+.reply::before {
+    content: "\f122";
+}
+
 .hover-btns {
     padding-inline-end: 2vw;
 }

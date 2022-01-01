@@ -22,6 +22,11 @@ export class MailTxt extends React.Component {
     }
   };
 
+  sendAsNote = ({to, subject, body, id}) => {
+      console.log('fa')
+    window.location.replace(`/index.html#/mail/compose?to=${to.replace(" ", "+")}&title=${subject.replace(" ", "+")}&subject=${body.replace(" ", "+")}&id=${id.replace(" ", "+")}`);
+};
+
   render() {
       const currMail = this.props.mail;
     const { textShown } = this.state;
@@ -33,6 +38,7 @@ export class MailTxt extends React.Component {
 {this.state.isLongTxtShown && <p className={`mail-preview title ${isReadClass}`} title={'Title'}>{currMail.subject}</p>}        {!textShown && <Loader />}
         {textShown && <p className={`mail-preview mail-txt ${isReadClass}`} title={'Few Text Line'}>{textShown}</p>}
     <div className={'hover-btns'}>
+        <div>
         {this.state.isLongTxtShown && <button
     className={`far ${letterClass}`}
     onClick={() => this.props.toggleIsRead(currMail)} title={'Toggle Reading'}
@@ -41,10 +47,15 @@ export class MailTxt extends React.Component {
     className={`fas trash`} title={'Delete This Mail'}
     onClick={() => this.props.moveToDeleted(currMail)}
     ></button>}
+    </div>
+    <div>
         {this.state.isLongTxtShown && <Link  to={`/mail/${currMail.id}`}><button title={'Full Screen View'}
     className={`fas expand`}></button></Link>}
-        {this.state.isLongTxtShown && <Link  to={`/mail/${currMail.id}`}><button title={'Full Screen View'}
-    className={`fas edit`}></button></Link>}
+      {this.state.isLongTxtShown &&  currMail.isDraft  && <button onClick={()=>this.sendAsNote(currMail)} title={'Edit Draft'}
+    className={`fas edit`}></button>}
+      {this.state.isLongTxtShown &&  !currMail.isDraft  && <button onClick={()=>this.sendAsNote(currMail)} title={'Reply Mail'}
+    className={`fas reply`}></button>}
+    </div>
     </div>
     </article>
     );

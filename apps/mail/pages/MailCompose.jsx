@@ -2,14 +2,13 @@ import { mailService } from "../services/mail.service.js";
 import { utilsService } from "../../../services/utils.service.js";
 import { swalService } from "../../../services/swal.service.js";
 export class MailCompose extends React.Component {
-	state = { isDraft: false, mail: { to: "", title: "", subject: "" } };
+	state = { isDraft: false, mail: { to: "", title: "", subject: "" , id:utilsService.generateId() } };
 
 	componentDidMount() {
 		console.log(this.props);
 		const urlSearchParams = new URLSearchParams(this.props.location.search);
-		console.log(urlSearchParams.get("title"), "------", urlSearchParams.get("subject"));
-		if (urlSearchParams.get("title") || urlSearchParams.get("subject")) {
-			this.setState((prev) => ({ ...prev, mail: { ...prev.mail, title: urlSearchParams.get("title"), subject: urlSearchParams.get("subject") } }));
+		if (urlSearchParams.get("to") || urlSearchParams.get("title") || urlSearchParams.get("subject") || urlSearchParams.get("id")) {
+			this.setState((prev) => ({ ...prev, mail: { ...prev.mail,to:urlSearchParams.get("to"), title: urlSearchParams.get("title"), subject: urlSearchParams.get("subject"), id:urlSearchParams.get("id") } }));
 		}
 	}
 
@@ -42,7 +41,7 @@ export class MailCompose extends React.Component {
 		});
 		if (emptyValue) return swalService.userModal("warning", emptyValue);
 		const mail = {
-			id: utilsService.generateId(),
+			id: this.state.mail.id,
 			subject: values[1].value,
 			body: values[3].value,
 			isRead: true,

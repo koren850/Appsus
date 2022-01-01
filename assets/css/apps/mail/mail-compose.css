@@ -83,12 +83,6 @@
 	border: 5px;
 }
 
-.mail-compose.line input {
-	background-color: inherit;
-	border: unset;
-	width: 47vw;
-}
-
 .mail-compose #subject {
 	border: unset;
 	flex-grow: 1;
