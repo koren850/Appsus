@@ -178,3 +178,31 @@ border-radius: 25px;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 }
+
+@media screen and (max-width: 768px) {
+    .mpl-txt {
+        display: none;
+    }
+    .mfl {
+        font-size:7vw;
+        margin-inline-start: 3vw;
+    }
+    #search {
+        margin-top:5px;
+        width: 60vw;
+        height:40px
+    }
+    meter::-webkit-meter-bar {
+        top: 76%;
+    }
+    
+    .meter-span {
+        top: 77%;
+        left: 3.5vw;
+        font-size: 4vw;
+    }    
+
+    .sidebar-layout{
+        top: 23.4%;
+    }
+}

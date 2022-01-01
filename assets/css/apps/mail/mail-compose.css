@@ -128,3 +128,21 @@
 .note-send::before {
 	content: "\f46d";
 }
+
+@media screen and (max-width: 768px){
+    .mail-compose.line {
+        font-size: 5vw;
+    }
+    .mail-compose.container {
+        width: 60%;        }
+
+        .mail-details-time {
+            bottom:3%;
+        }
+        .mail-compose input::placeholder {
+            font-size:3vw;
+        }
+        .mail-compose input {
+            height:40px;
+        }
+}

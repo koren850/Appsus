@@ -59,7 +59,7 @@ export class MailCompose extends React.Component {
 			isDraft: false,
 			isDeleted: false,
 			sentAt: new Date(),
-			from: mailService.getUser().mail,
+			from: mailService.getUser().name,
 			to: values[0].value,
 		};
 		if (this.state.isDraft) {

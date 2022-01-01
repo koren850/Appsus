@@ -81,3 +81,17 @@
         padding-inline-end: 7vw;
         right: 0;
     }
+
+    @media screen and (max-width: 768px){
+        .mail-details.line {
+            font-size: 5vw;
+        }
+        .mail-details.container {
+            width: 60%;        }
+            .line-details {
+                height:60px
+            }
+            .mail-details-time {
+                bottom:3%;
+            }
+    }

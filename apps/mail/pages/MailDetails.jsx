@@ -31,7 +31,7 @@ export class MailDetails extends React.Component {
 						<p>Subject : {currMail.subject}</p>
 					</article>
 					<article className={"mail-details line layout"}>
-						<p>
+						<p className={'mail-details line-details'}>
 							From : <span>{currMail.from}</span>, to <span>&lt;{currMail.to}&gt;</span>
 							<span className={"mail-details-time"}>{sentAt}</span>
 						</p>

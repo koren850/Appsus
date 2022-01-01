@@ -87,3 +87,10 @@
     grid-column: 3/12;
     width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+    .mail-preview-time {
+        font-size: 3vw;
+    }
+
+}

@@ -233,7 +233,7 @@ function updateMail(mail) {
 function getUser() {
   const loggedinUser = {
     mail: "user@appsus.com",
-    fullname: "Mahatma Appsus",
+    name: "Mahatma",
   };
   return loggedinUser;
 }

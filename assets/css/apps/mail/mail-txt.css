@@ -13,3 +13,29 @@
 .hover-btns {
     padding-inline-end: 2vw;
 }
+
+@media screen and (max-width: 768px){
+    .mail-txt.txt-container {
+        display: none;
+    }
+    .first-two {
+        display: flex;
+        flex-direction: row;
+        width:inherit;
+        position: relative;
+        left: -20%;
+        gap: 4px;
+    }
+    .hover-btns {
+        display: flex;
+        padding-top: 15px;
+        padding-inline-start: 30px;
+        gap: 4px;
+    }
+    .first-two > *{
+        padding: 0;
+    }
+    .fas.expand {
+        padding: 0;
+    }
+}

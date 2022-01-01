@@ -38,14 +38,15 @@ export class MailTxt extends React.Component {
 		const letterClass = currMail.isRead ? "letter-read" : "letter-unread";
 		return (
 			<article className={"mail-txt container"}>
+                <div className={'mail-txt txt-container'}>
 				{this.state.isLongTxtShown && (
-					<p className={`mail-preview title ${isReadClass}`} title={"Sender Mail"}>
+                    <p className={`mail-preview title ${isReadClass}`} title={"Sender Mail"}>
 						{currMail.to}
 					</p>
 				)}{" "}
 				{!textShown && <Loader />}
 				{this.state.isLongTxtShown && (
-					<p className={`mail-preview title ${isReadClass}`} title={"Title"}>
+                    <p className={`mail-preview title ${isReadClass}`} title={"Title"}>
 						{currMail.subject}
 					</p>
 				)}{" "}
@@ -55,12 +56,13 @@ export class MailTxt extends React.Component {
 						{textShown}
 					</p>
 				)}
+                </div>
 				<div className={"hover-btns"}>
-					<div>
+					<div className={"first-two"}>
 						{this.state.isLongTxtShown && <button className={`far ${letterClass}`} onClick={() => this.props.toggleIsRead(currMail)} title={"Toggle Reading"}></button>}
 						{this.state.isLongTxtShown && <button className={`fas trash`} title={"Delete This Mail"} onClick={() => this.props.moveToDeleted(currMail)}></button>}
 					</div>
-					<div>
+					<div className={"first-two"}>
 						{this.state.isLongTxtShown && (
 							<Link to={`/mail/${currMail.id}`}>
 								<button title={"Full Screen View"} className={`fas expand`}></button>
