@@ -104,15 +104,20 @@ export class AddNote extends React.Component {
 								id={`${ctg === "NoteTodos" ? "active-ctg" : ""}`}></button>
 						)}
 					</div>
-					{ctg === "NoteTxt" && <textarea className='note-text-add' onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='enter text here' type='text' />}
+					{ctg === "NoteTxt" && <textarea className='note-text-add' onChange={(ev) => this.handleChange(ev, "text")} value={info.text} placeholder='Enter text here' type='text' />}
 					{(ctg === "NoteImg" || ctg === "NoteVideo") && (
-						<input onChange={(ev) => this.handleChange(ev, "imgTitle")} value={info.imgTitle} placeholder='enter img title here' type='text' />
+						<input
+							onChange={(ev) => this.handleChange(ev, "imgTitle")}
+							value={info.imgTitle}
+							placeholder={`Enter ${ctg === "NoteVideo" ? "video" : "image"} title here`}
+							type='text'
+						/>
 					)}
-					{(ctg === "NoteImg" || ctg === "NoteVideo") && <input onChange={(ev) => this.handleChange(ev, "url")} value={info.url} placeholder='enter url here' type='text' />}
+					{(ctg === "NoteImg" || ctg === "NoteVideo") && <input onChange={(ev) => this.handleChange(ev, "url")} value={info.url} placeholder='Enter url here' type='text' />}
 					{ctg === "NoteTodos" && (
 						<div className='list-label-container'>
 							<label htmlFor={"label"}>{!update ? "Enter list label: " : "List label: "} </label>
-							<input onChange={(ev) => this.handleChange(ev, "listLabel")} value={info.listLabel} placeholder={"enter list label here"} type='text' id='label' />
+							<input onChange={(ev) => this.handleChange(ev, "listLabel")} value={info.listLabel} placeholder={"Enter list label here"} type='text' id='label' />
 						</div>
 					)}
 					{ctg === "NoteTodos" &&
@@ -126,7 +131,7 @@ export class AddNote extends React.Component {
 										key={`todo${idx}`}
 										onChange={(ev) => this.handleChange(ev, "todo", idx)}
 										value={todo[idx]}
-										placeholder={"enter todo here"}
+										placeholder={"Enter todo here"}
 										type='text'
 										id={`todo-${idx}`}
 									/>
