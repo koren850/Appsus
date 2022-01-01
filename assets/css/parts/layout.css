@@ -36,6 +36,10 @@
     justify-content: center;
 }
 
+#center {
+    justify-content: center;
+}
+
 .sidebar-layout {
 	max-width: 10vw;
 }

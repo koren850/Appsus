@@ -34,23 +34,25 @@
     .mail-compose footer button {
         font-size:30px;
         background-color:inherit;
+        cursor: pointer;
         border:unset;
         border: 5px;
+        color: var(--dark);
     }
     
     .mail-compose.line input {
         background-color:inherit;
         border: unset;
-        width:47vw;
+        width:33vw;
+        font-size: 0.9vw;
     }
     
     .mail-compose #subject {
         border: unset;
-    flex-grow: 1;
     background-color:inherit;
     min-height: 365px;
-    width:100%;
-    }
+    width:33vw;
+}
 
     .mail-compose > * :focus-visible {
         outline: unset;

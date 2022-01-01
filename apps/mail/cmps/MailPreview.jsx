@@ -75,11 +75,11 @@ export class MailPreview extends React.Component {
     const sentTime = mailService.getSentTime(currMail.sentAt);
     return (
     <div onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="mail-preview each-mail container layout" to={`/mail/${currMail.id}`}>
-        <button
+        <button title={'Save To Favorites'}
           className={`fas star ${isFavoriteClass}`}
           onClick={() => this.toggleFavorite(currMail)}
         ></button>
-        <p className={isReadClass+' mail-preview-name'}>{currMail.from}</p>
+        <p className={isReadClass+' mail-preview-name'} title={'Writer Name'}>{currMail.from}</p>
         <div className="mail-preview-txt-container"
           >
           <MailTxt mail={currMail} isLongTxtShown={this.state.isLongTxtShown} 
@@ -87,5 +87,5 @@ export class MailPreview extends React.Component {
             moveToDeleted={this.moveToDeleted}
             />
         </div>
-            <p className={'mail-preview-time flex align-center'}>{sentTime}</p>
+            <p className={'mail-preview-time flex align-center'} title={'Sent At :'}>{sentTime}</p>
       </div>)}}

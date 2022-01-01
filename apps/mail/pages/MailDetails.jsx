@@ -27,8 +27,8 @@ export class MailDetails extends React.Component {
         <article className={'mail-details line layout'}><p>From : <span>{currMail.from}</span>, to <span>&lt;{currMail.to}&gt;</span><span className={'mail-details-time'}>{sentAt}</span></p></article>
         <article className={'layout main-txt'}>{currMail.body}</article>
         <footer className={'mail-details btn'}>
-        <button className={'mail-details fas trash'} type="button" onClick={()=>this.moveToDeleted(currMail)}></button>
-        <Link className={'mail-details fas compress'} to="/mail"></Link>
+        <button className={'mail-details fas trash'} title={'Delete This Mail'} type="button" onClick={()=>this.moveToDeleted(currMail)}></button>
+        <Link className={'mail-details fas compress'} title={'Exit Full View'} to="/mail"></Link>
         </footer>
             </div>
     </section>)

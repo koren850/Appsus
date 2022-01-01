@@ -62,29 +62,30 @@ export class MailCompose extends React.Component {
 	render() {
 		return (
 			<section className={"mail-compose container"}>
-				<header className={"mail-compose line"}><span>New Message :</span></header>
+				<header className={"mail-compose line layout"}><span>New Message :</span></header>
 				<form onSubmit={this.createMail}>
-					<article className={"mail-compose line"}>
+					<article className={"mail-compose line layout"}>
 						<label htmlFor='to'>To :</label>
 						<input type='email' id='to' placeholder='Example@Jmail.com.' />
 					</article>
-					<article className={"mail-compose line"}>
+					<article className={"mail-compose line layout"}>
 						<label htmlFor='cc'>Title :</label>
 						<input type='text' id='cc' placeholder="Example Example Eat's FalaFel..." />
 					</article>
-					<article className={"mail-compose line"}>
+					<article className={"mail-compose line layout"}>
 						<label htmlFor='bcc'>Bcc :</label>
 						<input type='text' id='bcc' placeholder='Example@Jmail.com , ExampleFather@Jmail.com ,ExampleBaby@Jmail.com.' />
 					</article>
-					<article>
+                    <section className={"mail-compose line layout"}>
+					<article className={'layout'}>
 						<label htmlFor='subject'>Subject :</label>
 						<textarea id='subject' />
 					</article>
-					<main></main>
-					<footer>
-						<button className={"mail-compose send"}>Send</button>
-						<button className={"mail-compose far edit"} onClick={()=>this.setState({isDraft:true})}></button>
-						<button className={"mail-compose fas trash"} type='button' onClick={this.deleteMail}></button>
+                    </section>
+					<footer className={'flex'} id={"center"}>
+						<button className={"send far sent-btn"}></button>
+						<button className={"far draft-btn"} onClick={()=>this.setState({isDraft:true})}></button>
+						<button className={"far trash"} type='button' onClick={this.deleteMail}></button>
 					</footer>
 				</form>
 			</section>
