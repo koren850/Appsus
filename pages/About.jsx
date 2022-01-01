@@ -9,7 +9,7 @@ export function About() {
 					</p>
 				</div>
 				<div className='member-container'>
-					<img className='member' src='assets/img/team/koren.jpg' alt='' />
+					<img className='member' src='./assets/img/team/koren.jpg' alt='' />
 					<div className='member-btns'>
 						<a href='https://www.instagram.com/koren854/' target='blank' className='fab instagram'></a>
 						<a href='https://github.com/koren850' target='blank' className='fab git'></a>
@@ -24,7 +24,7 @@ export function About() {
 					</p>
 				</div>
 				<div className='member-container'>
-					<img className='member' src='assets/img/team/michael.jpg' alt='' />
+					<img className='member' src='./assets/img/team/michael.jpg' alt='' />
 					<div className='member-btns'>
 						<a href='https://www.instagram.com/bandana_dog_/?utm_medium=copy_link' target='blank' className='fab instagram'></a>
 						<a href='https://github.com/MichaelAharoni' target='blank' className='fab git'></a>
