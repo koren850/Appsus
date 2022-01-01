@@ -127,6 +127,7 @@ meter::-webkit-meter-optimum-value {
   font-weight: bold;
   cursor: pointer;
   margin-inline-start: 1.4vw;
+  font-size: 1vw;
 }
 .sidebar-layout >* {
     text-decoration: unset;
