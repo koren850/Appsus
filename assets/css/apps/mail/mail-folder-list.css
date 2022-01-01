@@ -193,11 +193,11 @@ border-radius: 25px;
         height:40px
     }
     meter::-webkit-meter-bar {
-        top: 76%;
+        top: 79%;
     }
     
     .meter-span {
-        top: 77%;
+        top: 80%;
         left: 3.5vw;
         font-size: 4vw;
     }    
