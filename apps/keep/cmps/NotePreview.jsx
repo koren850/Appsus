@@ -11,6 +11,7 @@ export class NotePreview extends React.Component {
 
 	render() {
 		const { isHover } = this.state;
+
 		return <DynamicCmp click={this.props.onClickNote} loadNotes={this.props.loadNotes} onMousetoggle={this.onMousetoggle} isHover={isHover} note={this.props.note} />;
 	}
 }

@@ -20,17 +20,19 @@
 #duplicate-note,
 #edit-note,
 #pin-note {
-	font-size: 2rem;
-	color: aliceblue;
+	font-size: 1.2rem;
+	margin-inline-start: 10px;
+	margin-bottom: 5px;
+	color: var(--main);
 	border-radius: 15px;
-	background-color: rgba(0, 0, 0, 0.575);
+	background-color: rgba(0, 0, 0, 0.275);
 	display: flex;
 }
 
 #pin-note {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 2%;
+	right: 20px;
 }
 
 .duplicate::before {

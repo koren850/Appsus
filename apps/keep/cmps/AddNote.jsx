@@ -113,7 +113,8 @@ export class AddNote extends React.Component {
 					)}
 
 					{ctg && (
-						<div className='fas color'>
+						<div className='color-container'>
+							<div id='color' className='fas color'></div>
 							<input onChange={(ev) => this.handleChange(ev, "color")} value={info.color} type='color' />
 						</div>
 					)}
