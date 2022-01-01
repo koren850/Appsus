@@ -3,7 +3,7 @@
 	align-items: center;
 	background-color: var(--dark);
 	height: 10vh;
-    margin-block-end:2vh;
+	margin-block-end: 2vh;
 }
 
 .logo {
@@ -28,7 +28,7 @@
 }
 
 .app-header .main-nav a:hover {
-    color: whitesmoke;
+	color: whitesmoke;
 }
 
 .app-header .main-nav a.my-active {
@@ -39,4 +39,51 @@
 
 .app-header .main-nav > *:not(:last-child) {
 	margin-inline-end: 1rem;
+}
+.black-screen {
+	cursor: pointer;
+	height: 500vh;
+	width: 100vw;
+	background-color: black;
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+@media (max-width: 900px) {
+	.main-nav {
+		height: auto;
+		position: fixed;
+		top: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		background-color: var(--dark);
+		width: 200px;
+		transform: translateX(100%);
+		z-index: 31;
+		border: 3px solid;
+		border-radius: 30px;
+		transition: transform 0.6s, box-shadow 0.6s;
+	}
+	.black-screen {
+		position: fixed;
+		opacity: 0.3;
+		z-index: 30;
+	}
+
+	.hamburger {
+		cursor: pointer;
+		font-size: 3rem;
+		color: white;
+	}
+	.hamburger::after {
+		content: "☰";
+	}
+}
+
+.open {
+	box-shadow: 0px 0px 30px rgb(0 0 0 / 30%);
+	transform: translateX(0%);
 }

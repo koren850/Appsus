@@ -3,12 +3,21 @@ import { eventBusService } from "../services/event-bus.service.js";
 const { NavLink, withRouter } = ReactRouterDOM;
 
 class _AppHeader extends React.Component {
+	state = { open: false };
 	removeEventBus = null;
+
+	toggleOpenClose = () => {
+		this.setState({ open: !this.state.open });
+	};
 
 	componentDidMount() {
 		this.removeEventBus = eventBusService.on("books-count", (booksCount) => {
 			this.setState({ booksCount });
 		});
+	}
+
+	componentDidUpdate() {
+		console.log(this.state.open);
 	}
 
 	componentWillUnmount() {
@@ -18,11 +27,13 @@ class _AppHeader extends React.Component {
 	render() {
 		return (
 			<header className='app-header layout-container'>
+				<div onClick={this.toggleOpenClose} className={`${this.state.open ? "black-screen" : ""}`}></div>
 				<div className={"layout flex between align-center"}>
 					<h1 className={"inline-block logo"} onClick={() => this.props.history.push("/")}>
 						Appsus
 					</h1>
-					<nav className='main-nav inline-block'>
+					<div onClick={this.toggleOpenClose} className='hamburger hide'></div>
+					<nav className={`main-nav ${this.state.open ? "open" : ""} inline-block`}>
 						<NavLink activeClassName='my-active' exact to='/'>
 							Home
 						</NavLink>

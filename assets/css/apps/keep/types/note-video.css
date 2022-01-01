@@ -5,8 +5,11 @@
 
 .video-label {
 	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 0;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 10px;
+	width: max-content;
+	margin: 10px auto 10px;
+	padding: 0px 10px;
 }
 .note-video iframe {
 	border-top: 0;

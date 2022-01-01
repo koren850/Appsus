@@ -6,7 +6,6 @@
 	align-items: center;
 	font-size: 2rem;
 	font-weight: bold;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.267);
 	gap: 20px;
 	background-color: var(--main);
 }
@@ -19,7 +18,7 @@
 .note-list {
 	margin: auto;
 	width: 90%;
-	column-count: 5;
+	direction: rtl;
 	column-width: 300px;
 	background-color: var(--main);
 }
