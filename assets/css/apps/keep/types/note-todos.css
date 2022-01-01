@@ -3,7 +3,7 @@
 	justify-content: space-around;
 }
 
-.note-todo div {
+.note-todo .note-todo-label {
 	font-size: 1.5rem;
 	font-weight: bold;
 	text-decoration: underline;

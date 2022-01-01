@@ -112,7 +112,11 @@ export class AddNote extends React.Component {
 						</button>
 					)}
 
-					{ctg && <input onChange={(ev) => this.handleChange(ev, "color")} value={info.color} placeholder='enter background color here' type='color' />}
+					{ctg && (
+						<div className='fas color'>
+							<input onChange={(ev) => this.handleChange(ev, "color")} value={info.color} type='color' />
+						</div>
+					)}
 					{ctg && !update && (
 						<button type='submit' onClick={(ev) => this.addNote(ev, "add")}>
 							Add Note

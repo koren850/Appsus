@@ -28,6 +28,12 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 		ev.stopPropagation();
 	}
 
+	function togglePin(ev, id) {
+		ev.stopPropagation();
+		NoteService.togglePin(id);
+		loadNotes();
+	}
+
 	function getCmp(note) {
 		switch (note.type) {
 			case "NoteTxt":
@@ -36,6 +42,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						update={updateNote}
 						duplicate={duplicateNote}
 						delete={approveDelete}
+						pin={togglePin}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
@@ -48,6 +55,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						update={updateNote}
 						duplicate={duplicateNote}
 						delete={approveDelete}
+						pin={togglePin}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
@@ -60,6 +68,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						update={updateNote}
 						duplicate={duplicateNote}
 						delete={approveDelete}
+						pin={togglePin}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
@@ -73,6 +82,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						update={updateNote}
 						duplicate={duplicateNote}
 						delete={approveDelete}
+						pin={togglePin}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}

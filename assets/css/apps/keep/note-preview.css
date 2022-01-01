@@ -9,23 +9,28 @@
 	border-radius: 15px;
 }
 
-#delete-note,
-#duplicate-note,
-#edit-note {
+.btn-container {
 	position: absolute;
 	bottom: 0;
-	right: 0;
+	right: 20px;
+	flex-direction: row-reverse;
+}
+
+#delete-note,
+#duplicate-note,
+#edit-note,
+#pin-note {
 	font-size: 2rem;
 	color: aliceblue;
 	border-radius: 15px;
 	background-color: rgba(0, 0, 0, 0.575);
+	display: flex;
 }
 
-#duplicate-note {
-	right: 2.7rem;
-}
-#edit-note {
-	right: 5.5rem;
+#pin-note {
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .duplicate::before {
@@ -34,4 +39,12 @@
 
 .edit::before {
 	content: "\f044";
+}
+
+.pin::before {
+	content: "\f08d";
+}
+
+.color::before {
+	content: "\f53f";
 }

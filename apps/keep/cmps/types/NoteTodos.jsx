@@ -23,7 +23,7 @@ export class NoteTodos extends React.Component {
 				onMouseLeave={() => this.props.onMousetoggle(false)}
 				style={!isHover ? { backgroundColor: this.props.color } : { backgroundColor: this.props.color, boxShadow: `0px 0px 50px 5px ${this.props.color}` }}
 				className={`note-preview note-todo`}>
-				<div> {this.props.note.info.label}</div>
+				<div className='note-todo-label'> {this.props.note.info.label}</div>
 				<ul className={"flex"}>
 					{this.props.note.info.todos.map((todo, idx) => {
 						return (
@@ -33,9 +33,14 @@ export class NoteTodos extends React.Component {
 						);
 					})}
 				</ul>
-				{this.props.isHover && <button onClick={(ev) => this.props.delete(ev, this.props.note.id)} className='fas trash' id='delete-note'></button>}
-				{this.props.isHover && <button onClick={(ev) => this.props.duplicate(ev, this.props.note.id)} className='fas duplicate' id='duplicate-note'></button>}
-				{this.props.isHover && <button onClick={(ev) => this.props.update(ev, this.props.note)} className='far edit' id='edit-note'></button>}
+				{(this.props.note.isPinned || this.props.isHover) && (
+					<button style={this.props.note.isPinned ? { color: "yellow" } : {}} onClick={(ev) => this.props.pin(ev, this.props.note.id)} className='fas pin' id='pin-note'></button>
+				)}
+				<div className='btn-container flex'>
+					{this.props.isHover && <button onClick={(ev) => this.props.delete(ev, this.props.note.id)} className='fas trash' id='delete-note'></button>}
+					{this.props.isHover && <button onClick={(ev) => this.props.duplicate(ev, this.props.note.id)} className='fas duplicate' id='duplicate-note'></button>}
+					{this.props.isHover && <button onClick={(ev) => this.props.update(ev, this.props.note)} className='far edit' id='edit-note'></button>}
+				</div>
 			</div>
 		);
 	}
