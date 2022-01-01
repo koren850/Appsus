@@ -43,6 +43,8 @@ export class MailTxt extends React.Component {
     ></button>}
         {this.state.isLongTxtShown && <Link  to={`/mail/${currMail.id}`}><button title={'Full Screen View'}
     className={`fas expand`}></button></Link>}
+        {this.state.isLongTxtShown && <Link  to={`/mail/${currMail.id}`}><button title={'Full Screen View'}
+    className={`fas edit`}></button></Link>}
     </div>
     </article>
     );
