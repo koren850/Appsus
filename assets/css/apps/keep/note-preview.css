@@ -20,7 +20,8 @@
 #delete-note,
 #duplicate-note,
 #edit-note,
-#pin-note {
+#pin-note,
+#send-note {
 	font-size: 1.2rem;
 	margin-inline-start: 10px;
 	margin-bottom: 5px;

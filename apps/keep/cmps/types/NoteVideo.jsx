@@ -40,6 +40,7 @@ export class NoteVideo extends React.Component {
 						<button title='Duplicate note' onClick={(ev) => this.props.duplicate(ev, this.props.note.id)} className='fas duplicate' id='duplicate-note'></button>
 					)}
 					{this.props.isHover && <button title='Update note' onClick={(ev) => this.props.update(ev, this.props.note)} className='far edit' id='edit-note'></button>}
+					{this.props.isHover && <button title='Send note as mail' onClick={(ev) => this.props.send(ev, this.props.note)} className='fas sent-btn' id='send-note'></button>}
 				</div>
 			</div>
 		);

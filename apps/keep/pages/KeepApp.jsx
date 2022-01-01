@@ -29,7 +29,7 @@ export class KeepApp extends React.Component {
 	onClickNote = (ev, note) => {
 		ev.stopPropagation();
 		this.setState({ currNoteUpdate: note });
-		window.location.replace("/index.html#/keep/update");
+		window.location.replace("#/keep/update");
 	};
 
 	render() {

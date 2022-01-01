@@ -2,13 +2,22 @@ import { mailService } from "../services/mail.service.js";
 import { utilsService } from "../../../services/utils.service.js";
 import { swalService } from "../../../services/swal.service.js";
 export class MailCompose extends React.Component {
-	state = { isDraft: false, mail: { to: "", title: "", subject: "" , id:utilsService.generateId() } };
+	state = { isDraft: false, mail: { to: "", title: "", subject: "", id: utilsService.generateId() } };
 
 	componentDidMount() {
 		console.log(this.props);
 		const urlSearchParams = new URLSearchParams(this.props.location.search);
 		if (urlSearchParams.get("to") || urlSearchParams.get("title") || urlSearchParams.get("subject") || urlSearchParams.get("id")) {
-			this.setState((prev) => ({ ...prev, mail: { ...prev.mail,to:urlSearchParams.get("to"), title: urlSearchParams.get("title"), subject: urlSearchParams.get("subject"), id:urlSearchParams.get("id") } }));
+			this.setState((prev) => ({
+				...prev,
+				mail: {
+					...prev.mail,
+					to: urlSearchParams.get("to"),
+					title: urlSearchParams.get("title"),
+					subject: urlSearchParams.get("subject"),
+					id: urlSearchParams.get("id") || utilsService.generateId(),
+				},
+			}));
 		}
 	}
 
@@ -61,7 +70,7 @@ export class MailCompose extends React.Component {
 			this.setState({ isDraft: false });
 			return;
 		}
-		window.location.replace("/index.html#/mail");
+		window.location.replace("#/mail");
 		mailService.addMail(mail);
 		swalService.userModal("success", "Mail sent");
 	};
@@ -71,11 +80,11 @@ export class MailCompose extends React.Component {
 	};
 
 	deleteConfirm = () => {
-		window.location.replace("/index.html#/mail");
+		window.location.replace("#/mail");
 		swalService.userModal("error", "Mail Deleted");
 	};
 	sendAsNote = () => {
-		window.location.replace(`/index.html#/keep/add?content=${this.state.mail.subject.replace(" ", "+")}`);
+		window.location.replace(`#/keep/add?content=${this.state.mail.subject.replace(" ", "+")}`);
 	};
 
 	render() {

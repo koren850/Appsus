@@ -34,6 +34,18 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 		loadNotes();
 	}
 
+	function send(ev, note) {
+		ev.stopPropagation();
+		if (note.type === "NoteImg" || note.type === "NoteVideo")
+			window.location.replace(`#/mail/compose?title=${note.info.title.replace(" ", "+")}&subject=${note.info.url.replace(" ", "+")}`);
+		if (note.type === "NoteTxt") window.location.replace(`#/mail/compose?title=Text+note&subject=${note.info.txt.replace(" ", "+")}`);
+		if (note.type === "NoteTodos") {
+			var todos = note.info.todos.map((todo, idx) => `${idx + 1}. ${todo.txt}%0D%0A`);
+			console.log(todos);
+			window.location.replace(`#/mail/compose?title=${note.info.label.replace(" ", "+")}&subject=${todos.join("")}`);
+		}
+	}
+
 	function getCmp(note) {
 		switch (note.type) {
 			case "NoteTxt":
@@ -43,6 +55,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						duplicate={duplicateNote}
 						delete={approveDelete}
 						pin={togglePin}
+						send={send}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
@@ -56,6 +69,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						duplicate={duplicateNote}
 						delete={approveDelete}
 						pin={togglePin}
+						send={send}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
@@ -69,6 +83,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						duplicate={duplicateNote}
 						delete={approveDelete}
 						pin={togglePin}
+						send={send}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
@@ -83,6 +98,7 @@ export function DynamicCmp({ note, onMousetoggle, isHover, loadNotes, click }) {
 						duplicate={duplicateNote}
 						delete={approveDelete}
 						pin={togglePin}
+						send={send}
 						onMousetoggle={onMousetoggle}
 						isHover={isHover}
 						note={note}
