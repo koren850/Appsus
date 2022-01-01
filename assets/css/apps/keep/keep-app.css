@@ -9,6 +9,9 @@
 	gap: 20px;
 	background-color: var(--main);
 }
+.keep-header a {
+	font-size: 3rem;
+}
 .no-notes {
 	font-size: 3rem;
 	text-align: center;

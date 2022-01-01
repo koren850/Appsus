@@ -2,6 +2,7 @@
 	margin: 0;
 	display: grid;
 	background-color: var(--dark);
+	border-radius: 20px;
 	cursor: pointer;
 }
 
@@ -9,6 +10,7 @@
 	justify-self: center;
 	width: 250px;
 	height: 333px;
+	border-radius: 20px;
 }
 
 .book-preview h2 {

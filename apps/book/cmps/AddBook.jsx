@@ -40,22 +40,15 @@ export class AddBook extends React.Component {
 			<div className='add-book'>
 				<form onSubmit={this.addBook}>
 					<label htmlFor='add-book'>Add Book:</label>
-					<input
-						value={bookName}
-						placeholder='Enter Book name'
-						type='text'
-						id='add-book'
-						name='name'
-						onChange={this.handleChange}
-					/>
-					<button>Add book</button>
+					<input value={bookName} placeholder='Enter Book name' type='text' id='add-book' name='name' onChange={this.handleChange} />
+					<button className='fas plus'></button>
 				</form>
 				{bookList && bookList.totalItems !== 0 && (
 					<ul className='book-list-api'>
 						{bookList.items.map((item) => {
 							return (
 								<li key={item.id}>
-									{item.volumeInfo.title} <button onClick={() => this.addBookFromList(item)}>+</button>
+									{item.volumeInfo.title} <button className='fas plus' onClick={() => this.addBookFromList(item)}></button>
 								</li>
 							);
 						})}

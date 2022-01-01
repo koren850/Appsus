@@ -1,9 +1,58 @@
 .add-book {
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--main);
 }
+.add-book form {
+	height: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.add-book form label {
+	color: var(--dark);
+	font-size: 2rem;
+}
+.add-book form input {
+	text-align: center;
+	height: 2rem;
+	height: 3rem;
+	display: flex;
+	border-radius: 15px;
+	border: none;
+	text-align: center;
+	color: var(--dark);
+	margin: 0 5px;
+	font-weight: bold;
+}
+.add-book form input::placeholder {
+	color: var(--dark);
+	font-weight: bold;
+}
+
+.add-book form button {
+	font-size: 3rem;
+}
+
 .book-list-api {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 	cursor: pointer;
+	text-align: center;
+	list-style: none;
+	width: 30vw;
+	margin: auto;
+	padding: 10px 0;
+}
+.book-list-api li {
+	display: flex;
+	width: 30vw;
+	justify-content: space-between;
+}
+
+.book-list-api button {
+	font-size: 1.5rem;
 }
