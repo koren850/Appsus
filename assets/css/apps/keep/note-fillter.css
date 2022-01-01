@@ -12,7 +12,6 @@
 }
 .plus::before {
 	content: "\f0fe";
-	font-size: 3rem;
 }
 .plus {
 	text-decoration: none;

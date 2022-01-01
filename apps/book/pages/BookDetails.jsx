@@ -103,10 +103,8 @@ export class BookDetails extends React.Component {
 					{book.listPrice.currencyCode}
 				</h4>
 				<div>
-					<Link to={`/book/${BookService.getNearBookId(book.id, 1)}`}>Next book</Link>
-				</div>
-				<div>
-					<Link to={`/book/${BookService.getNearBookId(book.id, -1)}`}>Previous book</Link>
+					<Link to={`/book/${BookService.getNearBookId(book.id, -1)}`}>&lsaquo;&lsaquo; Previous book</Link>
+					<Link to={`/book/${BookService.getNearBookId(book.id, 1)}`}>Next book &rsaquo;&rsaquo;</Link>
 				</div>
 				<ReviewAdd book={book} render={this.loadBook} />
 				<h4>{this.getReviews(book)}</h4>

@@ -8,13 +8,29 @@
 
 .book-details {
 	width: 50vw;
-	background-color: rgb(172, 131, 131);
+	background-color: var(--head);
 	margin: 0 auto;
 	text-align: center;
+}
+
+.book-details h4 {
+	padding-top: 10px;
+}
+.book-details p button {
+	background-color: var(--head);
+	border: 1px solid;
+	border-radius: 15px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	margin-bottom: 30px;
+	margin-top: 15px;
 }
 .book-details img {
 	width: 300px;
 	height: 400px;
+	border-radius: 20px;
 }
 
 .book-details p {
@@ -24,4 +40,15 @@
 
 .book-details h4 {
 	margin: 5px;
+}
+.book-details div {
+	display: flex;
+	justify-content: center;
+}
+
+.book-details div a {
+	text-decoration: none;
+	color: var(--dark);
+	font-size: 1.5rem;
+	margin-inline-start: 10px;
 }
