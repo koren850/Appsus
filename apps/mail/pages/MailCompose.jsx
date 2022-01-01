@@ -8,8 +8,23 @@ export class MailCompose extends React.Component {
 	createMail = (ev) => {
         ev.preventDefault();
 		const values = Array.from(ev.target);
-        console.log(values)
-		const mail = {
+        let emptyValue;
+        values.map(({value}, idx) => {
+            if (this.state.isDraft || idx > 3 || idx === 2) return;
+            if (!value) {
+                if (emptyValue) return;
+                    switch (idx) {
+                    case 0:emptyValue = 'Destiny Cant Be Empty !';
+                    return;
+                    case 1:emptyValue = 'Title Cant Be Empty !';
+                    return;
+                    case 3:emptyValue = 'Body Cant Be Empty !';
+                    return;
+                }
+            }
+        })
+        if (emptyValue) return swalService.userModal('warning', emptyValue);
+        const mail = {
             id: utilsService.generateId(),
 			subject: values[1].value,
 			body: values[3].value,
@@ -47,7 +62,7 @@ export class MailCompose extends React.Component {
 	render() {
 		return (
 			<section className={"mail-compose container"}>
-				<header className={"mail-compose line"}>New Message</header>
+				<header className={"mail-compose line"}><span>New Message :</span></header>
 				<form onSubmit={this.createMail}>
 					<article className={"mail-compose line"}>
 						<label htmlFor='to'>To :</label>

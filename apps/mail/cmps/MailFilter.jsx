@@ -1,7 +1,7 @@
 import { MailFolderList } from "./MailFolderList.jsx";
 export class MailFilter extends React.Component {
   state = {
-    filterBy: null,
+    filterBy: ["isSent"],
   };
 
   updateFilter = (filter) => {

@@ -85,7 +85,7 @@ meter::-webkit-meter-optimum-value {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-    font-size: 40px;
+    font-size: 2.3vw;
 }
 
 
@@ -107,7 +107,7 @@ meter::-webkit-meter-optimum-value {
     color: var(--main);
 }
 
-.mail-folder.btn:hover .pluss  {
+.mail-folder.btn:hover .pluss, .mail-folder.btn:hover .compose-span  {
     color: rgb(238, 234, 234);
     background:unset;
  -webkit-background-clip: unset; 
@@ -166,6 +166,14 @@ border-radius: 25px;
     font-weight: bolder;
 }
 
-.compose > * {
+.compose-span {
     font-weight: 900;
+    background: -webkit-linear-gradient(
+        red,
+        rgb(7, 233, 44),
+        rgb(25, 10, 226),
+        yellow
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
 }

@@ -1,4 +1,4 @@
-.mail-compose.container {
+.mail-details.container {
     background-color: #FFF;
     margin:auto;
     width:50%;
@@ -9,13 +9,13 @@
     overflow: hidden;
     }
     
-    .mail-compose header {
+    .mail-details header {
     color: #fff;
     font-weight: bolder;
     background-color: var(--dark);
     }
     
-    .mail-compose.line {
+    .mail-details.line {
         width:100%;
         border-block-end: 1px solid var(--dark);
         font-size: 1vw;
@@ -23,7 +23,7 @@
         width: 100%;
     }
     
-    .mail-compose footer {
+    .mail-details footer {
         width: 100%;
         align-items: center;
         justify-content: space-between;
@@ -31,20 +31,20 @@
         bottom: 1%;
     }
     
-    .mail-compose footer button {
+    .mail-details footer button {
         font-size:30px;
         background-color:inherit;
         border:unset;
         border: 5px;
     }
     
-    .mail-compose.line input {
+    .mail-details.line input {
         background-color:inherit;
         border: unset;
         flex-grow: 1;
     }
     
-    .mail-compose #subject {
+    .mail-details #subject {
         border: unset;
     flex-grow: 1;
     background-color:inherit;
@@ -52,12 +52,12 @@
     width:100%;
     }
 
-    .mail-compose.line.layout {
+    .mail-details.line.layout {
     justify-content:flex-start;
         padding-inline-start: 7.6vw;
     }
 
-    .mail-compose.line.layout span {
+    .mail-details.line.layout span {
         font-weight: 300;
     }
 
