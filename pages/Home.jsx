@@ -15,7 +15,7 @@ export function Home() {
       <main className={"home-apps flex center"}>
         <article className={"home-app-container"}>
           <h4 className={"home-app-title"}>Books</h4>
-          <p className={"home-p"}>
+          <p className={"home-p home-text"}>
             What will you say if someone will tell you that all of your favorite
             books that you collected while the years,can help you make enough
             money to your next trip ! So... It is ! all you need to do is to
@@ -27,7 +27,7 @@ export function Home() {
 
         <article className={"home-app-container"}>
           <h4 className={"home-app-title"}>Notes</h4>
-          <p className={"home-p"}>
+          <p className={"home-p home-text"}>
             Do you remember the last time that you saw somthing that you told
             yourself, Wow.. i most share it with my friends.. but let me guess -
             you forget ! Who does'nt ? Dont worry, that is the exact reason why
@@ -42,7 +42,7 @@ export function Home() {
 
         <article className={"home-app-container"}>
           <h4 className={"home-app-title"}>Mails</h4>
-          <p className={"home-p"}>
+          <p className={"home-p home-text"}>
             Today, when all of the word are looking for the future, the modern
             generation are communicating with each other oftenly online. So
             here, at Appsus Mail you can have your own private mail box, ordered
