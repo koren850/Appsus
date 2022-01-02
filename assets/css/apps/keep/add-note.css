@@ -35,6 +35,11 @@
 	font-weight: bold;
 	background-color: var(--back);
 }
+
+.add-note-form input::placeholder {
+	color: var(--dark);
+}
+
 .input-btn {
 	background-color: var(--back);
 	border: 2px solid var(--dark);
