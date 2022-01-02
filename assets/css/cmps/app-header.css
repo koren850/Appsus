@@ -113,7 +113,7 @@
 		align-items: center;
 	}
 	.add-note-form {
-		width: 80%;
+		width: 80% !important;
 	}
 }
 
